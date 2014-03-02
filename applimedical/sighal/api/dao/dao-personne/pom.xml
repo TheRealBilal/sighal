@@ -3,11 +3,10 @@
   <parent>
     <groupId>applimedical.sighal.api</groupId>
     <artifactId>dao</artifactId>
-    <version>${project.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <groupId>applimedical.sighal.api.dao</groupId>
   <artifactId>dao-personne</artifactId>
-  <version>${project.version}</version>
   <name>dao-personne</name>
 </project>

@@ -3,16 +3,14 @@
   <parent>
     <groupId>applimedical.sighal</groupId>
     <artifactId>api</artifactId>
-    <version>${project.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <groupId>applimedical.sighal.api</groupId>
   <artifactId>api-persistance</artifactId>
-  <version>${project.version}</version>
   <name>api-persistance</name>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>

@@ -1,17 +1,38 @@
 package applimedical.sighal.api.pojo.tmp;
-/***********************************************************************
- * Module:  Salle.java
- * Author:  HAZEM
- * Purpose: Defines the Class Salle
- ***********************************************************************/
 
-import java.util.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-/** @pdOid 768b62da-5591-4efc-920a-3aeb6166dc2c */
+@Entity
+@Table(name = "salle")
 public class Salle {
-   /** @pdOid 18031352-638a-46e7-9cd2-d9f46a2dc3bb */
-   private long numSalle;
-   /** @pdOid 9dcfdc04-82d2-47fd-a13f-8609c211cdc5 */
+
+   @Id 
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "num")
+   private Long numSalle;
+
+   public Long getNumSalle() {
+      return numSalle;
+   }
+
+   public void setNumSalle(Long numSalle) {
+      this.numSalle = numSalle;
+   }
+
+   public String getNomSalle() {
+      return nomSalle;
+   }
+
+   public void setNomSalle(String nomSalle) {
+      this.nomSalle = nomSalle;
+   }
+
+   @Column (name ="nom_salle")
    private String nomSalle;
 
 }

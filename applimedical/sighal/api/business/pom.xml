@@ -1,18 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>applimedical</groupId>
-    <artifactId>sighal</artifactId>
+    <groupId>applimedical.sighal</groupId>
+    <artifactId>api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-
-  <groupId>applimedical.sighal</groupId>
-  <artifactId>api</artifactId>
+  <groupId>applimedical.sighal.api</groupId>
+  <artifactId>business</artifactId>
   <packaging>pom</packaging>
-  <name>api</name>
+  <name>business</name>
   <modules>
-  	<module>api-persistance</module>
-  	<module>dao</module>
-  	<module>business</module>
+  	<module>business-personne</module>
+  	<module>business-planning</module>
+  	<module>business-stock</module>
+  	<module>business-dossier</module>
   </modules>
 </project>

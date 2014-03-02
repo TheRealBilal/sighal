@@ -3,11 +3,10 @@
   <parent>
     <groupId>applimedical.sighal</groupId>
     <artifactId>fmk</artifactId>
-    <version>${project.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <groupId>applimedical.sighal.fmk</groupId>
   <artifactId>fmk-core</artifactId>
-  <version>${project.version}</version>
   <name>fmk-core</name>
 </project>

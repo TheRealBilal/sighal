@@ -3,15 +3,14 @@
   <parent>
     <groupId>applimedical</groupId>
     <artifactId>applimedical</artifactId>
-    <version>${project.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <groupId>applimedical</groupId>
   <artifactId>sighal</artifactId>
-  <version>${project.version}</version>
   <packaging>pom</packaging>
   <name>sighal</name>
-  <description> Système d'information de gestion d'Hôpital ALGERIE</description>
+  <description>Système d'information de gestion d'Hôpital ALGERIE</description>
   <modules>
   	<module>fmk</module>
   	<module>api</module>

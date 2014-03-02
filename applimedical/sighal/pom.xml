@@ -3,10 +3,12 @@
   <parent>
     <groupId>applimedical</groupId>
     <artifactId>applimedical</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${project.version}</version>
   </parent>
-  <groupId>applimedical.sighal</groupId>
+
+  <groupId>applimedical</groupId>
   <artifactId>sighal</artifactId>
+  <version>${project.version}</version>
   <packaging>pom</packaging>
   <name>sighal</name>
   <description> Système d'information de gestion d'Hôpital ALGERIE</description>

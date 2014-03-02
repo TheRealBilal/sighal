@@ -3,12 +3,24 @@
   <parent>
     <groupId>applimedical.sighal</groupId>
     <artifactId>api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${project.version}</version>
   </parent>
+
+  <groupId>applimedical.sighal.api</groupId>
   <artifactId>dao</artifactId>
   <packaging>pom</packaging>
+  <version>${project.version}</version>
   <name>dao</name>
+
   <modules>
   	<module>dao-personne</module>
   </modules>
+
+  <dependencies>
+  	<dependency>
+	  <groupId>applimedical.sighal.api</groupId>
+	  <artifactId>api-persistance</artifactId>
+	  <version>${project.version}</version>
+  	</dependency>
+  </dependencies>
 </project>

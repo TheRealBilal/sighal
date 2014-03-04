@@ -5,7 +5,10 @@
 
 	<persistence-unit name="entityManager"
 		transaction-type="RESOURCE_LOCAL">
-		<class>pojo.Salle</class>
+		<class>applimedical.sighal.api.pojo.Personne</class>
+		<class>applimedical.sighal.api.pojo.Personnel</class>
+		<class>applimedical.sighal.api.pojo.Patient</class>
+		<class>applimedical.sighal.api.pojo.Service</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 import org.junit.Test;
 
-import applimedical.sighal.api.pojo.tmp.Salle;
+import applimedical.sighal.api.pojo.Personnel;
 
 public class JPATest {
 
@@ -18,10 +18,10 @@ public class JPATest {
       entityManager.getTransaction().begin();
 //    entityManager.persist( new Event( "Our very first event!", new Date() ) );
 //    entityManager.persist( new Event( "A follow up event", new Date() ) );
-      Salle test = new Salle();
-      test.setNomSalle("The best salle");
+      Personnel test = new Personnel();
+      test.setNom("The best personnel");
       entityManager.persist(test);
-      System.out.println("id salle : " + test.getNumSalle());
+      System.out.println("id personnel : " + test.getPersonneId());
       entityManager.getTransaction().commit();
       entityManager.close();
    }

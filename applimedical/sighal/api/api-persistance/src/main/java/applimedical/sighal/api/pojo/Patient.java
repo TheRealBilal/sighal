@@ -6,19 +6,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "patient")
 public class Patient extends Personne {
-   @Column(name = "matricule")
+   @Column()
    private String matricule;
 
-   @Column(name = "poid")
+   @Column()
    private Double poid;
 
-   @Column(name = "taille")
+   @Column()
    private Double taille;
 
-   @Column(name = "antecedents")
+   @Column()
    private Boolean antecedents;
 
-   @Column(name = "commentaire")
+   @Column()
    private String commentaire;
 
    public String getMatricule() {

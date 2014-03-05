@@ -20,6 +20,18 @@ public class Qualification {
    @Column(name = "qualification_id")
    private Long qualificationId;
 
+   @Column()
+   private String description;
+
+   @Column(name = "description_long")
+   private String descriptionLong;
+
+   @Column(name = "nb_annee_experience")
+   private Integer nbAnneeExperience;
+
+   @ManyToMany(fetch=FetchType.LAZY, mappedBy="qualificationList")
+   private Collection<Personnel> personnelList;
+
    public Long getQualificationId() {
       return qualificationId;
    }
@@ -44,23 +56,6 @@ public class Qualification {
       this.descriptionLong = descriptionLong;
    }
 
-   public Collection<Personnel> getPersonnelList() {
-      return personnelList;
-   }
-
-   public void setPersonnelList(Collection<Personnel> personnelList) {
-      this.personnelList = personnelList;
-   }
-
-   @Column(name = "description")
-   private String description;
-
-   @Column(name = "description_long")
-   private String descriptionLong;
-
-   @Column(name = "nb_annee_experience")
-   private Integer nbAnneeExperience;
-
    public Integer getNbAnneeExperience() {
       return nbAnneeExperience;
    }
@@ -69,6 +64,11 @@ public class Qualification {
       this.nbAnneeExperience = nbAnneeExperience;
    }
 
-   @ManyToMany(fetch=FetchType.LAZY, mappedBy="qualificationList")
-   private Collection<Personnel> personnelList;
+   public Collection<Personnel> getPersonnelList() {
+      return personnelList;
+   }
+
+   public void setPersonnelList(Collection<Personnel> personnelList) {
+      this.personnelList = personnelList;
+   }
 }

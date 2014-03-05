@@ -23,6 +23,22 @@ public class Service {
    @Column(name = "service_id")
    private Long serviceId;
 
+   @Column()
+   private String nom;
+
+   @Column()
+   private String description;
+
+   @Column(name ="date_ouverture")
+   private Date dateOuverture;
+
+   @OneToMany(cascade = CascadeType.ALL, mappedBy = "service", fetch=FetchType.LAZY)
+   private Collection<Personnel> personnelList;
+   
+   @OneToOne()
+   @JoinColumn(name = "chef_service_id", referencedColumnName = "personne_id")
+   private Personnel chefService;
+
    public Long getServiceId() {
       return serviceId;
    }
@@ -70,20 +86,4 @@ public class Service {
    public void setChefService(Personnel chefService) {
       this.chefService = chefService;
    }
-
-   @Column(name ="nom")
-   private String nom;
-
-   @Column(name ="description")
-   private String description;
-
-   @Column(name ="date_ouverture")
-   private Date dateOuverture;
-
-   @OneToMany(cascade = CascadeType.ALL, mappedBy = "service", fetch=FetchType.LAZY)
-   private Collection<Personnel> personnelList;
-   
-   @OneToOne()
-   @JoinColumn(name = "chef_service_id", referencedColumnName = "personne_id")
-   private Personnel chefService;
 }

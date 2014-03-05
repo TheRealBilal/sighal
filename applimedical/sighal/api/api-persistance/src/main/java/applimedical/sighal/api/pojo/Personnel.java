@@ -15,16 +15,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "personnel")
 public class Personnel extends Personne {
-   @Column(name = "matricule")
+   @Column()
    private String matricule;
 
    @Column(name = "date_embauche")
    private Date dateEmbauche;
 
-   @Column(name = "experience")
+   @Column()
    private Integer experience;
 
-   @Column(name = "salaire")
+   @Column()
    private Double salaire;
 
    @ManyToOne()

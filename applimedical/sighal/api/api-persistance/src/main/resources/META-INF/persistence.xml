@@ -5,15 +5,23 @@
 
 	<persistence-unit name="entityManager"
 		transaction-type="RESOURCE_LOCAL">
+		<class>applimedical.sighal.api.pojo.BonEntree</class>
+		<class>applimedical.sighal.api.pojo.Categorie</class>
+		<class>applimedical.sighal.api.pojo.Commande</class>
+		<class>applimedical.sighal.api.pojo.Fournisseur</class>
+		<class>applimedical.sighal.api.pojo.LigneCommande</class>
+		<class>applimedical.sighal.api.pojo.Patient</class>
 		<class>applimedical.sighal.api.pojo.Personne</class>
 		<class>applimedical.sighal.api.pojo.Personnel</class>
-		<class>applimedical.sighal.api.pojo.Patient</class>
+		<class>applimedical.sighal.api.pojo.Produit</class>
+		<class>applimedical.sighal.api.pojo.Qualification</class>
 		<class>applimedical.sighal.api.pojo.Service</class>
+		<class>applimedical.sighal.api.pojo.SousCategorie</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.user" value="sighalWebUser" />
-			<property name="javax.persistence.jdbc.password" value="sighalPassword123/" />
+			<property name="javax.persistence.jdbc.password" value="123456/" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sighal_database" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />

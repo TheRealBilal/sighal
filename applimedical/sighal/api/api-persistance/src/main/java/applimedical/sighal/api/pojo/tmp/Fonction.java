@@ -7,15 +7,30 @@ package applimedical.sighal.api.pojo.tmp;
 
 import java.util.*;
 
-/** @pdOid 6ff48ddf-783a-4e17-a1c3-35a657237407 */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/*reste les jointure avec personne et service et permission*/
+
+@Entity
+@Table(name = "fonction")
 public class Fonction {
-   /** @pdOid 6729f2f7-a1d6-4c6e-ab14-48421932b922 */
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "code_fonction")
    private int codeFonction;
-   /** @pdOid 9cd7203c-aebd-4560-b343-88cc9fb4f160 */
+   
+	@Column(name = "nom_fonction")
    private String nomFonction;
-   /** @pdOid d9e27c91-7ae3-416c-b740-5ea97808913b */
+   
+	@Column(name = "description")
    private String description;
-   /** @pdOid 2ef61120-8b79-4b61-a2d2-dfe05f00e47b */
+   
+	@Column(name = "active")
    private boolean active;
 
 }

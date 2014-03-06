@@ -7,17 +7,35 @@ package applimedical.sighal.api.pojo.tmp;
 
 import java.util.*;
 
-/** @pdOid 5937353b-c107-4127-9b85-847ff1ee7c8e */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/*
+ * reste liaison avec intervenant salle type intervention rdv et fiche patient 
+ * 
+ */
+@Entity
+@Table(name = "Intervention")
 public class Intervention {
-   /** @pdOid 451fb24e-6626-487a-8bdf-bde262209da4 */
+	@Id 
+	   @GeneratedValue(strategy = GenerationType.IDENTITY)
+	   @Column(name = "id_interv")
    private int idInterv;
-   /** @pdOid 9ef30493-b723-4efd-9d87-05394ce1a5b8 */
+   
+	@Column(name = "date_interv")
    private java.util.Date dateInterv;
-   /** @pdOid 904104b9-0d0d-4ef8-b6cc-036e342ddad1 */
+   
+	@Column(name = "duree_interv")
    private int dureeInterv;
-   /** @pdOid 757fda67-edb7-40ed-bec9-93b78e648e12 */
+   
+	@Column(name = "type_interv")
    private TypeIntervention typeInterv;
-   /** @pdOid 81587647-4ea5-48bf-a635-c7a756eb7371 */
+   
+	@Column(name = "desc_interv")
    private String descInterv;
 
 }

@@ -7,11 +7,27 @@ package applimedical.sighal.api.pojo.tmp;
 
 import java.util.*;
 
-/** @pdOid f4fbde0a-b1f8-4fee-81c8-902992083b58 */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/* 
+ * c'est une classe d'association liaison avec produit patient et personnel
+ * plus une erreur car il trouve pas l'ID
+ */
+
+
+@Entity
+@Table(name = "ligne_sorti")
 public class LigneSortie {
-   /** @pdOid 1fabcb35-9a98-44e4-966b-3a8b4906740a */
+   
+	@Column(name = "quantite_sortie")
    private int quantiteSortie;
-   /** @pdOid 65d0fd9a-ad15-47de-8397-2bec7c9fc159 */
+	
+	@Column(name = "date_sortie")
    private java.util.Date dateSortie;
 
 }

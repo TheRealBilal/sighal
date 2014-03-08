@@ -1,4 +1,4 @@
-package applimedical.sighal.api.pojo.tmp;
+package applimedical.sighal.api.pojo;
 /***********************************************************************
  * Module:  Intervention.java
  * Author:  HAZEM
@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /*
@@ -37,5 +39,10 @@ public class Intervention {
    
 	@Column(name = "desc_interv")
    private String descInterv;
+
+	@ManyToOne()
+   @JoinColumn(name = "type_intervention_id", referencedColumnName = "type_intervention_id")
+   private TypeIntervention typeIntervention;
+	
 
 }

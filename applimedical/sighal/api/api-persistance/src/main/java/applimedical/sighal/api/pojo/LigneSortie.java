@@ -1,4 +1,4 @@
-package applimedical.sighal.api.pojo.tmp;
+package applimedical.sighal.api.pojo;
 /***********************************************************************
  * Module:  LigneSortie.java
  * Author:  HAZEM

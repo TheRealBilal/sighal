@@ -14,5 +14,6 @@
   	<module>business-planning</module>
   	<module>business-stock</module>
   	<module>business-dossier</module>
+  	<module>business-dto</module>
   </modules>
 </project>

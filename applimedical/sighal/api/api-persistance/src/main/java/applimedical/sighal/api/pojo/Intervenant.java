@@ -1,4 +1,4 @@
-package applimedical.sighal.api.pojo.tmp;
+package applimedical.sighal.api.pojo;
 /***********************************************************************
  * Module:  Intervenant.java
  * Author:  HAZEM
@@ -9,8 +9,6 @@ import java.util.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-import applimedical.sighal.api.pojo.Personnel;
 
 @Entity
 @Table(name = "intervenant")

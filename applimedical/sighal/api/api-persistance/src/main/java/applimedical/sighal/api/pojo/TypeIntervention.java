@@ -4,37 +4,34 @@ import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "categorie")
-public class Categorie {
+public class TypeIntervention {
+
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "categorie_id")
-   private Long categorieId;
-   
+   @Column(name = "type_interv_id")
+   private Long typeIntervId;
+
    @Column()
    private String nom;
 
    @Column()
    private String description;
 
-   @OneToMany(cascade = CascadeType.ALL, mappedBy = "categorie", fetch=FetchType.LAZY)
-   private Collection<SousCategorie> sousCategorieList;
+   @OneToMany(cascade = CascadeType.ALL, mappedBy = "typeIntervention", fetch=FetchType.LAZY)
+   public Collection<Intervention> interventions;
 
-   public Long getCategorieId() {
-      return categorieId;
+   public Long getTypeIntervId() {
+      return typeIntervId;
    }
 
-   public void setCategorieId(Long categorieId) {
-      this.categorieId = categorieId;
+   public void setTypeIntervId(Long typeIntervId) {
+      this.typeIntervId = typeIntervId;
    }
 
    public String getNom() {
@@ -53,11 +50,11 @@ public class Categorie {
       this.description = description;
    }
 
-   public Collection<SousCategorie> getSousCategorieList() {
-      return sousCategorieList;
+   public Collection<Intervention> getInterventions() {
+      return interventions;
    }
 
-   public void setSousCategorieList(Collection<SousCategorie> sousCategorieList) {
-      this.sousCategorieList = sousCategorieList;
+   public void setInterventions(Collection<Intervention> interventions) {
+      this.interventions = interventions;
    }
 }

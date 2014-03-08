@@ -1,4 +1,4 @@
-package applimedical.sighal.api.pojo.tmp;
+package applimedical.sighal.api.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +16,9 @@ public class Salle {
    @Column(name = "num")
    private Long numSalle;
 
+   @Column (name ="nom_salle")
+   private String nomSalle;
+   
    public Long getNumSalle() {
       return numSalle;
    }
@@ -31,8 +34,5 @@ public class Salle {
    public void setNomSalle(String nomSalle) {
       this.nomSalle = nomSalle;
    }
-
-   @Column (name ="nom_salle")
-   private String nomSalle;
 
 }

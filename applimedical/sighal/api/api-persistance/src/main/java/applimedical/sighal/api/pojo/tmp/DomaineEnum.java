@@ -7,6 +7,8 @@ package applimedical.sighal.api.pojo.tmp;
 
 import java.util.*;
 
+import applimedical.sighal.api.pojo.FichePatientGenerale;
+
 /** @pdOid 4f772f03-24ac-48fe-b708-206089d1f0c4 */
 public class DomaineEnum {
    /** @pdOid 833fdbb0-23fe-49cf-9a19-d1b1476d8a5f */

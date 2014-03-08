@@ -1,4 +1,4 @@
-package applimedical.sighal.api.pojo.tmp;
+package applimedical.sighal.api.pojo;
 /***********************************************************************
  * Module:  Fonction.java
  * Author:  HAZEM
@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "fonction")
 public class Fonction {
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "code_fonction")
    private int codeFonction;

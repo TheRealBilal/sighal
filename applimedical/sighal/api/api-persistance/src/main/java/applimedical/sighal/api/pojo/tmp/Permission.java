@@ -7,17 +7,71 @@ package applimedical.sighal.api.pojo.tmp;
 
 import java.util.*;
 
-/** @pdOid c1d2ca01-0ac8-4c15-b03a-ab3e55dcf441 */
-public class Permission {
-   /** @pdOid 774ac046-68ca-4e34-ac8c-0ce2170662e2 */
-   private int codePermission;
-   /** @pdOid 906f7c65-1bb3-4b24-9c62-d379667ae8ca */
-   private String description;
-   /** @pdOid 033eef1a-c090-4621-83db-4d8e8c0a95ae */
-   private int typeDroit;
-   /** @pdOid 8b3fa75a-e103-4022-94c8-af6d2661e866 */
-   private java.util.Date dateDebut;
-   /** @pdOid 3e3999d2-5339-447f-b8f7-b549bfc7cf68 */
-   private java.util.Date dateFin;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Permission {
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name="persmission_id")
+   private Long permissionId;
+
+   @Column()
+   private String description;
+
+   @Enumerated(EnumType.ORDINAL)
+   @Column()
+   private DroitEnum droit;
+
+   @Column(name="date_debut")
+   private Date dateDebut;
+
+   @Column(name="date_fin")
+   private Date dateFin;
+
+   public Long getPermissionId() {
+      return permissionId;
+   }
+
+   public void setPermissionId(Long permissionId) {
+      this.permissionId = permissionId;
+   }
+
+   public String getDescription() {
+      return description;
+   }
+
+   public void setDescription(String description) {
+      this.description = description;
+   }
+
+   public DroitEnum getDroit() {
+      return droit;
+   }
+
+   public void setDroit(DroitEnum droit) {
+      this.droit = droit;
+   }
+
+   public Date getDateDebut() {
+      return dateDebut;
+   }
+
+   public void setDateDebut(Date dateDebut) {
+      this.dateDebut = dateDebut;
+   }
+
+   public Date getDateFin() {
+      return dateFin;
+   }
+
+   public void setDateFin(Date dateFin) {
+      this.dateFin = dateFin;
+   }
 }

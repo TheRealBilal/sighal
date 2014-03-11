@@ -8,6 +8,8 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,8 +20,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import applimedical.sighal.api.pojo.tmp.EtatRdvEnum;
 
 @Table(name = "rdv")
 public class Rdv {
@@ -54,7 +54,7 @@ public class Rdv {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "num_salle", fetch=FetchType.LAZY)
 	private Set<Salle> listSalle;
 	
-	
+	@Enumerated(EnumType.ORDINAL)
 	private EtatRdvEnum etat;
 
 

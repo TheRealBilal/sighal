@@ -28,7 +28,7 @@ public class Personnel extends Personne {
    private Double salaire;
 
    @ManyToOne()
-   @JoinColumn(name = "service_id", referencedColumnName = "service_id")
+   @JoinColumn(name = "service_id", referencedColumnName = "service_id", table="personnel_service")
    private Service service;
 
    @ManyToMany(fetch=FetchType.LAZY)

@@ -7,6 +7,8 @@ package applimedical.sighal.api.pojo.tmp;
 
 import java.util.*;
 
+import applimedical.sighal.api.pojo.Rdv;
+
 /** @pdOid 4647cb09-0845-4fce-a97c-5653e525846f */
 public class EtatRdvEnum {
    /** @pdOid 62dc4aef-c191-4280-827b-8bcc94f7ad75 */

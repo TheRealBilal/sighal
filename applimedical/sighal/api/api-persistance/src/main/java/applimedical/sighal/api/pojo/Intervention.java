@@ -24,25 +24,25 @@ import javax.persistence.Table;
 @Table(name = "Intervention")
 public class Intervention {
 	@Id 
-	   @GeneratedValue(strategy = GenerationType.IDENTITY)
-	   @Column(name = "id_interv")
-   private int idInterv;
-   
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_interv")
+	private int idInterv;
+
 	@Column(name = "date_interv")
-   private java.util.Date dateInterv;
-   
+	private Date dateInterv;
+
 	@Column(name = "duree_interv")
-   private int dureeInterv;
-   
+	private int dureeInterv;
+
 	@Column(name = "type_interv")
-   private TypeIntervention typeInterv;
-   
+	private TypeIntervention typeInterv;
+
 	@Column(name = "desc_interv")
-   private String descInterv;
+	private String descInterv;
 
 	@ManyToOne()
-   @JoinColumn(name = "type_intervention_id", referencedColumnName = "type_intervention_id")
-   private TypeIntervention typeIntervention;
-	
+	@JoinColumn(name = "type_intervention_id", referencedColumnName = "type_intervention_id")
+	private TypeIntervention typeIntervention;
+
 
 }

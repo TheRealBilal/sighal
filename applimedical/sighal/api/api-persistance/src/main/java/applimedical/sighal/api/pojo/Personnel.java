@@ -86,4 +86,19 @@ public class Personnel extends Personne {
    public void setSalaire(Double salaire) {
       this.salaire = salaire;
    }
+   
+   public static <From, To> To test (Class<To> cl,From entity){
+	   
+	   try {
+		To toto = cl.newInstance();
+	} catch (InstantiationException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IllegalAccessException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return null;
+	   
+   }
 }

@@ -33,7 +33,7 @@ public class TypeDeSoin {
 	@Column()
 	private String description;
 
-	@OneToMany(mappedBy = "soin_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "typeDeSoin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public Set<Soin> soin;
 
 	public Long getTypeSoinId() {

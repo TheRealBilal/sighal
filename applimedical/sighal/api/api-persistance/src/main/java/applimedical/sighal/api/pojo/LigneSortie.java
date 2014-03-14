@@ -1,11 +1,6 @@
 package applimedical.sighal.api.pojo;
-/***********************************************************************
- * Module:  LigneSortie.java
- * Author:  HAZEM
- * Purpose: Defines the Class LigneSortie
- ***********************************************************************/
 
-import java.util.*;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,20 +9,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/* 
- * c'est une classe d'association liaison avec produit patient et personnel
- * plus une erreur car il trouve pas l'ID
- */
-
-
 @Entity
-@Table(name = "ligne_sorti")
+@Table(name = "ligne_sortie")
 public class LigneSortie {
-   
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ligne_sortie_id")
+	private Long ligneSortieId;
+
 	@Column(name = "quantite_sortie")
-   private int quantiteSortie;
-	
+	private Integer quantiteSortie;
+
 	@Column(name = "date_sortie")
-   private java.util.Date dateSortie;
+	private Date dateSortie;
+
+	public Long getLigneSortieId() {
+		return ligneSortieId;
+	}
+
+	public void setLigneSortieId(Long ligneSortieId) {
+		this.ligneSortieId = ligneSortieId;
+	}
+
+	public Integer getQuantiteSortie() {
+		return quantiteSortie;
+	}
+
+	public void setQuantiteSortie(Integer quantiteSortie) {
+		this.quantiteSortie = quantiteSortie;
+	}
+
+	public Date getDateSortie() {
+		return dateSortie;
+	}
+
+	public void setDateSortie(Date dateSortie) {
+		this.dateSortie = dateSortie;
+	}
 
 }

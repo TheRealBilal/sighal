@@ -12,10 +12,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import applimedical.sighal.api.pojo.tmp.MembreOrgane;
 
 
 @Entity
@@ -32,47 +31,54 @@ public class Soin {
 	@Column ()
 	private String description;
 
-	@OneToMany(mappedBy = "organe_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public Set<MembreOrgane> membresOrgane;
+	@OneToMany(mappedBy = "soin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	public List<MembreOrgane> membresOrgane;
 
-	@OneToMany(mappedBy = "type_soin_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public Set<TypeDeSoin> typeDeSoin;
+	@ManyToOne
+	public TypeDeSoin typeDeSoin;
 
+	public Long getSoinId() {
+		return soinId;
+	}
 
-	public List<MembreOrgane> getListMembresOrgane() {
-		List<MembreOrgane> listOrganes = new ArrayList<MembreOrgane>();
-		for (MembreOrgane org : membresOrgane) {
-			listOrganes.add(org);
-		}
-		return listOrganes;
+	public void setSoinId(Long soinId) {
+		this.soinId = soinId;
+	}
+
+	public String getTypeSoin() {
+		return typeSoin;
+	}
+
+	public void setTypeSoin(String typeSoin) {
+		this.typeSoin = typeSoin;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<MembreOrgane> getMembresOrgane() {
+		return membresOrgane;
+	}
+
+	public void setMembresOrgane(List<MembreOrgane> membresOrgane) {
+		this.membresOrgane = membresOrgane;
+	}
+
+	public TypeDeSoin getTypeDeSoin() {
+		return typeDeSoin;
+	}
+
+	public void setTypeDeSoin(TypeDeSoin typeDeSoin) {
+		this.typeDeSoin = typeDeSoin;
 	}
 
 
-	public void setListMembresOrganeAsList(List<MembreOrgane> membresOrgene) {
-		Set<MembreOrgane> listOrgenes = new HashSet<MembreOrgane>();
-		for (MembreOrgane org : membresOrgene) {
-			listOrgenes.add(org);
-		}
-		this.membresOrgane = listOrgenes;
-	}
 
-
-	public List<TypeDeSoin> getListTypeSoin() {
-		List<TypeDeSoin> listOrganes = new ArrayList<TypeDeSoin>();
-		for (TypeDeSoin type : typeDeSoin) {
-			listOrganes.add(type);
-		}
-		return listOrganes;
-	}
-
-
-	public void setListTypeSoineAsList(List<TypeDeSoin> typeDeSoin) {
-		Set<TypeDeSoin> types = new HashSet<TypeDeSoin>();
-		for (TypeDeSoin type : typeDeSoin) {
-			types.add(type);
-		}
-		this.typeDeSoin = types;
-	}
 
 
 }

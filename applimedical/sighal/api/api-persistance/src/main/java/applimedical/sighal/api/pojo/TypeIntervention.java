@@ -4,17 +4,21 @@ import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name ="type_intervention")
 public class TypeIntervention {
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "type_interv_id")
+   @Column(name = "type_intervention_id")
    private Long typeIntervId;
 
    @Column()

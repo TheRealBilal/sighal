@@ -34,8 +34,6 @@ public class Intervention {
 	@Column(name = "duree_interv")
 	private int dureeInterv;
 
-	@Column(name = "type_interv")
-	private TypeIntervention typeInterv;
 
 	@Column(name = "desc_interv")
 	private String descInterv;
@@ -43,6 +41,46 @@ public class Intervention {
 	@ManyToOne()
 	@JoinColumn(name = "type_intervention_id", referencedColumnName = "type_intervention_id")
 	private TypeIntervention typeIntervention;
+
+	public int getIdInterv() {
+		return idInterv;
+	}
+
+	public void setIdInterv(int idInterv) {
+		this.idInterv = idInterv;
+	}
+
+	public Date getDateInterv() {
+		return dateInterv;
+	}
+
+	public void setDateInterv(Date dateInterv) {
+		this.dateInterv = dateInterv;
+	}
+
+	public int getDureeInterv() {
+		return dureeInterv;
+	}
+
+	public void setDureeInterv(int dureeInterv) {
+		this.dureeInterv = dureeInterv;
+	}
+
+	public String getDescInterv() {
+		return descInterv;
+	}
+
+	public void setDescInterv(String descInterv) {
+		this.descInterv = descInterv;
+	}
+
+	public TypeIntervention getTypeIntervention() {
+		return typeIntervention;
+	}
+
+	public void setTypeIntervention(TypeIntervention typeIntervention) {
+		this.typeIntervention = typeIntervention;
+	}
 
 
 }

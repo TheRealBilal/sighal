@@ -1,89 +1,76 @@
 package applimedical.sighal.api.pojo;
 
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "service")
 public class Service {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "service_id")
-   private Long serviceId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "service_id")
+	private Long serviceId;
 
-   @Column()
-   private String nom;
+	@Column()
+	private String nom;
 
-   @Column()
-   private String description;
+	@Column()
+	private String description;
 
-   @Column(name ="date_ouverture")
-   private Date dateOuverture;
+	@Column(name ="date_ouverture")
+	private Date dateOuverture;
 
-   @OneToMany(cascade = CascadeType.ALL, mappedBy = "service", fetch=FetchType.LAZY)
-   private Collection<Personnel> personnelList;
-   
-   @OneToOne()
-   @JoinColumn(name = "chef_service_id", referencedColumnName = "personne_id")
-   private Personnel chefService;
+	@OneToMany(mappedBy = "service")
+	private List<PersonnelService> listPerssonelService;
 
-   public Long getServiceId() {
-      return serviceId;
-   }
 
-   public void setServiceId(Long serviceId) {
-      this.serviceId = serviceId;
-   }
+	public Long getServiceId() {
+		return serviceId;
+	}
 
-   public String getNom() {
-      return nom;
-   }
+	public void setServiceId(Long serviceId) {
+		this.serviceId = serviceId;
+	}
 
-   public void setNom(String nom) {
-      this.nom = nom;
-   }
+	public String getNom() {
+		return nom;
+	}
 
-   public String getDescription() {
-      return description;
-   }
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
-   public void setDescription(String description) {
-      this.description = description;
-   }
+	public String getDescription() {
+		return description;
+	}
 
-   public Date getDateOuverture() {
-      return dateOuverture;
-   }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-   public void setDateOuverture(Date dateOuverture) {
-      this.dateOuverture = dateOuverture;
-   }
+	public Date getDateOuverture() {
+		return dateOuverture;
+	}
 
-   public Collection<Personnel> getPersonnelList() {
-      return personnelList;
-   }
+	public void setDateOuverture(Date dateOuverture) {
+		this.dateOuverture = dateOuverture;
+	}
 
-   public void setPersonnelList(Collection<Personnel> personnelList) {
-      this.personnelList = personnelList;
-   }
 
-   public Personnel getChefService() {
-      return chefService;
-   }
+	public List<PersonnelService> getListPerssonelService() {
+		return listPerssonelService;
+	}
 
-   public void setChefService(Personnel chefService) {
-      this.chefService = chefService;
-   }
+	public void setListPerssonelService(List<PersonnelService> listPerssonelService) {
+		this.listPerssonelService = listPerssonelService;
+	}
+
 }

@@ -1,6 +1,5 @@
 package applimedical.sighal.api.pojo;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -34,16 +33,26 @@ public class Personnel extends Personne {
 			joinColumns={@JoinColumn(name="personne_id", referencedColumnName="personne_id")},
 			inverseJoinColumns={@JoinColumn(name="qualification_id", referencedColumnName="qualification_id")}
 			)
-	private Collection<Qualification> qualificationList;
+	private List<Qualification> qualificationList;
 
-	public Collection<Qualification> getQualificationList() {
+
+
+
+	public List<PersonnelService> getListPerssonelService() {
+		return listPerssonelService;
+	}
+
+	public void setListPerssonelService(List<PersonnelService> listPerssonelService) {
+		this.listPerssonelService = listPerssonelService;
+	}
+
+	public List<Qualification> getQualificationList() {
 		return qualificationList;
 	}
 
-	public void setQualificationList(Collection<Qualification> qualificationList) {
+	public void setQualificationList(List<Qualification> qualificationList) {
 		this.qualificationList = qualificationList;
 	}
-
 
 	public List<PersonnelService> getServices() {
 		return listPerssonelService;

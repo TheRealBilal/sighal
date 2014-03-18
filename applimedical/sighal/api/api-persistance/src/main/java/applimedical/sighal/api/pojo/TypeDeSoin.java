@@ -1,9 +1,6 @@
 package applimedical.sighal.api.pojo;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -34,7 +31,7 @@ public class TypeDeSoin {
 	private String description;
 
 	@OneToMany(mappedBy = "typeDeSoin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public Set<Soin> soin;
+	public List<Soin> soin;
 
 	public Long getTypeSoinId() {
 		return typeSoinId;
@@ -68,22 +65,14 @@ public class TypeDeSoin {
 		this.description = description;
 	}
 
-	public List<Soin> getListSoin() {
-		List<Soin> listSoin = new ArrayList<Soin>();
-		for (Soin org : soin) {
-			listSoin.add(org);
-		}
-		return listSoin;
+	public List<Soin> getSoin() {
+		return soin;
 	}
 
-
-	public void setListSoinAsList(List<Soin> soins) {
-		Set<Soin> listSoin = new HashSet<Soin>();
-		for (Soin soin : soins) {
-			listSoin.add(soin);
-		}
-		this.soin = listSoin;
+	public void setSoin(List<Soin> soin) {
+		this.soin = soin;
 	}
 
+	
 
 }

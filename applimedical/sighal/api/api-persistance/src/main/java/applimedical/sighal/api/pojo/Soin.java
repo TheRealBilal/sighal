@@ -1,9 +1,6 @@
 package applimedical.sighal.api.pojo;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -35,7 +33,12 @@ public class Soin {
 	public List<MembreOrgane> membresOrgane;
 
 	@ManyToOne
+	@JoinColumn (name ="type_soin_id", referencedColumnName= "type_soin_id")
 	public TypeDeSoin typeDeSoin;
+	
+	@ManyToOne
+	@JoinColumn (name ="id_interv", referencedColumnName= "id_interv")
+	public Intervention intervention;
 
 	public Long getSoinId() {
 		return soinId;
@@ -75,6 +78,14 @@ public class Soin {
 
 	public void setTypeDeSoin(TypeDeSoin typeDeSoin) {
 		this.typeDeSoin = typeDeSoin;
+	}
+
+	public Intervention getIntervention() {
+		return intervention;
+	}
+
+	public void setIntervention(Intervention intervention) {
+		this.intervention = intervention;
 	}
 
 

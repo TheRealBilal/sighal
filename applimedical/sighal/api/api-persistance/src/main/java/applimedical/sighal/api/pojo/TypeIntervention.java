@@ -1,6 +1,6 @@
 package applimedical.sighal.api.pojo;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,49 +16,51 @@ import javax.persistence.Table;
 @Table(name ="type_intervention")
 public class TypeIntervention {
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "type_intervention_id")
-   private Long typeIntervId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "type_intervention_id")
+	private Long typeIntervId;
 
-   @Column()
-   private String nom;
+	@Column()
+	private String nom;
 
-   @Column()
-   private String description;
+	@Column()
+	private String description;
 
-   @OneToMany(cascade = CascadeType.ALL, mappedBy = "typeIntervention", fetch=FetchType.LAZY)
-   public Collection<Intervention> interventions;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "typeIntervention", fetch=FetchType.LAZY)
+	public List<Intervention> interventions;
 
-   public Long getTypeIntervId() {
-      return typeIntervId;
-   }
+	public Long getTypeIntervId() {
+		return typeIntervId;
+	}
 
-   public void setTypeIntervId(Long typeIntervId) {
-      this.typeIntervId = typeIntervId;
-   }
 
-   public String getNom() {
-      return nom;
-   }
 
-   public void setNom(String nom) {
-      this.nom = nom;
-   }
+	public void setTypeIntervId(Long typeIntervId) {
+		this.typeIntervId = typeIntervId;
+	}
 
-   public String getDescription() {
-      return description;
-   }
+	public String getNom() {
+		return nom;
+	}
 
-   public void setDescription(String description) {
-      this.description = description;
-   }
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
-   public Collection<Intervention> getInterventions() {
-      return interventions;
-   }
+	public String getDescription() {
+		return description;
+	}
 
-   public void setInterventions(Collection<Intervention> interventions) {
-      this.interventions = interventions;
-   }
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<Intervention> getInterventions() {
+		return interventions;
+	}
+
+	public void setInterventions(List<Intervention> interventions) {
+		this.interventions = interventions;
+	}
 }

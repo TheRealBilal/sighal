@@ -1,7 +1,7 @@
 package applimedical.sighal.api.pojo;
 
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,10 +30,10 @@ public class Commande {
    private Date dateEntreeSouhaitee;
 
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "commande", fetch=FetchType.LAZY)
-   public Collection<BonEntree> bonEntreeList;
+   public List<BonEntree> bonEntreeList;
 
-   @OneToMany()
-   private Collection<LigneCommande> ligneCommandeList;
+   @OneToMany(cascade = CascadeType.ALL, mappedBy = "commande", fetch=FetchType.LAZY)
+   private List<LigneCommande> ligneCommandeList;
 
    @ManyToOne()
    @JoinColumn(name = "fournisseur_id", referencedColumnName = "personne_id")
@@ -63,19 +63,19 @@ public class Commande {
       this.dateEntreeSouhaitee = dateEntreeSouhaitee;
    }
 
-   public Collection<BonEntree> getBonEntreeList() {
+   public List<BonEntree> getBonEntreeList() {
       return bonEntreeList;
    }
 
-   public void setBonEntreeList(Collection<BonEntree> bonEntreeList) {
+   public void setBonEntreeList(List<BonEntree> bonEntreeList) {
       this.bonEntreeList = bonEntreeList;
    }
 
-   public Collection<LigneCommande> getLigneCommandeList() {
+   public List<LigneCommande> getLigneCommandeList() {
       return ligneCommandeList;
    }
 
-   public void setLigneCommandeList(Collection<LigneCommande> ligneCommandeList) {
+   public void setLigneCommandeList(List<LigneCommande> ligneCommandeList) {
       this.ligneCommandeList = ligneCommandeList;
    }
 

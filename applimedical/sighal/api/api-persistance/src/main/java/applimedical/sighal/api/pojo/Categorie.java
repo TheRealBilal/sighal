@@ -1,6 +1,6 @@
 package applimedical.sighal.api.pojo;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -27,7 +27,7 @@ public class Categorie {
    private String description;
 
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categorie", fetch=FetchType.LAZY)
-   private Collection<SousCategorie> sousCategorieList;
+   private List<SousCategorie> sousCategorieList;
 
    public Long getCategorieId() {
       return categorieId;
@@ -53,11 +53,11 @@ public class Categorie {
       this.description = description;
    }
 
-   public Collection<SousCategorie> getSousCategorieList() {
+   public List<SousCategorie> getSousCategorieList() {
       return sousCategorieList;
    }
 
-   public void setSousCategorieList(Collection<SousCategorie> sousCategorieList) {
+   public void setSousCategorieList(List<SousCategorie> sousCategorieList) {
       this.sousCategorieList = sousCategorieList;
    }
 }

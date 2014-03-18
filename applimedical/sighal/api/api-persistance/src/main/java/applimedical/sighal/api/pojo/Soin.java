@@ -37,7 +37,7 @@ public class Soin {
 	public TypeDeSoin typeDeSoin;
 	
 	@ManyToOne
-	@JoinColumn (name ="id_interv", referencedColumnName= "id_interv")
+	@JoinColumn (name ="intervention_id", referencedColumnName= "intervention_id")
 	public Intervention intervention;
 
 	public Long getSoinId() {

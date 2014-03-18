@@ -26,7 +26,7 @@ public class LigneCommande {
    private Produit produit;
 
    @Column()
-   private int quantite;
+   private Integer quantite;
 
    @Column()
    private Double prix;
@@ -47,11 +47,11 @@ public class LigneCommande {
       this.produit = produit;
    }
 
-   public int getQuantite() {
+   public Integer getQuantite() {
       return quantite;
    }
 
-   public void setQuantite(int quantite) {
+   public void setQuantite(Integer quantite) {
       this.quantite = quantite;
    }
 

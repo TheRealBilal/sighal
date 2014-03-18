@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +25,14 @@ public class LigneSortie {
 	@Column(name = "date_sortie")
 	private Date dateSortie;
 
+	@ManyToOne()
+	@JoinColumn(name="produit_id", referencedColumnName="produit_id")
+	private Produit produit;
+
+	@ManyToOne()
+   @JoinColumn(name="intervention_id", referencedColumnName="intervention_id")
+	private Intervention intervention;
+	
 	public Long getLigneSortieId() {
 		return ligneSortieId;
 	}
@@ -47,4 +57,19 @@ public class LigneSortie {
 		this.dateSortie = dateSortie;
 	}
 
+   public Produit getProduit() {
+      return produit;
+   }
+
+   public void setProduit(Produit produit) {
+      this.produit = produit;
+   }
+
+   public Intervention getIntervention() {
+      return intervention;
+   }
+
+   public void setIntervention(Intervention intervention) {
+      this.intervention = intervention;
+   }
 }

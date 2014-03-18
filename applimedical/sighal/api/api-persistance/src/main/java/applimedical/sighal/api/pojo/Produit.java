@@ -1,10 +1,12 @@
 package applimedical.sighal.api.pojo;
 
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,8 +51,11 @@ public class Produit {
    @JoinColumn(name = "sous_categorie_id", referencedColumnName = "sous_categorie_id")
    private SousCategorie sousCategorie;
 
+   @OneToMany(cascade = CascadeType.ALL, mappedBy = "produit", fetch=FetchType.LAZY)
+   private List<LigneSortie> ligneSortieList;
+
    @OneToMany()
-   private Collection<LigneCommande> ligneCommandeList;
+   private List<LigneCommande> ligneCommandeList;
 
    public Long getProduitId() {
       return produitId;
@@ -132,11 +137,19 @@ public class Produit {
       this.sousCategorie = sousCategorie;
    }
 
-   public Collection<LigneCommande> getLigneCommandeList() {
+   public List<LigneCommande> getLigneCommandeList() {
       return ligneCommandeList;
    }
 
-   public void setLigneCommandeList(Collection<LigneCommande> ligneCommandeList) {
+   public void setLigneCommandeList(List<LigneCommande> ligneCommandeList) {
       this.ligneCommandeList = ligneCommandeList;
+   }
+
+   public List<LigneSortie> getLigneSortieList() {
+      return ligneSortieList;
+   }
+
+   public void setLigneSortieList(List<LigneSortie> ligneSortieList) {
+      this.ligneSortieList = ligneSortieList;
    }
 }

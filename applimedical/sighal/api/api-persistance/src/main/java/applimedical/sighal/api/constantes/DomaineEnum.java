@@ -1,4 +1,4 @@
-package applimedical.sighal.api.pojo;
+package applimedical.sighal.api.constantes;
 
 
 public enum DomaineEnum {

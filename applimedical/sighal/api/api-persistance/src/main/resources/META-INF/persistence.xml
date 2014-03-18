@@ -6,41 +6,36 @@
 	<persistence-unit name="entityManager"
 		transaction-type="RESOURCE_LOCAL">
 
+		<class>applimedical.sighal.api.pojo.BonEntree</class>
 		<class>applimedical.sighal.api.pojo.Categorie</class>
 		<class>applimedical.sighal.api.pojo.Commande</class>
 		<class>applimedical.sighal.api.pojo.Document</class>
-		<class>applimedical.sighal.api.pojo.DomaineEnum</class>
 		<class>applimedical.sighal.api.pojo.DossierPatient</class>
-		<class>applimedical.sighal.api.pojo.DroitEnum</class>
-		<class>applimedical.sighal.api.pojo.EtatRdvEnum</class>
 		<class>applimedical.sighal.api.pojo.FichePatient</class>
 		<class>applimedical.sighal.api.pojo.FichePatientDentaire</class>
 		<class>applimedical.sighal.api.pojo.FichePatientGenerale</class>
 		<class>applimedical.sighal.api.pojo.Fonction</class>
 		<class>applimedical.sighal.api.pojo.Fournisseur</class>
-		<class>applimedical.sighal.api.pojo.Intervenant</class>
 		<class>applimedical.sighal.api.pojo.Intervention</class>
 		<class>applimedical.sighal.api.pojo.LigneCommande</class>
 		<class>applimedical.sighal.api.pojo.LigneSortie</class>
+		<class>applimedical.sighal.api.pojo.MembreOrgane</class>
 		<class>applimedical.sighal.api.pojo.Module</class>
 		<class>applimedical.sighal.api.pojo.Patient</class>
 		<class>applimedical.sighal.api.pojo.Permission</class>
 		<class>applimedical.sighal.api.pojo.Personne</class>
 		<class>applimedical.sighal.api.pojo.Personnel</class>
 		<class>applimedical.sighal.api.pojo.PersonnelService</class>
-		<class>applimedical.sighal.api.pojo.PersonnelServicePk</class>
 		<class>applimedical.sighal.api.pojo.Produit</class>
 		<class>applimedical.sighal.api.pojo.Qualification</class>
-		<class>applimedical.sighal.api.pojo.Rdv</class>
 		<class>applimedical.sighal.api.pojo.RelFctModulePerm</class>
+		<class>applimedical.sighal.api.pojo.RendezVous</class>
 		<class>applimedical.sighal.api.pojo.Salle</class>
 		<class>applimedical.sighal.api.pojo.Service</class>
 		<class>applimedical.sighal.api.pojo.Soin</class>
 		<class>applimedical.sighal.api.pojo.SousCategorie</class>
 		<class>applimedical.sighal.api.pojo.TypeDeSoin</class>
-		<class>applimedical.sighal.api.pojo.TypeFichePatientEnum</class>
 		<class>applimedical.sighal.api.pojo.TypeIntervention</class>
-		<class>applimedical.sighal.api.pojo.MembreOrgane</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

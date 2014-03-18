@@ -1,19 +1,22 @@
 package applimedical.sighal.api.pojo;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import applimedical.sighal.api.constantes.DomaineEnum;
 
 @Entity
-@Table(name = "fiche_patient_generale")
+@Table(name="fiche_patient_generale")
+@DiscriminatorValue("1")
 public class FichePatientGenerale extends FichePatient {
 
 	@Column(name = "description")
 	private String description;
 
 	@Column(name = "domaine")
-	private String domaine;
+	private DomaineEnum domaine;
 
 	public String getDescription() {
 		return description;
@@ -23,11 +26,11 @@ public class FichePatientGenerale extends FichePatient {
 		this.description = description;
 	}
 
-	public String getDomaine() {
+	public DomaineEnum getDomaine() {
 		return domaine;
 	}
 
-	public void setDomaine(String domaine) {
+	public void setDomaine(DomaineEnum domaine) {
 		this.domaine = domaine;
 	}
 	

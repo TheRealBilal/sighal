@@ -35,8 +35,11 @@ public class Personnel extends Personne {
 			)
 	private List<Qualification> qualificationList;
 
+	@OneToMany(mappedBy="personnel")
+	private List<RendezVous> rendezVousArrangeList;
 
-
+   @OneToMany(mappedBy="personnelList")
+   private List<RendezVous> rendezVousPourList;
 
 	public List<PersonnelService> getListPerssonelService() {
 		return listPerssonelService;
@@ -94,18 +97,19 @@ public class Personnel extends Personne {
 		this.salaire = salaire;
 	}
 
-	public static <From, To> To test (Class<To> cl,From entity){
+   public List<RendezVous> getRendezVousArrangeList() {
+      return rendezVousArrangeList;
+   }
 
-		try {
-			To toto = cl.newInstance();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+   public void setRendezVousArrangeList(List<RendezVous> rendezVousArrangeList) {
+      this.rendezVousArrangeList = rendezVousArrangeList;
+   }
 
-	}
+   public List<RendezVous> getRendezVousPourList() {
+      return rendezVousPourList;
+   }
+
+   public void setRendezVousPourList(List<RendezVous> rendezVousPourList) {
+      this.rendezVousPourList = rendezVousPourList;
+   }
 }

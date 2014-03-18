@@ -1,6 +1,6 @@
 package applimedical.sighal.api.pojo;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +30,7 @@ public class Qualification {
    private Integer nbAnneeExperience;
 
    @ManyToMany(fetch=FetchType.LAZY, mappedBy="qualificationList")
-   private Collection<Personnel> personnelList;
+   private List<Personnel> personnelList;
 
    public Long getQualificationId() {
       return qualificationId;
@@ -64,11 +64,11 @@ public class Qualification {
       this.nbAnneeExperience = nbAnneeExperience;
    }
 
-   public Collection<Personnel> getPersonnelList() {
+   public List<Personnel> getPersonnelList() {
       return personnelList;
    }
 
-   public void setPersonnelList(Collection<Personnel> personnelList) {
+   public void setPersonnelList(List<Personnel> personnelList) {
       this.personnelList = personnelList;
    }
 }

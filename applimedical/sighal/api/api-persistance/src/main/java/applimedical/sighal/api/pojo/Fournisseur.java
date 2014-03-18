@@ -1,9 +1,11 @@
 package applimedical.sighal.api.pojo;
 
-import java.util.Collection;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,8 +19,8 @@ public class Fournisseur extends Personne {
    @Column()
    private String remarque;
 
-   @OneToMany(mappedBy="commandeId")
-   private Collection<Commande> commandeList;
+   @OneToMany(cascade = CascadeType.ALL, mappedBy = "fournisseur", fetch=FetchType.LAZY)
+   public List<Commande> commandeList;
 
    public String getRaisonSocial() {
       return raisonSocial;
@@ -36,11 +38,11 @@ public class Fournisseur extends Personne {
       this.remarque = remarque;
    }
 
-   public Collection<Commande> getCommandeList() {
+   public List<Commande> getCommandeList() {
       return commandeList;
    }
 
-   public void setCommandeList(Collection<Commande> commandeList) {
+   public void setCommandeList(List<Commande> commandeList) {
       this.commandeList = commandeList;
    }
 }

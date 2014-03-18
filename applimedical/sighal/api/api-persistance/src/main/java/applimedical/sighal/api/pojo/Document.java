@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -17,15 +19,18 @@ public class Document {
 	@Column(name = "document_id")
 	private Long docId;
 
-	@Column(name = "type")
+	@Column(name = "type_doc")
 	private String typeDoc ;
 
 	@Column (name = "nom_doc")
 	private String nomDoc;
 
 	@Column( name = "chemin_doc")
-	private String path;
+	private String cheminDoc;
 
+   @ManyToOne()
+   @JoinColumn(name = "fiche_patient_id", referencedColumnName = "fiche_patient_id")
+   private FichePatient fichePatient;
 
 	public Long getDocId() {
 		return docId;
@@ -51,11 +56,19 @@ public class Document {
 		this.nomDoc = nomDoc;
 	}
 
-	public String getPath() {
-		return path;
+	public String getCheminDoc() {
+		return cheminDoc;
 	}
 
-	public void setPath(String path) {
-		this.path = path;
+	public void setCheminDoc(String cheminDoc) {
+		this.cheminDoc = cheminDoc;
 	}
+
+   public FichePatient getFichePatient() {
+      return fichePatient;
+   }
+
+   public void setFichePatient(FichePatient fichePatient) {
+      this.fichePatient = fichePatient;
+   }
 }

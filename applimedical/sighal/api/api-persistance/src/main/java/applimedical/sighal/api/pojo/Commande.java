@@ -30,7 +30,7 @@ public class Commande {
    private Date dateEntreeSouhaitee;
 
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "commande", fetch=FetchType.LAZY)
-   public List<BonEntree> bonEntreeList;
+   private List<BonEntree> bonEntreeList;
 
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "commande", fetch=FetchType.LAZY)
    private List<LigneCommande> ligneCommandeList;

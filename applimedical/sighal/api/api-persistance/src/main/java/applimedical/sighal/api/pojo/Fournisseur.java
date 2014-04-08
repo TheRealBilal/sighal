@@ -20,7 +20,7 @@ public class Fournisseur extends Personne {
    private String remarque;
 
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fournisseur", fetch=FetchType.LAZY)
-   public List<Commande> commandeList;
+   private List<Commande> commandeList;
 
    public String getRaisonSocial() {
       return raisonSocial;

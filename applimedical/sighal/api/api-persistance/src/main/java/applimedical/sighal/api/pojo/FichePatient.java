@@ -60,7 +60,7 @@ public class FichePatient {
    private TypeFichePatientEnum typeFichePatient;
 
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fichePatient", fetch=FetchType.LAZY)
-   public List<Intervention> interventionList;
+   private List<Intervention> interventionList;
 
    @ManyToOne()
    @JoinColumn(name = "personnel_id", referencedColumnName = "personne_id")

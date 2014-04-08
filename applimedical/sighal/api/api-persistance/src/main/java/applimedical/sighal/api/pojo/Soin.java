@@ -30,15 +30,15 @@ public class Soin {
 	private String description;
 
 	@OneToMany(mappedBy = "soin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public List<MembreOrgane> membresOrgane;
+	private List<MembreOrgane> membresOrgane;
 
 	@ManyToOne
 	@JoinColumn (name ="type_soin_id", referencedColumnName= "type_soin_id")
-	public TypeDeSoin typeDeSoin;
+	private TypeDeSoin typeDeSoin;
 	
 	@ManyToOne
 	@JoinColumn (name ="intervention_id", referencedColumnName= "intervention_id")
-	public Intervention intervention;
+	private Intervention intervention;
 
 	public Long getSoinId() {
 		return soinId;

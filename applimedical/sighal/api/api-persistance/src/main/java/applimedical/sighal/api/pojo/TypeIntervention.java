@@ -28,7 +28,7 @@ public class TypeIntervention {
 	private String description;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "typeIntervention", fetch=FetchType.LAZY)
-	public List<Intervention> interventions;
+	private List<Intervention> interventions;
 
 	public Long getTypeIntervId() {
 		return typeIntervId;

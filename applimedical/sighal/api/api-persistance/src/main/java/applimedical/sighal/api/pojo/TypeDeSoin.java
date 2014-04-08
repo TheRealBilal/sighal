@@ -31,7 +31,7 @@ public class TypeDeSoin {
 	private String description;
 
 	@OneToMany(mappedBy = "typeDeSoin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public List<Soin> soin;
+	private List<Soin> soin;
 
 	public Long getTypeSoinId() {
 		return typeSoinId;

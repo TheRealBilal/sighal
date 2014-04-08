@@ -3,7 +3,6 @@ package applimedical.sighal.api.pojo;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,8 +12,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -43,7 +43,12 @@ public class RendezVous {
 	@JoinColumn(name = "patient_id", referencedColumnName = "personne_id" , nullable= false)
 	private Patient patient;
 
-	@OneToMany()
+   @ManyToMany(fetch=FetchType.LAZY)
+   @JoinTable(
+         name="personnel_rendez_vous",
+         joinColumns={@JoinColumn(name="rendez_vous_id", referencedColumnName="rendez_vous_id")},
+         inverseJoinColumns={@JoinColumn(name="personne_id", referencedColumnName="personne_id")}
+         )
    private List<Personnel> personnelList;
 
 	@ManyToOne

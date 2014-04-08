@@ -38,7 +38,12 @@ public class Personnel extends Personne {
 	@OneToMany(mappedBy="personnel")
 	private List<RendezVous> rendezVousArrangeList;
 
-   @OneToMany(mappedBy="personnelList")
+   @ManyToMany(fetch=FetchType.LAZY)
+   @JoinTable(
+         name="personnel_rendez_vous",
+         joinColumns={@JoinColumn(name="personne_id", referencedColumnName="personne_id")},
+         inverseJoinColumns={@JoinColumn(name="rendez_vous_id", referencedColumnName="rendez_vous_id")}
+         )
    private List<RendezVous> rendezVousPourList;
 
 	public List<PersonnelService> getListPerssonelService() {

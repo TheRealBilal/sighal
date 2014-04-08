@@ -132,5 +132,33 @@ public class RelFctModulePerm {
 			this.moduleId = moduleId;
 		}
 
+	   /**
+	    * (non-Javadoc)
+	    * @see java.lang.Object#equals(java.lang.Object)
+	    */
+	   @Override
+	   public boolean equals(Object obj) {
+	      if (this == obj)
+	         return true;
+	      if (obj == null)
+	         return false;
+	      if (getClass() != obj.getClass())
+	         return false;
+	      RelFctModulePermPK other = (RelFctModulePermPK) obj;
+	      if (fonctionId != other.fonctionId)
+	         return false;
+         if (permissionId != other.permissionId)
+            return false;
+	      if (moduleId != other.moduleId)
+	         return false;
+	      return true;
+	   }
+
+	   @Override
+	   public int hashCode() {
+	      return ((fonctionId == null) ? 0 : fonctionId.hashCode())
+	            ^ ((permissionId == null) ? 0 : permissionId.hashCode())
+	            ^ ((moduleId == null) ? 0 : moduleId.hashCode());
+	   }
 	}
 }

@@ -1,29 +1,29 @@
 package applimedical.sighal.dao.test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import org.junit.Before;
 import org.junit.Test;
 
-import applimedical.sighal.api.pojo.Personnel;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import applimedical.sighal.api.pojo.Salle;
 
 public class JPATest {
+   private RepositoryHolder repositoryHolder;
+
+   @Before
+   public void setUp() {
+      ApplicationContext context = new ClassPathXmlApplicationContext("dao-personne-cxt.xml");
+      repositoryHolder = context.getBean("repositoryHolder", RepositoryHolder.class);
+   }
 
    @Test
-   public void test() {
-      EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "entityManager" );
-
-      EntityManager entityManager = entityManagerFactory.createEntityManager();
-      entityManager.getTransaction().begin();
-//    entityManager.persist( new Event( "Our very first event!", new Date() ) );
-//    entityManager.persist( new Event( "A follow up event", new Date() ) );
-      Personnel test = new Personnel();
-      test.setNom("The best personnel");
-      entityManager.persist(test);
-      System.out.println("id personnel : " + test.getPersonneId());
-      entityManager.getTransaction().commit();
-      entityManager.close();
+   public void test() {     
+      Salle salle = new Salle();
+      salle.setNomSalle("Adim room");
+      System.out.println("id Salle : " +
+            repositoryHolder.chargerSalle(
+                  1L).getNomSalle());
    }
 
 }

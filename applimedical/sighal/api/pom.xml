@@ -11,6 +11,7 @@
   <packaging>pom</packaging>
   <name>api</name>
   <modules>
+  	<module>api-model</module>
   	<module>api-persistance</module>
   	<module>dao</module>
   	<module>business</module>

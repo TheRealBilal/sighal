@@ -14,6 +14,7 @@
   	<module>api-persistance</module>
   	<module>dao</module>
   	<module>business</module>
+  	<module>api-model</module>
   </modules>
 
 	<dependencies>

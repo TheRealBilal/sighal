@@ -8,4 +8,13 @@
   <groupId>applimedical.sighal.api</groupId>
   <artifactId>api-model</artifactId>
   <name>api-model</name>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>applimedical.sighal.api</groupId>
+  		<artifactId>api-constante</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+
 </project>

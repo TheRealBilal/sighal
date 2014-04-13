@@ -1,21 +1,11 @@
 package applimedical.sighal.dto;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 import applimedical.sighal.api.constantes.DomaineEnum;
 
-@Entity
-@Table(name="fiche_patient_generale")
-@DiscriminatorValue("1")
-public class FichePatientGenerale extends FichePatient {
+public class FichePatientGeneraleDto extends FichePatientDto {
 
-	@Column(name = "description")
 	private String description;
 
-	@Column(name = "domaine")
 	private DomaineEnum domaine;
 
 	public String getDescription() {
@@ -33,6 +23,5 @@ public class FichePatientGenerale extends FichePatient {
 	public void setDomaine(DomaineEnum domaine) {
 		this.domaine = domaine;
 	}
-	
 
 }

@@ -2,36 +2,17 @@ package applimedical.sighal.dto;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+public class TypeDeSoinDto {
 
-@Entity
-@Table(name = "type_soin")
-public class TypeDeSoin {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="type_soin_id")
 	private Long typeSoinId;
 
-	@Column(name ="nom_type")
 	private String nomType;
 
-	@Column(name ="categorie_type")
 	private String categorieType;
 
-	@Column()
 	private String description;
 
-	@OneToMany(mappedBy = "typeDeSoin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Soin> soin;
+	private List<SoinDto> soinDtoList;
 
 	public Long getTypeSoinId() {
 		return typeSoinId;
@@ -65,12 +46,12 @@ public class TypeDeSoin {
 		this.description = description;
 	}
 
-	public List<Soin> getSoin() {
-		return soin;
+	public List<SoinDto> getSoinDtoList() {
+		return soinDtoList;
 	}
 
-	public void setSoin(List<Soin> soin) {
-		this.soin = soin;
+	public void setSoinDtoList(List<SoinDto> soinDtoList) {
+		this.soinDtoList = soinDtoList;
 	}
 
 	

@@ -2,32 +2,17 @@ package applimedical.sighal.dto;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+public class ModuleDto {
 
-@Entity
-public class Module {
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "module_id")
 	private Long moduleId;
 
-	@Column(name ="nom_module")
 	private String nom;
 
-	@Column ()
 	private String description;
 
-	@Column()
 	private Boolean active;
 	
-	@OneToMany (mappedBy ="module")
-	private List <RelFctModulePerm> listRelFctModulePerm;
+	private List <RelFctModulePermDto> listRelFctModulePerm;
 
 	public Long getModuleId() {
 		return moduleId;
@@ -61,11 +46,11 @@ public class Module {
 		this.active = active;
 	}
 
-	public List<RelFctModulePerm> getListRelFctModulePerm() {
+	public List<RelFctModulePermDto> getListRelFctModulePerm() {
 		return listRelFctModulePerm;
 	}
 
-	public void setListRelFctModulePerm(List<RelFctModulePerm> listRelFctModulePerm) {
+	public void setListRelFctModulePerm(List<RelFctModulePermDto> listRelFctModulePerm) {
 		this.listRelFctModulePerm = listRelFctModulePerm;
 	}
 

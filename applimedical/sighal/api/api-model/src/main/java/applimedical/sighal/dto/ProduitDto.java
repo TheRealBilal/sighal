@@ -3,59 +3,30 @@ package applimedical.sighal.dto;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "produit")
-public class Produit {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "produit_id")
+public class ProduitDto {
    private Long produitId;
 
-   @Column(name = "produit_code")
-   private int produitCode;
+   private String produitCode;
 
-   @Column()
    private String nom;
 
-   @Column()
    private String description;
 
-   @Column(name = "date_fabrication")
    private Date dateFabrication;
 
-   @Column(name = "date_expiration")
    private Date dateExpiration;
 
-   @Column(name = "nombre_utilisation")
    private Integer nombreUtilisation;
 
-   @Column()
    private Integer quantite;
 
-   @Column(name = "stock_alert")
    private Integer stockAlert;
 
-   @ManyToOne()
-   @JoinColumn(name = "sous_categorie_id", referencedColumnName = "sous_categorie_id")
-   private SousCategorie sousCategorie;
+   private SousCategorieDto sousCategorieDto;
 
-   @OneToMany(cascade = CascadeType.ALL, mappedBy = "produit", fetch=FetchType.LAZY)
-   private List<LigneSortie> ligneSortieList;
+   private List<LigneSortieDto> ligneSortieDtoList;
 
-   @OneToMany()
-   private List<LigneCommande> ligneCommandeList;
+   private List<LigneCommandeDto> ligneCommandeDtoList;
 
    public Long getProduitId() {
       return produitId;
@@ -65,11 +36,11 @@ public class Produit {
       this.produitId = produitId;
    }
 
-   public int getProduitCode() {
+   public String getProduitCode() {
       return produitCode;
    }
 
-   public void setProduitCode(int produitCode) {
+   public void setProduitCode(String produitCode) {
       this.produitCode = produitCode;
    }
 
@@ -129,27 +100,27 @@ public class Produit {
       this.stockAlert = stockAlert;
    }
 
-   public SousCategorie getSousCategorie() {
-      return sousCategorie;
+   public SousCategorieDto getSousCategorieDto() {
+      return sousCategorieDto;
    }
 
-   public void setSousCategorie(SousCategorie sousCategorie) {
-      this.sousCategorie = sousCategorie;
+   public void setSousCategorieDto(SousCategorieDto sousCategorieDto) {
+      this.sousCategorieDto = sousCategorieDto;
    }
 
-   public List<LigneCommande> getLigneCommandeList() {
-      return ligneCommandeList;
+   public List<LigneCommandeDto> getLigneCommandeDtoList() {
+      return ligneCommandeDtoList;
    }
 
-   public void setLigneCommandeList(List<LigneCommande> ligneCommandeList) {
-      this.ligneCommandeList = ligneCommandeList;
+   public void setLigneCommandeDtoList(List<LigneCommandeDto> ligneCommandeDtoList) {
+      this.ligneCommandeDtoList = ligneCommandeDtoList;
    }
 
-   public List<LigneSortie> getLigneSortieList() {
-      return ligneSortieList;
+   public List<LigneSortieDto> getLigneSortieDtoList() {
+      return ligneSortieDtoList;
    }
 
-   public void setLigneSortieList(List<LigneSortie> ligneSortieList) {
-      this.ligneSortieList = ligneSortieList;
+   public void setLigneSortieDtoList(List<LigneSortieDto> ligneSortieDtoList) {
+      this.ligneSortieDtoList = ligneSortieDtoList;
    }
 }

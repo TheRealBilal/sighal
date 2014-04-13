@@ -2,35 +2,17 @@ package applimedical.sighal.dto;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+public class QualificationDto {
 
-@Entity
-@Table(name = "qualification")
-public class Qualification {
-
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "qualification_id")
    private Long qualificationId;
 
-   @Column()
    private String description;
 
-   @Column(name = "description_long")
    private String descriptionLong;
 
-   @Column(name = "nb_annee_experience")
    private Integer nbAnneeExperience;
 
-   @ManyToMany(fetch=FetchType.LAZY, mappedBy="qualificationList")
-   private List<Personnel> personnelList;
+   private List<PersonnelDto> personnelDtoList;
 
    public Long getQualificationId() {
       return qualificationId;
@@ -64,11 +46,11 @@ public class Qualification {
       this.nbAnneeExperience = nbAnneeExperience;
    }
 
-   public List<Personnel> getPersonnelList() {
-      return personnelList;
+   public List<PersonnelDto> getPersonnelDtoList() {
+      return personnelDtoList;
    }
 
-   public void setPersonnelList(List<Personnel> personnelList) {
-      this.personnelList = personnelList;
+   public void setPersonnelDtoList(List<PersonnelDto> personnelDtoList) {
+      this.personnelDtoList = personnelDtoList;
    }
 }

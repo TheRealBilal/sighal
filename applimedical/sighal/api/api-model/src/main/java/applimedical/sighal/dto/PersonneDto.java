@@ -2,60 +2,36 @@ package applimedical.sighal.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+public class PersonneDto {
 
-@MappedSuperclass
-public class Personne {
-
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "personne_id")
    private Long personneId;
 
-   @Column(name ="nom")
    private String nom;
 
-   @Column(name ="nom_jeune_fille")
    private String nomJeuneFille;
 
-   @Column(name ="prenom")
    private String prenom;
 
-   @Column(name ="date_naissance")
    private Date dateNaissance;
 
-   @Column(name ="sex")
    private Character sex;
 
-   @Column(name ="titre")
    private Integer titre;
 
-   @Column(name ="civilite")
    private Integer civilite;
 
-   @Column(name ="adresse")
    private String adresse;
 
-   @Column(name ="code_postale")
    private String codePostale;
 
-   @Column(name ="ville")
    private String ville;
 
-   @Column(name ="region")
    private String region;
 
-   @Column(name ="pays")
    private String pays;
 
-   @Column(name ="telephonne")
    private String telephonne;
 
-   @Column(name ="email")
    private String email;
 
    public Long getPersonneId() {

@@ -2,12 +2,8 @@ package applimedical.sighal.api.pojo;
 
 import java.io.Serializable;
 
-
 public class PersonnelServicePk implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5154487456515202307L;
 
 	private Long personnelId;

@@ -15,9 +15,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
-
-
 @Entity
 @Table(name = "personnel_service")
 @IdClass(PersonnelServicePk.class)
@@ -108,6 +105,4 @@ public class PersonnelService implements Serializable{
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-
-	
 }

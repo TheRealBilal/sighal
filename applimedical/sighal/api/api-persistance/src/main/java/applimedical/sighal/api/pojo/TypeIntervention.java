@@ -28,7 +28,7 @@ public class TypeIntervention {
 	private String description;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "typeIntervention", fetch=FetchType.LAZY)
-	private List<Intervention> interventions;
+	private List<Intervention> interventionList;
 
 	public Long getTypeIntervId() {
 		return typeIntervId;
@@ -56,11 +56,11 @@ public class TypeIntervention {
 		this.description = description;
 	}
 
-	public List<Intervention> getInterventions() {
-		return interventions;
+	public List<Intervention> getInterventionList() {
+		return interventionList;
 	}
 
-	public void setInterventions(List<Intervention> interventions) {
-		this.interventions = interventions;
+	public void setInterventionList(List<Intervention> interventionList) {
+		this.interventionList = interventionList;
 	}
 }

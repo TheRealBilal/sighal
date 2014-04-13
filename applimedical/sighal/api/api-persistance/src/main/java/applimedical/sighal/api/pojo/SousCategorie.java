@@ -34,7 +34,7 @@ public class SousCategorie {
 	private Categorie categorie;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "sousCategorie", fetch=FetchType.LAZY)
-	List<Produit> produits;
+	List<Produit> produitlist;
 
 	public Long getSousCategorieId() {
 		return sousCategorieId;
@@ -68,12 +68,12 @@ public class SousCategorie {
 		this.categorie = categorie;
 	}
 
-	public List<Produit> getProduits() {
-		return produits;
+	public List<Produit> getProduitList() {
+		return produitlist;
 	}
 
-	public void setProduits(List<Produit> produits) {
-		this.produits = produits;
+	public void setProduitList(List<Produit> produitlist) {
+		this.produitlist = produitlist;
 	}
 
 

@@ -1,9 +1,4 @@
 package applimedical.sighal.api.pojo;
-/***********************************************************************
- * Module:  Fonction.java
- * Author:  HAZEM
- * Purpose: Defines the Class Fonction
- ***********************************************************************/
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,14 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/*reste les jointure avec personne et service et permission*/
-
 @Entity
 @Table(name = "fonction")
 public class Fonction implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3162907901260184989L;
 
 	@Id
@@ -43,17 +33,8 @@ public class Fonction implements Serializable {
 	private boolean active;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "fonction", fetch=FetchType.LAZY)
-	private List<RelFctModulePerm> listRelFctModulePerm;
+	private List<RelFctModulePerm> relFctModulePermList;
 
-
-
-	public Long getCodeFonction() {
-		return fonctionId;
-	}
-
-	public void setCodeFonction(Long codeFonction) {
-		this.fonctionId = codeFonction;
-	}
 
 	public String getNomFonction() {
 		return nomFonction;
@@ -87,15 +68,11 @@ public class Fonction implements Serializable {
 		this.fonctionId = fonctionId;
 	}
 
-	public List<RelFctModulePerm> getListRelFctModulePerm() {
-		return listRelFctModulePerm;
+	public List<RelFctModulePerm> getRelFctModulePermList() {
+		return relFctModulePermList;
 	}
 
-	public void setListRelFctModulePerm(List<RelFctModulePerm> listRelFctModulePerm) {
-		this.listRelFctModulePerm = listRelFctModulePerm;
+	public void setRelFctModulePermList(List<RelFctModulePerm> relFctModulePermList) {
+		this.relFctModulePermList = relFctModulePermList;
 	}
-
-
-
-
 }

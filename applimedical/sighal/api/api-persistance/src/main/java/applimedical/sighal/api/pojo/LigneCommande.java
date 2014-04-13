@@ -31,6 +31,14 @@ public class LigneCommande {
    @Column()
    private Double prix;
 
+   public Long getLigneCommandeId() {
+      return ligneCommandeId;
+   }
+
+   public void setLigneCommandeId(Long ligneCommandeId) {
+      this.ligneCommandeId = ligneCommandeId;
+   }
+
    public Commande getCommande() {
       return commande;
    }

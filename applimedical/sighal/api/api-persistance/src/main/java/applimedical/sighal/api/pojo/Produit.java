@@ -24,7 +24,7 @@ public class Produit {
    private Long produitId;
 
    @Column(name = "produit_code")
-   private int produitCode;
+   private String produitCode;
 
    @Column()
    private String nom;
@@ -65,11 +65,11 @@ public class Produit {
       this.produitId = produitId;
    }
 
-   public int getProduitCode() {
+   public String getProduitCode() {
       return produitCode;
    }
 
-   public void setProduitCode(int produitCode) {
+   public void setProduitCode(String produitCode) {
       this.produitCode = produitCode;
    }
 

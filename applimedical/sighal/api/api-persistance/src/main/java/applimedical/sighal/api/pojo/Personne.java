@@ -58,6 +58,9 @@ public class Personne {
    @Column(name ="email")
    private String email;
 
+   @Column(name ="cin")
+   private String cin;
+
    public Long getPersonneId() {
       return personneId;
    }
@@ -176,5 +179,13 @@ public class Personne {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   public String getCin() {
+      return cin;
+   }
+
+   public void setCin(String cin) {
+      this.cin = cin;
    }
 }

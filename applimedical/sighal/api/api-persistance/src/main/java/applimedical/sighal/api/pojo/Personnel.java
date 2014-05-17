@@ -10,10 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
 @Entity
 public class Personnel extends Personne {
 	@Column()
 	private String matricule;
+
+	@Column(name ="login", unique=true)
+   private String login;
+
+   @Column(name ="mot_de_passe")
+   private String motDePasse;
 
 	@Column(name = "date_embauche")
 	private Date dateEmbauche;
@@ -116,5 +123,21 @@ public class Personnel extends Personne {
 
    public void setRendezVousPourList(List<RendezVous> rendezVousPourList) {
       this.rendezVousPourList = rendezVousPourList;
+   }
+
+   public String getLogin() {
+      return login;
+   }
+
+   public void setLogin(String login) {
+      this.login = login;
+   }
+
+   public String getMotDePasse() {
+      return motDePasse;
+   }
+
+   public void setMotDePasse(String motDePasse) {
+      this.motDePasse = motDePasse;
    }
 }

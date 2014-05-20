@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<ui:insert name="template_head"></ui:insert>
+</h:head>
+<h:body>
+	<h:panelGrid columns="2" cellpadding="5px">
+        <f:facet name="header">
+            Menu 1 - Menu 2 - Menu 3 - Menu 4 - Menu 5...
+        </f:facet>
+        <div>Section1 <br />Section2 <br />Section3 <br />Section4 <br />Section5 <br /></div>
+		<ui:insert name="template_body"></ui:insert>
+        <f:facet name="footer">
+            <h:panelGroup style="display:block; text-align:center">
+                Copyright, Adim Bilal corporation.
+            </h:panelGroup>
+        </f:facet>
+	</h:panelGrid>
+</h:body>
+</html>

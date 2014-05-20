@@ -31,7 +31,7 @@
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>All Access</web-resource-name>
-			<url-pattern>/pr/*</url-pattern>
+			<url-pattern>/pages/pr/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>medecin</role-name>
@@ -45,8 +45,7 @@
 	</security-constraint>
 
 	<login-config>
-		<auth-method>DIGEST</auth-method>
-		<realm-name>Sighal realm</realm-name>
+		<auth-method>FORM</auth-method>
 		<form-login-config>
 			<form-login-page>/pages/login.xhtml</form-login-page>
 			<form-error-page>/pages/loginError.xhtml</form-error-page>
@@ -65,4 +64,8 @@
 	<security-role>
 	    <role-name>patient</role-name>
 	</security-role>
+	
+	<welcome-file-list>
+		<welcome-file>/pages/index.xtml</welcome-file>
+	</welcome-file-list>
 </web-app>

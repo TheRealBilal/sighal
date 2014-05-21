@@ -50,8 +50,50 @@
 	
 	
 	<ui:define name="template_body">
-		<p>The page of index abbccccnnnaa</p>
-		<p:spinner /> 
+		<p:messages autoUpdate="true" />
+ 
+    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+        <p:outputLabel for="console" value="Basic:" />
+        <p:selectOneMenu id="console" value="#{selectOneMenuView.console}">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+        </p:selectOneMenu>
+ 
+        <p:outputLabel for="car" value="Grouping: " />
+        <p:selectOneMenu id="car" value="#{selectOneMenuView.car}">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItems value="#{selectOneMenuView.cars}" />
+        </p:selectOneMenu>
+ 
+        <p:outputLabel for="city" value="Editable: " />
+        <p:selectOneMenu id="city" value="#{selectOneMenuView.city}" effect="fold" editable="true">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItems value="#{selectOneMenuView.cities}" />
+        </p:selectOneMenu>
+ 
+        <h:outputText value="Advanced:" />
+      
+    </h:panelGrid>
+ 
+    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+ 
+    <p:dialog header="Values" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false">
+        <p:panelGrid columns="2" id="display" columnClasses="label,value">
+            <h:outputText value="Basic:" />
+            <h:outputText value="#{selectOneMenuView.console}" />
+ 
+            <h:outputText value="Grouping:" />
+            <h:outputText value="#{selectOneMenuView.car}" />
+ 
+            <h:outputText value="Editable" />
+            <h:outputText value="#{selectOneMenuView.city}" />
+ 
+            <h:outputText value="Advanced:" />
+            <h:outputText value="#{selectOneMenuView.theme.displayName}" />
+        </p:panelGrid>
+    </p:dialog>
    		<h:form>
  
     <p:growl id="messages"/>

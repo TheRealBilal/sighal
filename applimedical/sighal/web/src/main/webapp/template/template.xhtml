@@ -14,24 +14,16 @@
 
 		#wrapTemplate {min-height: 100%;}
 
-		#headerTemplate {background-color: gray;}
+		#headerTemplate {background-color: gray;text-align: center;}
 
-		#sectionMenu {
-		  position: fixed;
-		  left: 0;
-		  top: 50%;
-		  width: 8em;
-		  margin-top: -2.5em;
-		}
+		#mainTemplate {
+			overflow: auto;
+			padding-bottom: 20px;} /* must be same height as the footer */
 
 		#mainTable td {
 			background-color: silver;
 			width: 100px;
 		}
-
-		#mainTemplate {
-			overflow:auto;
-			padding-bottom: 20px;}  /* must be same height as the footer */
 
 		#footerTemplate {position: relative;
 			margin-top: -30px; /* negative value of footer height */
@@ -39,7 +31,6 @@
 			clear:both;
 			text-align: center;
 			background-color: gray;}
-			
 
 		 /*Opera Fix
 		body:before {
@@ -55,14 +46,21 @@
 <h:body>
 	<div id="wrapTemplate">
 		<div id="headerTemplate">
-	        Menu 1 - Menu 2 - Menu 3 - Menu 4 - Menu 5...
+			<big><b>Sighal Application</b></big><br/>
+	        Sysèmes informatique de Gestion des hopitaux Algérie
 		</div>
 
 		<div id="mainTemplate">
 			<table id="mainTable">
+				<tr>
+		        	<td style="background-color: inherit;width: auto;"></td>
+		        	<td style="background-color: inherit;width: 100%;">
+		        		<ui:insert name="template_menu"></ui:insert>
+		        	</td>
+				</tr>
 				<tr valign="middle">
 		        	<td>
-							<a href="#L384"><h:outputText value="#{msg['home.section.patient']}"/></a>
+		        		<a href="#L384"><h:outputText value="#{msg['home.section.patient']}"/></a>
 		        	</td>
 					<td style="background-color: inherit;width: 100%;" rowspan="5">
 						<ui:insert name="template_body"></ui:insert>

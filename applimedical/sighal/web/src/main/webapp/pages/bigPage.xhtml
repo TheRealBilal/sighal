@@ -1,0 +1,111 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="/template/template.xhtml">
+	<ui:define name="template_head">
+		<title>Contenu large</title>
+	</ui:define>
+    <ui:define name="template_body">
+<h1>Mediboad</h1>
+<p>
+Mediboard est une application web open source de gestion d'établissement de santé. Il se définit plus précisément comme la partie logicielle d'un système d'information hospitalier, c'est-à-dire un progiciel de gestion intégré adapté aux établissements de santé de toute taille, du simple cabinet de praticien au centre médical multisite.
+
+Il est développé dans une architecture Web multi-couches et modulaires, utilisant notamment PHP, XML, XHTML, JavaScript, CSS, Prototype.js, Smarty et PEAR.
+
+Contrairement à de nombreux systèmes propriétaires existants, Mediboard tente d'être souple et intuitif, adaptable et extensible à la demande, multi-utilisateur, et ouvert sur les standards d'interopérabilité tels qu'HL7 et HPRIM.
+
+Comme pour tous les systèmes web, s'utilisant à partir d'un simple navigateur web, sa compatibilité est assurée quel que soit l'environnement matériel utilisé.
+</p>
+<h2>Fonctionnalités</h2>
+<p>
+Mediboard est initialement conçu comme un pont entre les dossiers médicaux gérés par les praticiens, notamment dans le cadre de leur activité libérale au sein des cabinets médicaux, et le dossier patient administratif utilisé par les établissements dans un cadre plus organisationnel et financier.
+
+Ce pont prend la forme du dossier administratif et médical, complété tout au long du parcours du patient, des points de vue complémentaires de l'établissement et des équipes médicales.
+</p>
+
+<h2>Dossier patient administratif et médical</h2><hr />
+<p>
+Gestion des identités patients (identifiant permanent du patient)
+Moteur de recherche avancé incluant les résultats proches phonétiquement
+Gestion des séjours
+Accueil clinique: admission et sortie des patients
+Création de dossier par carte Vitale
+Gestion des doublons de dossier :
+Fusion sélective de dossier
+Fusion sélective de séjours
+Ré-attribution de séjours
+Génération de documents basés sur des modèles : feuille d'admissions, consentements, fiches d'information, ordonnances
+Gestion électronique de documents, tous formats (images, PDF…), avec visualiseur multipages
+Gestion des antécédents, allergies
+Systèmes d'annotations et d'alertes partagées entre les professionnels de santé et le personnel d'établissement
+</p>
+<h2>Activité de l'établissement de santé</h2><hr />
+<p>
+Planning des admissions / sorties du patient à l'accueil
+Gestion bloc opératoire
+ordonnancement des vacations des praticiens
+suivi en temps réel de l'avancée des programmes depuis le bloc et les services d'hospitalisation
+codage des actes et des diagnostics directement en salle par les praticiens
+Planification de l'hospitalisation
+Affectation des lits
+Mouvements dans les services
+Optimisation des lits
+Système d'alertes (surréservation, conflit septiques, etc.)
+Dossier de soins infirmiers et circuit du médicament
+Prescription informatisée (médicaments, soins, consultation spécialisées, dispositifs médicaux, dispositifs médicaux implantables, paramétrable par protocoles de soins
+Plan de soins infirmier
+Gestion et suivi des transmissions ciblées
+Suivi des observations médicales
+Suivi des constantes médicales au chevet du patient
+Validation des soins et de l'administration des médicaments par le personnel
+Codage des actes et des diagnostics au chevet du patient
+Gestion complète de la pharmacie, des stocks, des commandes et du livret thérapeutique
+Traçabilité complète des médicaments, DMI, DM et dérivés sanguin
+Gestion des repas
+Système de gestion de la qualité / accréditation
+Création et suivi des fiches d'incidents
+Gestion électronique des procédures (suivi de version, regroupement par chapitres, etc.)
+Vérification du codage des actes et pré-groupage pour exportation (CPAM, système de facturation, etc.)
+Tableaux de bord de l'activité
+</p>
+<h2>Activité des praticiens</h2><hr />
+<b>Consultations</b>
+<p>
+Prise de rendez-vous de consultation
+Gestion de consultations médicales, chirurgicales,
+Antécédents, traitements, addictions, Diagnostics
+Motifs, examens, remarques, traitements
+Gestion des consultations pré-anesthésiques :
+Examens cliniques
+Conditions d'intubation, état bucco-dentaire
+Informations Anesthésie
+Score Possum, classification NYHA, Score IGS
+Intégration de la télétransmission de FSE
+Production automatisée de courriers, prescription et ordonnances, basées sur des modèles
+Tableaux de bord hebdomadaires et quotidiens
+Gestion comptable de l'activité libérale
+Suivi des paiements
+Rapports d'activité
+Comptabilité du cabinet médical (type SELARL / SCM)
+</p>
+<h2>Activité clinique</h2><hr />
+<p>
+Fiche d'admission électronique basé sur des protocoles
+Planification des plages d'opérations
+Planning du bloc opératoire
+Codage direct des actes CCAM en salle, pendant l'intervention
+Production automatisée de compte-rendus d'intervention, basé sur modèles
+Gestion des dossier d'anesthésie
+</p>
+<h2>Infrastructure</h2><hr />
+<p>
+Accès sécurisé : authentification, SSL
+Gestion multi-établissements
+Gestion des utilisateurs par cabinet / fonction
+Administration avancée des droits et permissions utilisateur
+Traçabilité des actions effectuées dans le système : historiques par objet et par utilisateur
+</p>
+    </ui:define>
+
+</ui:composition>

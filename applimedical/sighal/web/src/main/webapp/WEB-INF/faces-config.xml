@@ -7,11 +7,17 @@
 
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
-
+	</application>
+	<application>
         <resource-bundle>
             <base-name>applimedical.sighal.web.messages</base-name>
-            <var>messages</var>
+            <var>msg</var>
         </resource-bundle>
+		<locale-config>
+		    <default-locale>fr</default-locale>
+		    <supported-locale>en</supported-locale>
+		    <supported-locale>fr</supported-locale>
+		</locale-config>
 	</application>
 
 </faces-config>

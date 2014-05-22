@@ -33,9 +33,4 @@
         <property name="entityManagerFactory" ref="entityManagerFactory" />  
     </bean>
 
-    <bean id="repositoryHolder"
-          class="applimedical.sighal.dao.test.RepositoryHolder">
-          <property name="salleRepository" ref="salleRepository" />
-	</bean>
-
 </beans>

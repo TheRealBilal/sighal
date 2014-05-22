@@ -1,18 +1,16 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="/template/template.xhtml">
 	<ui:define name="template_head">
-		<title><h:outputText value="#{messages.login.error.title}"/></title>
+		<title><h:outputText value="#{msg['login.error.title']}"/></title>
 	</ui:define>
     <ui:define name="template_body">
-	    <h2>Invalid user name or password.</h2>
+	    <h2><h:outputText value="#{msg['login.error.caption']}"/></h2>
 
-	    <p>Please enter a user name or password that is authorized to access this
-	        application. For this application, this means a user that has been
-	        created in the <code>file</code> realm and has been assigned to the
-	        <em>group</em> of <code>TutorialUser</code>.</p>
-	   	<h:link outcome="pages/login.xhtml">Return to login page</h:link>
+	    <p><h:outputText value="#{msg['login.error.message']}"/></p>
+	   	<h:link outcome="/pages/login.xhtml"><h:outputText value="#{msg['login.error.link.return']}"/></h:link>
 
     </ui:define>
-</html>
+</ui:composition>

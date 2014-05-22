@@ -9,4 +9,5 @@
   <groupId>applimedical.sighal.api.dao</groupId>
   <artifactId>dao-personne</artifactId>
   <name>dao-personne</name>
+
 </project>

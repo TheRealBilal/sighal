@@ -4,20 +4,80 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
+	<!--[if !IE 7]>
+		<style type="text/css">
+			#wrap {display:table;height:100%}
+		</style>
+	<![endif]-->
+	<style>
+		html, body {height: 98%;}
+
+		#wrapTemplate {min-height: 100%;}
+
+		#headerTemplate {background-color: gray;}
+
+		#sectionMenu {
+		  position: fixed;
+		  left: 0;
+		  top: 50%;
+		  width: 8em;
+		  margin-top: -2.5em;
+		}
+
+		#mainTable td {
+			background-color: silver;
+			width: 100px;
+		}
+
+		#mainTemplate {
+			overflow:auto;
+			padding-bottom: 20px;}  /* must be same height as the footer */
+
+		#footerTemplate {position: relative;
+			margin-top: -30px; /* negative value of footer height */
+			height: 20px;
+			clear:both;
+			text-align: center;
+			background-color: gray;}
+			
+
+		 /*Opera Fix
+		body:before {
+			content:"";
+			height:100%;
+			float:left;
+			width:0;
+			margin-top:-32767px;/
+		}*/
+	</style>
 	<ui:insert name="template_head"></ui:insert>
 </h:head>
 <h:body>
-	<h:panelGrid columns="2" cellpadding="5px">
-        <f:facet name="header">
-          
-        </f:facet>
-        <div>Section1 <br />Section2 <br />Section3 <br />Section4 <br />Section5 <br /></div>
-		<ui:insert name="template_body"></ui:insert>
-        <f:facet name="footer">
-            <h:panelGroup style="display:block; text-align:center">
-                Copyright, Adim Bilal corporation.
-            </h:panelGroup>
-        </f:facet>
-	</h:panelGrid>
+	<div id="wrapTemplate">
+		<div id="headerTemplate">
+	        Menu 1 - Menu 2 - Menu 3 - Menu 4 - Menu 5...
+		</div>
+
+		<div id="mainTemplate">
+			<table id="mainTable">
+				<tr valign="middle">
+		        	<td>
+							<a href="#L384"><h:outputText value="#{msg['home.section.patient']}"/></a>
+		        	</td>
+					<td style="background-color: inherit;width: 100%;" rowspan="5">
+						<ui:insert name="template_body"></ui:insert>
+					</td>
+				</tr>
+				<tr><td><a href="#details"><h:outputText value="#{msg['home.section.staff']}"/></a></td></tr>
+				<tr><td><a href="#details"><h:outputText value="#{msg['home.section.planning']}"/></a></td></tr>
+				<tr><td><a href="#details"><h:outputText value="#{msg['home.section.stock']}"/></a></td></tr>
+				<tr><td><a href="pages/bigPage.xhtml">Test big pages Content</a></td></tr>
+			</table>
+		</div>
+	</div>
+
+	<div id="footerTemplate">
+        Copyright, Adim Bilal corporation.
+	</div>
 </h:body>
 </html>

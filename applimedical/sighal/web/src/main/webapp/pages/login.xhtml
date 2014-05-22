@@ -1,19 +1,25 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="/template/template.xhtml">
 	<ui:define name="template_head">
-		<title><h:outputText value="#{messages.login.title}"/></title>
+		<title><h:outputText value="#{msg['login.title']}"/></title>
 	</ui:define>
     <ui:define name="template_body">
-        <h2>Hello, please log in:</h2>
-        <form name="loginForm" method="POST" action="j_security_check">
-            <p><strong>Please type your user name: </strong>
-                <input type="text" name="j_username" size="25" /></p>
-            <p><strong>Please type your password: </strong>
-                <input type="password" size="15" name="j_password" /></p>
-            <p>
-                <input type="submit" value="Submit"/>
-                <input type="reset" value="Reset"/></p>
+        <form method="post" action="j_security_check" name="loginForm">
+            <h:panelGrid columns="2">
+                <h:outputLabel id="userNameLabel" for="j_username" value="#{msg['login.field.username']}"/>
+                <h:inputText id="j_username" autocomplete="off" />
+                <h:outputLabel id="passwordLabel" for="j_password" value="#{msg['login.field.password']}"/>
+                <h:inputSecret id="j_password" autocomplete="off"/>
+                <div/>
+                <h:panelGroup>
+                    <h:commandButton type="submit" value="#{msg['login.button.login']}"/>
+                    <h:commandButton type="reset" value="#{msg['login.button.reset']}"/>
+                </h:panelGroup>
+            </h:panelGrid>
         </form>
     </ui:define>
-</html>
+
+</ui:composition>

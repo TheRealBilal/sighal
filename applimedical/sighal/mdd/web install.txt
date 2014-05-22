@@ -1,2 +1,5 @@
 mvn eclipse:clean
 mvn eclipse:eclipse -Dwtpversion=2.0
+
+
+http://www.cssstickyfooter.com/using-sticky-footer-code.html

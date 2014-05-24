@@ -9,18 +9,21 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table (name="personnel")
 public class Personnel extends Personne {
 	@Column()
 	private String matricule;
 
 	@Column(name ="login", unique=true)
-   private String login;
+	private String login;
 
-   @Column(name ="mot_de_passe")
-   private String motDePasse;
+	@Column(name ="mot_de_passe")
+	private String motDePasse;
 
 	@Column(name = "date_embauche")
 	private Date dateEmbauche;
@@ -45,13 +48,17 @@ public class Personnel extends Personne {
 	@OneToMany(mappedBy="personnel")
 	private List<RendezVous> rendezVousArrangeList;
 
-   @ManyToMany(fetch=FetchType.LAZY)
-   @JoinTable(
-         name="personnel_rendez_vous",
-         joinColumns={@JoinColumn(name="personne_id", referencedColumnName="personne_id")},
-         inverseJoinColumns={@JoinColumn(name="rendez_vous_id", referencedColumnName="rendez_vous_id")}
-         )
-   private List<RendezVous> rendezVousPourList;
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="personnel_rendez_vous",
+			joinColumns={@JoinColumn(name="personne_id", referencedColumnName="personne_id")},
+			inverseJoinColumns={@JoinColumn(name="rendez_vous_id", referencedColumnName="rendez_vous_id")}
+			)
+	private List<RendezVous> rendezVousPourList;
+
+	@ManyToOne
+	@JoinColumn(name ="fonction_id" , referencedColumnName ="fonction_id")
+	private Fonction fonction;
 
 	public List<PersonnelService> getListPerssonelService() {
 		return listPerssonelService;
@@ -109,35 +116,43 @@ public class Personnel extends Personne {
 		this.salaire = salaire;
 	}
 
-   public List<RendezVous> getRendezVousArrangeList() {
-      return rendezVousArrangeList;
-   }
+	public List<RendezVous> getRendezVousArrangeList() {
+		return rendezVousArrangeList;
+	}
 
-   public void setRendezVousArrangeList(List<RendezVous> rendezVousArrangeList) {
-      this.rendezVousArrangeList = rendezVousArrangeList;
-   }
+	public void setRendezVousArrangeList(List<RendezVous> rendezVousArrangeList) {
+		this.rendezVousArrangeList = rendezVousArrangeList;
+	}
 
-   public List<RendezVous> getRendezVousPourList() {
-      return rendezVousPourList;
-   }
+	public List<RendezVous> getRendezVousPourList() {
+		return rendezVousPourList;
+	}
 
-   public void setRendezVousPourList(List<RendezVous> rendezVousPourList) {
-      this.rendezVousPourList = rendezVousPourList;
-   }
+	public void setRendezVousPourList(List<RendezVous> rendezVousPourList) {
+		this.rendezVousPourList = rendezVousPourList;
+	}
 
-   public String getLogin() {
-      return login;
-   }
+	public String getLogin() {
+		return login;
+	}
 
-   public void setLogin(String login) {
-      this.login = login;
-   }
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
-   public String getMotDePasse() {
-      return motDePasse;
-   }
+	public String getMotDePasse() {
+		return motDePasse;
+	}
 
-   public void setMotDePasse(String motDePasse) {
-      this.motDePasse = motDePasse;
-   }
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
+
+	public Fonction getFonction() {
+		return fonction;
+	}
+
+	public void setFonction(Fonction fonction) {
+		this.fonction = fonction;
+	}
 }

@@ -7,36 +7,14 @@
 <h:head>
 
 	<style>
-html,body {
-	height: 98%;
-}
 
-#wrapTemplate {
-	min-height: 100%;
-}
-
-#headerTemplate {
-	background-color: gray;
-	text-align: center;
-}
-
-#mainTemplate {
-	overflow: auto;
-	padding-bottom: 20px;
-} /* must be same height as the footer */
-#mainTable td {
-	background-color: silver;
-	width: 100px;
-}
-
-#footerTemplate {
-	position: relative;
-	margin-top: -30px; /* negative value of footer height */
-	height: 20px;
-	clear: both;
-	text-align: center;
-	background-color: gray;
-}
+ .ui-layout-north {
+                    z-index:20 !important;
+                    overflow:visible !important;;
+                }
+ .ui-layout-north .ui-layout-unit-content {
+                    overflow:visible !important;
+                }
 
 </style>
 	<ui:insert name="template_head"></ui:insert>
@@ -54,9 +32,9 @@ html,body {
         <h:outputText value="South unit content." />
     </p:layoutUnit> -->
 
-		<p:layoutUnit position="west" size="200" header="Left"
+		<p:layoutUnit position="west" size="200"
 			resizable="true" closable="false" collapsible="false">
-			<h:outputText value="West unit content." />
+			<ui:insert name="template_arbre"></ui:insert>
 		</p:layoutUnit>
 
 		<!-- <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">

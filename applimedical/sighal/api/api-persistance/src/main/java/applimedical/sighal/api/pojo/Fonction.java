@@ -34,6 +34,9 @@ public class Fonction implements Serializable {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "fonction", fetch=FetchType.LAZY)
 	private List<RelFctModulePerm> relFctModulePermList;
+	
+	@OneToMany(mappedBy = "fonction", fetch=FetchType.LAZY)
+	private List<Personnel> personnelList;
 
 
 	public String getNomFonction() {
@@ -74,5 +77,13 @@ public class Fonction implements Serializable {
 
 	public void setRelFctModulePermList(List<RelFctModulePerm> relFctModulePermList) {
 		this.relFctModulePermList = relFctModulePermList;
+	}
+	
+	public List<Personnel> getPersonnelList() {
+		return personnelList;
+	}
+
+	public void setPersonnelList(List<Personnel> personnelList) {
+		this.personnelList = personnelList;
 	}
 }

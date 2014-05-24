@@ -2,80 +2,71 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<!--[if !IE 7]>
-		<style type="text/css">
-			#wrap {display:table;height:100%}
-		</style>
-	<![endif]-->
+
 	<style>
-		html, body {height: 98%;}
+html,body {
+	height: 98%;
+}
 
-		#wrapTemplate {min-height: 100%;}
+#wrapTemplate {
+	min-height: 100%;
+}
 
-		#headerTemplate {background-color: gray;text-align: center;}
+#headerTemplate {
+	background-color: gray;
+	text-align: center;
+}
 
-		#mainTemplate {
-			overflow: auto;
-			padding-bottom: 20px;} /* must be same height as the footer */
+#mainTemplate {
+	overflow: auto;
+	padding-bottom: 20px;
+} /* must be same height as the footer */
+#mainTable td {
+	background-color: silver;
+	width: 100px;
+}
 
-		#mainTable td {
-			background-color: silver;
-			width: 100px;
-		}
+#footerTemplate {
+	position: relative;
+	margin-top: -30px; /* negative value of footer height */
+	height: 20px;
+	clear: both;
+	text-align: center;
+	background-color: gray;
+}
 
-		#footerTemplate {position: relative;
-			margin-top: -30px; /* negative value of footer height */
-			height: 20px;
-			clear:both;
-			text-align: center;
-			background-color: gray;}
-
-		 /*Opera Fix
-		body:before {
-			content:"";
-			height:100%;
-			float:left;
-			width:0;
-			margin-top:-32767px;/
-		}*/
-	</style>
+</style>
 	<ui:insert name="template_head"></ui:insert>
 </h:head>
+
 <h:body>
-	<div id="wrapTemplate">
-		<div id="headerTemplate">
-			<big><b>Sighal Application</b></big><br/>
-	        Sysèmes informatique de Gestion des hopitaux Algérie
-		</div>
+	<p:layout fullPage="true">
 
-		<div id="mainTemplate">
-			<table id="mainTable">
-				<tr>
-		        	<td style="background-color: inherit;width: auto;"></td>
-		        	<td style="background-color: inherit;width: 100%;">
-		        		<ui:insert name="template_menu"></ui:insert>
-		        	</td>
-				</tr>
-				<tr valign="middle">
-		        	<td>
-		        		<a href="#L384"><h:outputText value="#{msg['home.section.patient']}"/></a>
-		        	</td>
-					<td style="background-color: inherit;width: 100%;" rowspan="5">
-						<ui:insert name="template_body"></ui:insert>
-					</td>
-				</tr>
-				<tr><td><a href="#details"><h:outputText value="#{msg['home.section.staff']}"/></a></td></tr>
-				<tr><td><a href="#details"><h:outputText value="#{msg['home.section.planning']}"/></a></td></tr>
-				<tr><td><a href="#details"><h:outputText value="#{msg['home.section.stock']}"/></a></td></tr>
-				<tr><td><a href="pages/bigPage.xhtml">Test big pages Content</a></td></tr>
-			</table>
-		</div>
-	</div>
+		<p:layoutUnit position="north" size="70" resizable="true"
+			closable="false" collapsible="flse">
+			<ui:insert name="template_menu"></ui:insert>
+		</p:layoutUnit>
 
-	<div id="footerTemplate">
-        Copyright, Adim Bilal corporation.
-	</div>
+		<!--  <p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">
+        <h:outputText value="South unit content." />
+    </p:layoutUnit> -->
+
+		<p:layoutUnit position="west" size="200" header="Left"
+			resizable="true" closable="false" collapsible="false">
+			<h:outputText value="West unit content." />
+		</p:layoutUnit>
+
+		<!-- <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
+        <h:outputText value="Right unit content." />
+    </p:layoutUnit> -->
+
+		<p:layoutUnit position="center">
+			<ui:insert name="template_body"></ui:insert>
+		</p:layoutUnit>
+
+	</p:layout>
 </h:body>
 </html>

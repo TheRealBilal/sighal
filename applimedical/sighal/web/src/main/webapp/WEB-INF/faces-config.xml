@@ -9,15 +9,21 @@
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 	</application>
 	<application>
-        <resource-bundle>
-            <base-name>applimedical.sighal.web.messages</base-name>
-            <var>msg</var>
-        </resource-bundle>
+		<resource-bundle>
+			<base-name>applimedical.sighal.web.messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
 		<locale-config>
-		    <default-locale>fr</default-locale>
-		    <supported-locale>en</supported-locale>
-		    <supported-locale>fr</supported-locale>
+			<default-locale>fr</default-locale>
+			<supported-locale>en</supported-locale>
+			<supported-locale>fr</supported-locale>
 		</locale-config>
 	</application>
+	
+	<managed-bean>
+		<managed-bean-name>now</managed-bean-name>
+		<managed-bean-class>java.util.Date</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 
 </faces-config>

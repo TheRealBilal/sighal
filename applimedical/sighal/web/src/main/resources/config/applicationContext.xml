@@ -9,6 +9,7 @@
 
 	<import resource="classpath:business-personne-cxt.xml" />
 
-	<context:component-scan base-package="applimedical.sighal.web" />
-
+	
+ 	<context:annotation-config />
+ 	<context:component-scan base-package="applimedical.sighal.web" />
 </beans>

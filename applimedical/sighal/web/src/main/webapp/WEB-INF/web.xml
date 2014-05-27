@@ -1,8 +1,7 @@
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-	      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	      version="2.5">	
+	version="2.5">
 
 	<display-name>Sighal Web Application</display-name>
 
@@ -15,16 +14,21 @@
 		<param-value>bootstrap</param-value>
 	</context-param>
 
+	<context-param>
+		<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
 	<welcome-file-list>
 		<welcome-file>pages/index.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	<listener>
-        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-    </listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
 
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
@@ -45,18 +49,18 @@
 			<web-resource-name>All Access</web-resource-name>
 			<url-pattern>/pages/pr/*</url-pattern>
 			<http-method>GET</http-method>
-            <http-method>POST</http-method>
-            <http-method>HEAD</http-method>
-            <http-method>PUT</http-method>
-            <http-method>OPTIONS</http-method>
-            <http-method>TRACE</http-method>
-            <http-method>DELETE</http-method>
+			<http-method>POST</http-method>
+			<http-method>HEAD</http-method>
+			<http-method>PUT</http-method>
+			<http-method>OPTIONS</http-method>
+			<http-method>TRACE</http-method>
+			<http-method>DELETE</http-method>
 		</web-resource-collection>
 		<auth-constraint>
-		    <role-name>medecin</role-name>
-		    <role-name>aideSoignant</role-name>
-		    <role-name>gestionnaireStock</role-name>
-		    <role-name>patient</role-name>
+			<role-name>medecin</role-name>
+			<role-name>aideSoignant</role-name>
+			<role-name>gestionnaireStock</role-name>
+			<role-name>patient</role-name>
 		</auth-constraint>
 		<user-data-constraint>
 			<transport-guarantee>NONE</transport-guarantee>
@@ -72,17 +76,17 @@
 	</login-config>
 
 	<security-role>
-	    <role-name>medecin</role-name>
+		<role-name>medecin</role-name>
 	</security-role>
 	<security-role>
-	    <role-name>aideSoignant</role-name>
+		<role-name>aideSoignant</role-name>
 	</security-role>
 	<security-role>
-	    <role-name>gestionnaireStock</role-name>
+		<role-name>gestionnaireStock</role-name>
 	</security-role>
 	<security-role>
-	    <role-name>patient</role-name>
+		<role-name>patient</role-name>
 	</security-role>
-	
-	
+
+
 </web-app>

@@ -41,7 +41,7 @@
 		}
 
 		.footerLayoutStyleClass .ui-layout-unit-content {
-			background-color: orange;
+			background-color: red;
 			text-align: center;
 		}
 		/*.footerLayoutStyleClass .ui-accordion .ui-accordion-content.ui-widget-content {
@@ -49,6 +49,7 @@
 		}*/
 
 	</style>
+	
 	<ui:insert name="template_head"></ui:insert>
 </h:head>
 
@@ -56,9 +57,22 @@
 
 		<p:layout fullPage="true">
 			<p:layoutUnit position="north">
-				<table width="100%" style="background-color: orange;">
+				<table width="100%" style="background-color: red;">
 					<tr>
-						<td width="90%" align="center"><big><b>Sighal
+					<td width="20%" align="center">
+						<h:form>
+						<h:outputText id="currentDate" value="#{now}" >
+   							<f:convertDateTime pattern="E dd-MM-yyyy" />
+  						</h:outputText><br/>
+  							<h:outputText id="currentTime" value="#{now}" >
+   							<f:convertDateTime pattern="k:mm" />
+  						</h:outputText>
+  						
+  						 
+   		 				<p:poll interval="59" listener="#{appBean.now()}" update="currentDate currentTime" />
+   		 				</h:form>
+  					</td>
+						<td width="70%" align="center"><big><b>Sighal
 									Application</b></big><br/>Sysèmes d'information de Gestion hospitaliére 
 							Algérie</td>
 						<td width="10%" align="center">
@@ -91,8 +105,8 @@
 		        <h:outputText value="Right unit content." />
 		    </p:layoutUnit> -->
 		
-					<p:layoutUnit position="center">
-						<ui:insert name="template_body"></ui:insert>
+					<p:layoutUnit position="center" style="background-color: yellow;">
+						<div style="background-color: yellow;"> <ui:insert name="template_body"></ui:insert></div>
 					</p:layoutUnit>
 				</p:layout>
 			</p:layoutUnit>

@@ -37,6 +37,13 @@
 			<version>4.0.2.RELEASE</version>
 		</dependency>
 		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+
+		<!-- Sighal api dependencis -->
+		<dependency>
 			<groupId>applimedical.sighal.api.business</groupId>
 			<artifactId>business-personne</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
@@ -52,9 +59,9 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.primefaces.themes</groupId>
-			<artifactId>all-themes</artifactId>
-			<version>1.0.10</version>
+			<groupId>applimedical.sighal.api</groupId>
+			<artifactId>api-model</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

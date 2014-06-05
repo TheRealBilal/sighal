@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="template_head">
+		<title><h:outputText value="#{msg['room.title']}" /></title>
+	</ui:define>
+
+	<ui:define name="template_toolbar">
+		<h:form>
+			<p:toolbar>
+		        <f:facet name="left">
+		            <p:commandButton type="button" title="New" icon="ui-icon-new" />
+		            <p:commandButton type="button" title="Save" icon="ui-icon-disk" />
+		            <p:commandButton type="button" title="Delete" icon="ui-icon-trash" />
+		        </f:facet>
+	        </p:toolbar>
+        </h:form>
+	</ui:define>
+
+	<ui:define name="template_body">
+		<p:messages autoUpdate="true" />
+		<h:form>
+			<p:panel id="panel" header="Salle infos">
+				<p:panelGrid columns="2">
+					<h:outputLabel for="codeSalle" value="#{msg['room.field.code']}" />
+					<h:inputText id="codeSalle" value="#{selectedSalle.codeSalle}"/>
+					<h:outputLabel for="nomSalle" value="#{msg['room.field.name']}" />
+					<h:inputText id="nomSalle" value="#{selectedSalle.nomSalle}"/>
+					<h:outputLabel for="descriptionSalle" value="#{msg['room.field.description']}" />
+					<h:inputText id="descriptionSalle" value="#{selectedSalle.descriptionSalle}"/>
+					<h:outputLabel for="commentarySalle" value="#{msg['room.field.commentary']}" />
+					<h:inputText id="commentarySalle" value="#{selectedSalle.commentarySalle}"/>
+				</p:panelGrid>
+			</p:panel>
+			<p:dataTable var="salleIt" value="#{salleBn.salleList}" emptyMessage="#{msg['sighal.table.empty']}">
+			 	<f:facet name="header">
+					<h:outputText value="#{msg['room.table.title']}" />
+			    </f:facet>
+			    <p:column headerText="#{msg['room.field.code']}">
+			        <h:outputText value="#{salleIt.codeSalle}" />
+			    </p:column>
+			    <p:column headerText="#{msg['room.field.name']}">
+			        <h:outputText value="#{salleIt.nomSalle}" />
+			    </p:column>
+			    <p:column headerText="#{msg['room.field.description']}">
+			        <h:outputText value="#{salleIt.descriptionSalle}" />
+			    </p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -10,63 +10,7 @@
 		<title>Index page</title>
 	</ui:define>
 
-	<ui:define name="template_menu">
-		<p:menubar>
-			<p:submenu label="personnels" icon="ui-icon-document">
-				<p:submenu label="rattcher" icon="ui-icon-contact">
-					<p:menuitem value="service" url="#" />
-					<p:menuitem value="specialité" url="#" />
-				</p:submenu>
-				<p:menuitem value="créer" url="#" />
-				<p:separator />
-				<p:menuitem value="rechercher" url="#" />
-			</p:submenu>
-
-			<p:submenu label="modules" icon="ui-icon-pencil">
-				<p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
-				<p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
-			</p:submenu>
-
-			<p:submenu label="horaires" icon="ui-icon-help">
-				<p:menuitem value="Contents" url="#" />
-				<p:submenu label="Search" icon="ui-icon-search">
-					<p:submenu label="Text">
-						<p:menuitem value="Workspace" url="#" />
-					</p:submenu>
-					<p:menuitem value="File" url="#" />
-				</p:submenu>
-			</p:submenu>
-
-
-			<p:menuitem value="droits" url="http://www.primefaces.org"
-				icon="ui-icon-close" />
-
-			<f:facet name="options">
-				<p:commandButton type="button" value="deconnexion"
-					icon="ui-icon-extlink" />
-			</f:facet>
-		</p:menubar>
-	</ui:define>
-	<ui:define name="template_arbre">
-		<h:form>
-			<p:menu>
-				<p:submenu label="Ajax Menuitems">
-					<p:menuitem value="Save" actionListener="#" icon="ui-icon-disk" />
-					<p:menuitem value="Update" actionListener="#"
-						icon="ui-icon-arrowrefresh-1-w" />
-				</p:submenu>
-				<p:submenu label="Non-Ajax Menuitem">
-					<p:menuitem value="Delete" actionListener="#" ajax="false"
-						icon="ui-icon-close" />
-				</p:submenu>
-
-			</p:menu>
-		</h:form>
-	</ui:define>
 	<ui:define name="template_body">
-		<p:messages autoUpdate="true" />
-
-		<p:commandButton value="Submit" oncomplete="PF('dlg').show()"
-			icon="ui-icon-check" />
+		Bienvenue tout le monde
 	</ui:define>
 </ui:composition>

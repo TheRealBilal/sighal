@@ -9,6 +9,6 @@
 
 	<import resource="classpath:dao-personne-cxt.xml" />
 
-	<context:component-scan base-package="applimedical.sighal.web" />
+	<context:component-scan base-package="applimedical.sighal.business" />
 
 </beans>

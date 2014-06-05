@@ -1,0 +1,47 @@
+		.ui-layout-north {
+			z-index: 20 !important;
+			overflow: visible !important;;
+		}
+		
+		.ui-layout-north .ui-layout-unit-content {
+			overflow: visible !important;
+		}
+
+		.ui-layout-north .ui-layout-unit-content {
+			overflow: visible !important;
+		}
+
+		.ui-menu.ui-widget {
+			border: 0px;
+		}
+
+		.ui-widget-content {
+			border: 3px;
+		}
+
+		.ui-widget-header {
+			border: 0px;
+			background-color: orange;
+		}
+
+		.leftMenuLayoutStyleClass {
+			padding-top: 0px;padding-bottom: 0px;
+			padding-left: 10px;padding-right: 0px;
+		}
+
+		.leftMenuLayoutStyleClass .ui-menu {
+			background-color: orange;
+		}
+
+		.leftMenuLayoutStyleClass .ui-layout-unit-content {
+			background-color: orange;
+		}
+
+		.footerLayoutStyleClass {
+			padding-top: 0px;padding-bottom: 0px;
+		}
+
+		.footerLayoutStyleClass .ui-layout-unit-content {
+			background-color: orange;
+			text-align: center;
+		}

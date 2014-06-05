@@ -21,8 +21,17 @@ public class Salle {
    @Column(name = "salle_id")
    private Long salleId;
 
+   @Column (name ="code_salle")
+   private String codeSalle;
+
    @Column (name ="nom_salle")
    private String nomSalle;
+
+   @Column (name ="description_salle")
+   private String decriptionSalle;
+
+   @Column (name ="commentary_salle")
+   private String commentarySalle;
 
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "salle", fetch=FetchType.LAZY)
    private List<RendezVous> rendezVousList;
@@ -35,12 +44,36 @@ public class Salle {
       this.salleId = salleId;
    }
 
+   public String getCodeSalle() {
+      return nomSalle;
+   }
+
+   public void setCodeSalle(String codeSalle) {
+      this.codeSalle = codeSalle;
+   }
+
    public String getNomSalle() {
       return nomSalle;
    }
 
    public void setNomSalle(String nomSalle) {
       this.nomSalle = nomSalle;
+   }
+
+   public String getDecriptionSalle() {
+      return decriptionSalle;
+   }
+
+   public void setDecriptionSalle(String decriptionSalle) {
+      this.decriptionSalle = decriptionSalle;
+   }
+
+   public String getCommentarySalle() {
+      return commentarySalle;
+   }
+
+   public void setCommentarySalle(String commentarySalle) {
+      this.commentarySalle = commentarySalle;
    }
 
    public List<RendezVous> getRendezVousList() {

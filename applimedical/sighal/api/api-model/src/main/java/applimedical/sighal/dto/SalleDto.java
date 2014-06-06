@@ -10,7 +10,7 @@ public class SalleDto {
 
    private String nomSalle;
 
-   private String decriptionSalle;
+   private String descriptionSalle;
 
    private String commentarySalle;
 
@@ -40,12 +40,12 @@ public class SalleDto {
       this.nomSalle = nomSalle;
    }
 
-   public String getDecriptionSalle() {
-      return decriptionSalle;
+   public String getDescriptionSalle() {
+      return descriptionSalle;
    }
 
-   public void setDecriptionSalle(String decriptionSalle) {
-      this.decriptionSalle = decriptionSalle;
+   public void setDescriptionSalle(String descriptionSalle) {
+      this.descriptionSalle = descriptionSalle;
    }
 
    public String getCommentarySalle() {

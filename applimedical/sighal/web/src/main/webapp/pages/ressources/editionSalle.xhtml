@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="template_head">
+		<title><h:outputText value="#{msg['room.title']}" /></title>
+	</ui:define>
+
+	<ui:define name="template_body">
+		<h:form id="frmSalle">
+			<p:toolbar>
+		        <f:facet name="right">
+		            <p:commandButton type="push" title="#{msg['button.cancel']}" icon="ui-icon-arrowreturnthick-1-w"
+		            	action="#{salleBn.startPage}" ajax="false" />
+		            <p:commandButton type="push" title="#{msg['button.save']}" icon="ui-icon-check"
+		            	action="#{salleBn.sauvegarder}" ajax="false" />
+		            <p:commandButton type="push" title="#{msg['button.delete']}" icon="ui-icon-trash"
+		            	action="#{salleBn.supprimer(salleBn.selectedSalle.salleId)}" ajax="false" />
+		        </f:facet>
+	        </p:toolbar>
+	        <p:messages autoUpdate="true" />
+			<p:panel id="panel" header="Salle infos">
+				<p:panelGrid columns="2">
+					<h:outputLabel for="codeSalle" value="#{msg['room.field.code']}" />
+					<h:inputText id="codeSalle" value="#{salleBn.selectedSalle.codeSalle}"
+						size="16" maxlength="16" />
+					<h:outputLabel for="nomSalle" value="#{msg['room.field.name']}" />
+					<h:inputText id="nomSalle" value="#{salleBn.selectedSalle.nomSalle}"
+						size="30" maxlength="30" />
+					<h:outputLabel for="descriptionSalle" value="#{msg['room.field.description']}" />
+					<h:inputText id="descriptionSalle" value="#{salleBn.selectedSalle.descriptionSalle}"
+						size="50" maxlength="50" />
+					<h:outputLabel for="commentarySalle" value="#{msg['room.field.commentary']}" />
+					<h:inputTextarea id="commentarySalle" value="#{salleBn.selectedSalle.commentarySalle}" />
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

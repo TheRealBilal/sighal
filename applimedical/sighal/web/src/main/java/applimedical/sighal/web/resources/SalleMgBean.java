@@ -1,47 +1,58 @@
 package applimedical.sighal.web.resources;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
-import applimedical.sighal.business.PersonneBusiness;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import applimedical.sighal.business.RessourceBusiness;
 import applimedical.sighal.dto.SalleDto;
 
-@Component("salleBn")
-@Scope("request")
+@Controller("salleBn")
+@ManagedBean
+@ViewScoped
 public class SalleMgBean {
    @Autowired
-   private PersonneBusiness personneBusiness;
+   private RessourceBusiness ressourceBusiness;
 
    private SalleDto selectedSalle;
 
    private List<SalleDto> salleList;
 
+   @PostConstruct
+   public void init() {
+      selectedSalle = new SalleDto();
+      salleList = ressourceBusiness.getToutesLesSalles();
+   }
+
    public String startPage() {
       selectedSalle = new SalleDto();
-      salleList = new ArrayList<SalleDto>();
-      SalleDto salle = new SalleDto();
-      salle.setCodeSalle("codeSalle1");
-      salle.setNomSalle("nomSalle1");
-      salle.setDecriptionSalle("codeSalle1");
-      salle.setCommentarySalle("CommentarySalle1");
-      salleList.add(salle);
-      salle = new SalleDto();
-      salle.setCodeSalle("codeSalle2");
-      salle.setNomSalle("nomSalle2");
-      salle.setDecriptionSalle("codeSalle2");
-      salle.setCommentarySalle("CommentarySalle2");
-      salleList.add(salle);
-      salle = new SalleDto();
-      salle.setCodeSalle("codeSalle3");
-      salle.setNomSalle("nomSalle3");
-      salle.setDecriptionSalle("codeSalle3");
-      salle.setCommentarySalle("CommentarySalle3");
-      salleList.add(salle);
-      return "pages/resources/salles.xhtml";
+      salleList = ressourceBusiness.getToutesLesSalles();
+      return "listeSalle";
+   }
+
+   public String initCreer() {
+      selectedSalle = new SalleDto();
+      return "editionSalle";
+   }
+
+   public String initModifier(SalleDto salle) {
+      selectedSalle = salle;
+      return "editionSalle";
+   }
+
+   public String sauvegarder() {
+      ressourceBusiness.sauvegarderSalle(selectedSalle);
+      return startPage();
+   }
+
+   public String supprimer(String salleId) {
+      ressourceBusiness.supprimerSalle(Long.valueOf(salleId));
+      return startPage();
    }
 
    public SalleDto getSelectedSalle() {

@@ -16,7 +16,7 @@
 				<tr>
 					<td width="20%" align="center">
   		 				<p:clock pattern="E dd-MMM-yyyy" /><br />
-  		 				<p:clock pattern="k:mm:ss" />
+  		 				<p:clock pattern="HH:mm:ss" />
  					</td>
 					<td width="70%" align="center">
 						<big><b><h:outputText value="#{msg['sighal.title']}" /></b></big>
@@ -47,7 +47,7 @@
 					</p:submenu>
 					<p:submenu label="Ressources">
 						<p:submenu label="Salles">
-							<p:menuitem value="Nouveau" outcome="/pages/resources/salles.xhtml" icon="ui-icon-close" />
+							<p:menuitem value="Nouveau" outcome="listeSalle" icon="ui-icon-close" />
 							<p:menuitem value="Modifier" actionListener="#" ajax="false" icon="ui-icon-close" />
 						</p:submenu>
 					</p:submenu>

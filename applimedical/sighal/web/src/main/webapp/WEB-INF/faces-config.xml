@@ -19,4 +19,30 @@
 			<supported-locale>fr</supported-locale>
 		</locale-config>
 	</application>
+
+	<navigation-rule>
+		<from-view-id>/pages/ressources/listeSalle.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>editionSalle</from-outcome>
+			<to-view-id>/pages/ressources/editionSalle.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/pages/ressources/editionSalle.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listeSalle</from-outcome>
+			<to-view-id>/pages/ressources/listeSalle.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>listeSalle</from-outcome>
+			<to-view-id>/pages/ressources/listeSalle.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 </faces-config>

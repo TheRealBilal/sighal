@@ -15,4 +15,12 @@
   	<module>business-stock</module>
   	<module>business-dossier</module>
   </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>applimedical.sighal.api</groupId>
+      <artifactId>api-model</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 </project>

@@ -28,7 +28,7 @@ public class Salle {
    private String nomSalle;
 
    @Column (name ="description_salle")
-   private String decriptionSalle;
+   private String descriptionSalle;
 
    @Column (name ="commentary_salle")
    private String commentarySalle;
@@ -45,7 +45,7 @@ public class Salle {
    }
 
    public String getCodeSalle() {
-      return nomSalle;
+      return codeSalle;
    }
 
    public void setCodeSalle(String codeSalle) {
@@ -60,12 +60,12 @@ public class Salle {
       this.nomSalle = nomSalle;
    }
 
-   public String getDecriptionSalle() {
-      return decriptionSalle;
+   public String getDescriptionSalle() {
+      return descriptionSalle;
    }
 
-   public void setDecriptionSalle(String decriptionSalle) {
-      this.decriptionSalle = decriptionSalle;
+   public void setDescriptionSalle(String descriptionSalle) {
+      this.descriptionSalle = descriptionSalle;
    }
 
    public String getCommentarySalle() {

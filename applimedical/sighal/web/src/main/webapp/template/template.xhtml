@@ -46,10 +46,7 @@
 						<p:menuitem value="Modifier RDV" actionListener="#" ajax="false" icon="ui-icon-close" />
 					</p:submenu>
 					<p:submenu label="Ressources">
-						<p:submenu label="Salles">
-							<p:menuitem value="Nouveau" outcome="listeSalle" icon="ui-icon-close" />
-							<p:menuitem value="Modifier" actionListener="#" ajax="false" icon="ui-icon-close" />
-						</p:submenu>
+						<p:menuitem value="Salles" action="#{salleBn.startPage}" ajax="false" />
 					</p:submenu>
 				</p:slideMenu>
 			</h:form>

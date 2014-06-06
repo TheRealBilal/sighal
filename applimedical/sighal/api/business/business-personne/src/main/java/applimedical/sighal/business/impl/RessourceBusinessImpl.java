@@ -44,6 +44,23 @@ public class RessourceBusinessImpl implements RessourceBusiness {
 	   return salleDto;
 	}
 
+	public List<SalleDto> getSalles(String code, String nom) {
+      List<Salle> salleList = salleRepo.findListeSalle(
+            code == null ? "%" : "%" + code +"%",
+            nom == null ? "%" : "%" + nom +"%");
+      List<SalleDto> salleDtoList = new ArrayList<SalleDto>();
+      for (Salle salleIt : salleList) {
+         SalleDto salleDto = new SalleDto();
+         salleDto.setSalleId(salleIt.getSalleId());
+         salleDto.setNomSalle(salleIt.getNomSalle());
+         salleDto.setCodeSalle(salleIt.getCodeSalle());
+         salleDto.setDescriptionSalle(salleIt.getDescriptionSalle());
+         salleDto.setCommentarySalle(salleIt.getCommentarySalle());
+         salleDtoList.add(salleDto);
+      }
+      return salleDtoList;
+	}
+
    public SalleDto sauvegarderSalle(SalleDto salleDto) {
       Salle salle;
       if (salleDto.getSalleId() == null) {

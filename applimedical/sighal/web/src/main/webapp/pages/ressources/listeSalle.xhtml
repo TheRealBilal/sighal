@@ -32,10 +32,11 @@
 					</p:row>
 					<p:row>
 						<p:column colspan="4"><p:spacer /></p:column>
-			            <p:column><p:commandButton type="reset" title="#{msg['button.reset']}" icon="ui-icon-clear" />
-			            	<p:commandButton type="button" title="#{msg['button.search']}" icon="ui-icon-find"
-			            		action="#{salleBn.rechercher}" update="@frmSalle:salleDatatable"
-			            		process="@frmSalle:codeSalle @frmSalle:nomSalle" />
+			            <p:column>
+			            	<p:commandButton type="reset" title="#{msg['button.reset']}" value="#{msg['button.reset']}" />
+			            	<p:commandButton title="#{msg['button.search']}"
+			            		value="#{msg['button.search']}"
+			            		action="#{salleBn.rechercher}" />
 			            </p:column>
 		            </p:row>
 				</p:panelGrid>

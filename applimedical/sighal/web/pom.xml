@@ -49,6 +49,11 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>applimedical.sighal.api.business</groupId>
+			<artifactId>business-dossier</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>applimedical.sighal.api</groupId>
 			<artifactId>api-persistance</artifactId>
 			<version>0.0.1-SNAPSHOT</version>

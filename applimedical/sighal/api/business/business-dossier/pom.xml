@@ -8,4 +8,20 @@
   <groupId>applimedical.sighal.api.business</groupId>
   <artifactId>business-dossier</artifactId>
   <name>business-dossier</name>
+  
+  
+   <dependencies>
+  	<dependency>
+  		 <groupId>applimedical.sighal.api.dao</groupId>
+  		<artifactId>dao-personne</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	
+  	<dependency>
+  		 <groupId>applimedical.sighal.api.business</groupId>
+  		<artifactId>business-personne</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+  
 </project>

@@ -35,7 +35,7 @@ public class Personnel extends Personne {
 	private Double salaire;
 
 	@OneToMany(mappedBy = "personnel")
-	private List<PersonnelService> listPerssonelService;
+	private List<PersonnelService> personnelServiceList;
 
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(
@@ -60,12 +60,12 @@ public class Personnel extends Personne {
 	@JoinColumn(name ="fonction_id" , referencedColumnName ="fonction_id")
 	private Fonction fonction;
 
-	public List<PersonnelService> getListPerssonelService() {
-		return listPerssonelService;
+	public List<PersonnelService> getPersonnelServiceList() {
+		return personnelServiceList;
 	}
 
-	public void setListPerssonelService(List<PersonnelService> listPerssonelService) {
-		this.listPerssonelService = listPerssonelService;
+	public void setPersonnelServiceList(List<PersonnelService> personnelServiceList) {
+		this.personnelServiceList = personnelServiceList;
 	}
 
 	public List<Qualification> getQualificationList() {
@@ -74,14 +74,6 @@ public class Personnel extends Personne {
 
 	public void setQualificationList(List<Qualification> qualificationList) {
 		this.qualificationList = qualificationList;
-	}
-
-	public List<PersonnelService> getServices() {
-		return listPerssonelService;
-	}
-
-	public void setServices(List<PersonnelService> services) {
-		this.listPerssonelService = services;
 	}
 
 	public String getMatricule() {

@@ -15,5 +15,14 @@
   		<artifactId>dao-personne</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+
+	<!-- Spring security -->
+    <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-config</artifactId>
+        <version>3.2.4.RELEASE</version>
+        <scope>compile</scope>
+    </dependency>
+	<!-- Spring security -->
   </dependencies>
 </project>

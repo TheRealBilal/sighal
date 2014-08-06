@@ -1,25 +1,40 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      template="/template/template.xhtml">
-	<ui:define name="template_head">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
 		<title><h:outputText value="#{msg['login.title']}"/></title>
-	</ui:define>
-    <ui:define name="template_body">
-        <form method="post" action="j_security_check" name="loginForm">
-            <h:panelGrid columns="2">
-                <h:outputLabel id="userNameLabel" for="j_username" value="#{msg['login.field.username']}"/>
-                <h:inputText id="j_username" autocomplete="off" />
-                <h:outputLabel id="passwordLabel" for="j_password" value="#{msg['login.field.password']}"/>
-                <h:inputSecret id="j_password" autocomplete="off"/>
-                <div/>
-                <h:panelGroup>
-                    <h:commandButton type="submit" value="#{msg['login.button.login']}"/>
-                    <h:commandButton type="reset" value="#{msg['button.reset']}"/>
-                </h:panelGroup>
-            </h:panelGrid>
-        </form>
-    </ui:define>
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/template.css" />
+	</h:head>
+	<h:body>
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north">
+				<ui:include src="/template/template_top.xhtml" />
+			</p:layoutUnit>
+	    	<p:layoutUnit position="center">
+			    <c:if test="${param.error != null}">
+				    <span style="color: red"><h:outputText value="#{msg['login.error.caption']}"/>
+				    <br /><h:outputText value="#{msg['login.error.message']}"/></span>
+			    </c:if>
 
-</ui:composition>
+		        <form method="post" action="#{request.contextPath}/j_spring_security_check" name="loginForm">
+		            <h:panelGrid columns="2">
+		                <h:outputLabel id="userNameLabel" for="j_username" value="#{msg['login.field.username']}"/>
+		                <h:inputText id="j_username" autocomplete="off" />
+		                <h:outputLabel id="passwordLabel" for="j_password" value="#{msg['login.field.password']}"/>
+		                <h:inputSecret id="j_password" autocomplete="off"/>
+		                <div />
+		                <h:panelGroup>
+		                    <h:commandButton type="submit" value="#{msg['login.button.login']}"/>
+		                    <h:commandButton type="reset" value="#{msg['button.reset']}"/>
+		                </h:panelGroup>
+		            </h:panelGrid>
+		        </form>
+	    	</p:layoutUnit>
+			<p:layoutUnit position="south" styleClass="footerLayoutStyleClass" >
+	        	<ui:include src="/template/template_bottom.xhtml" />
+	    	</p:layoutUnit>
+	    </p:layout>
+</h:body>
+</html>

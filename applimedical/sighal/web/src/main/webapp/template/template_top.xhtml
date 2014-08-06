@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+	<table style="width: 100%;background-color: orange;">
+		<tr>
+			<td width="20%" align="center">
+		 		<p:clock pattern="E dd-MMM-yyyy" /><br />
+		 		<p:clock pattern="HH:mm:ss" />
+			</td>
+			<td width="70%" align="center">
+				<a href="#{request.contextPath}/" style="text-decoration: none;font-size: 20px;"><b>#{msg['sighal.title']}</b></a>
+				<br />
+				<a href="#{request.contextPath}/" style="text-decoration: none;font-size: 18px;">#{msg['sighal.big.title']}</a>
+			</td>
+			<td width="10%" align="center">
+				<c:if test="#{userBean.isAuthentifie()}">
+					<h:outputText value="#{userBean.username}" title="#{userBean.prenom} #{userBean.nom}" /><br/>
+					<a href="#{request.contextPath}/j_spring_security_logout">
+						<h:graphicImage url="/img/logout.png" width="45" height="45"
+						title="#{msg['button.logout']}" alt="#{msg['button.logout']}" />
+					</a>
+				</c:if>
+			</td>
+		</tr>
+	</table>
+</ui:composition>

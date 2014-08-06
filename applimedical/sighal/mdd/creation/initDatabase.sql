@@ -5,6 +5,6 @@ mysql -h localhost -u root;
 GRANT ALL PRIVILEGES ON sighal_database.sighal_database TO 'sighalWebUser'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
 
 /--Creation d'une base de donnée--/
-CREATE DATABASE sighal_database;
+CREATE DATABASE sighal_database CHARACTER SET latin1 COLLATE latin1_general_cs;
 
 exit;

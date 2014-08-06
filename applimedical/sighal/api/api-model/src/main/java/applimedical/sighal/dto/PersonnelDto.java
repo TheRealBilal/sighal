@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 public class PersonnelDto extends PersonneDto {
+   private String login;
+
+   private String motDePasse;
 
 	private String matricule;
 
@@ -21,7 +24,25 @@ public class PersonnelDto extends PersonneDto {
 
    private List<RendezVousDto> rendezVousPourDtoList;
 
-	public List<PersonnelServiceDto> getPersonnelServiceDtoList() {
+   private FonctionDto fonctionDto;
+
+	public String getLogin() {
+      return login;
+   }
+
+   public void setLogin(String login) {
+      this.login = login;
+   }
+
+   public String getMotDePasse() {
+      return motDePasse;
+   }
+
+   public void setMotDePasse(String motDePasse) {
+      this.motDePasse = motDePasse;
+   }
+
+   public List<PersonnelServiceDto> getPersonnelServiceDtoList() {
 		return personnelServiceDtoList;
 	}
 
@@ -83,5 +104,13 @@ public class PersonnelDto extends PersonneDto {
 
    public void setRendezVousPourDtoList(List<RendezVousDto> rendezVousPourDtoList) {
       this.rendezVousPourDtoList = rendezVousPourDtoList;
+   }
+
+   public FonctionDto getFonctionDto() {
+      return fonctionDto;
+   }
+
+   public void setFonctionDto(FonctionDto fonctionDto) {
+      this.fonctionDto = fonctionDto;
    }
 }

@@ -11,6 +11,14 @@
 	overflow: visible !important;
 }
 
+.ui-widget {
+	/* default, la taille est trop grande !
+	 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	 font-size: 1.1em;
+    */
+    font-size: 1.0em;
+}
+
 .ui-menu.ui-widget {
 	border: 0px;
 }
@@ -21,7 +29,7 @@
 
 .ui-widget-header {
 	border: 0px;
-	background-color: orange;
+	background-color: transparent;
 }
 
 .leftMenuLayoutStyleClass {

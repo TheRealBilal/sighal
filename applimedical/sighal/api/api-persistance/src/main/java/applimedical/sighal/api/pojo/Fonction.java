@@ -30,7 +30,7 @@ public class Fonction implements Serializable {
 	private String description;
 
 	@Column(name = "active")
-	private boolean active;
+	private Boolean active;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "fonction", fetch=FetchType.LAZY)
 	private List<RelFctModulePerm> relFctModulePermList;
@@ -55,11 +55,11 @@ public class Fonction implements Serializable {
 		this.description = description;
 	}
 
-	public boolean isActive() {
+	public Boolean isActive() {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
 

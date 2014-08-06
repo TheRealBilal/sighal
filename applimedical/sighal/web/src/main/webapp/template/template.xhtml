@@ -7,27 +7,13 @@
 <h:head>
 	<ui:insert name="template_head"></ui:insert>
 	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/template.css" />
+	<script type="text/javascript" src="#{request.contextPath}/js/primefaces_date_fr.js"></script>
 </h:head>
 
 <h:body>
 	<p:layout fullPage="true">
 		<p:layoutUnit position="north">
-			<table width="100%" style="background-color: orange;">
-				<tr>
-					<td width="20%" align="center">
-  		 				<p:clock pattern="E dd-MMM-yyyy" /><br />
-  		 				<p:clock pattern="HH:mm:ss" />
- 					</td>
-					<td width="70%" align="center">
-						<big><b><h:outputText value="#{msg['sighal.title']}" /></b></big>
-						<br /><h:outputText value="#{msg['sighal.big.title']}" />
-					</td>
-					<td width="10%" align="center">
-						<h:outputText value="#{request.userPrincipal.name}" /><br/>
-						<h:graphicImage url="/img/logout.jpg" width="45" height="45" alt="Logout"/>
-					</td>
-				</tr>
-			</table>
+			<ui:include src="/template/template_top.xhtml" />
 		</p:layoutUnit>
 
 		<p:layoutUnit position="west" styleClass="leftMenuLayoutStyleClass">
@@ -66,8 +52,8 @@
 			</p:layout>
 		</p:layoutUnit>
 		<p:layoutUnit position="south" styleClass="footerLayoutStyleClass" >
-        	<h:outputText value="#{msg['sighal.copyright']}" />
-    	</p:layoutUnit> 
+        	<ui:include src="/template/template_bottom.xhtml" />
+    	</p:layoutUnit>
 	</p:layout>
 </h:body>
 </html>

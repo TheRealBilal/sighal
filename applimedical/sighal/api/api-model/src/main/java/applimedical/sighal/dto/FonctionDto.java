@@ -12,7 +12,7 @@ public class FonctionDto implements Serializable {
 
 	private String description;
 
-	private boolean active;
+	private Boolean active;
 
 	private List<RelFctModulePermDto> relFctModulePermDtoList;
 
@@ -32,11 +32,11 @@ public class FonctionDto implements Serializable {
 		this.description = description;
 	}
 
-	public boolean isActive() {
+	public Boolean isActive() {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
 

@@ -12,13 +12,15 @@ import org.springframework.stereotype.Controller;
 import applimedical.sighal.business.FichePatientBusiness;
 import applimedical.sighal.dto.FichePatientDto;
 import org.primefaces.event.FlowEvent;
-
+			
 @Controller("FichePatientBn")
 @ManagedBean
 @ViewScoped
 public class FichePatientMgBean {
+	
 	@Autowired
 	private FichePatientBusiness fichePatientBusiness;
+	
 	private FichePatientDto selectedFichePatient ;
 	private List<FichePatientDto> fichepatientList;
 	

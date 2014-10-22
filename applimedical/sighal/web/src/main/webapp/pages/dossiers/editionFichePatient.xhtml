@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="template_head">
+		<title><h:outputText value="#{msg['room.title']}" /></title>
+	</ui:define>
+
+	<ui:define name="template_body">
+	
+		<h:form id="frmFichePatient">
+		<p:wizard flowListener="#{FichePatientBn.onFlowProcess}">
+			<p:tab id="dossier_patient" title="Dossier Patient">
+				<p:panel header="Personal Details">
+		        <p:messages />
+		        <h:panelGrid columns="2" columnClasses="label, value">
+
+                    <h:outputText value="nom: *" />
+                    <p:inputText value="#{FichePatientBn.dossierPatientDto.PatientDto}"  required="true" label="Lastname"/>
+
+                </h:panelGrid>
+                </p:panel>
+			</p:tab>
+			<p:tab id="fiche_patient" title="Fiche Patient">
+			</p:tab>
+		</p:wizard>
+		</h:form>
+	</ui:define>
+</ui:composition>

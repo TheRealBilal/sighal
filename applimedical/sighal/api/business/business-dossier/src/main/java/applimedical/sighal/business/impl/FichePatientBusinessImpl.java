@@ -22,7 +22,6 @@ import applimedical.sighal.dao.PersonnelRepository;
 public class FichePatientBusinessImpl implements FichePatientBusiness {
 	@Autowired
 	private FichePatientRepository fichePatientRepo;
-	private PersonnelRepository personnelRepository;
 	public List<FichePatientDto> getToutesLesFichesPatient() {
 		List<FichePatient> fichePatients= fichePatientRepo.findAll();
 		List<FichePatientDto> fichePatientDtos = new ArrayList<FichePatientDto>( );
@@ -35,7 +34,7 @@ public class FichePatientBusinessImpl implements FichePatientBusiness {
 			fichePatientDto.setFichePatientId(fichePatient.getFichePatientId());
 			//fichePatientDto.setInterventionDtoList()
 			fichePatientDto.setObservation(fichePatient.getObservation());
-			fichePatientDto.setPersonnelDto(new PersonnelBusinessImpl().getPersonnelDtoParId(fichePatient.getPersonnel().getPersonneId()));;
+//			fichePatientDto.setPersonnelDto(new PersonnelBusinessImpl().getPersonnelDtoParId(fichePatient.getPersonnel().getPersonneId()));;
 			fichePatientDto.setPlanTraitement(fichePatient.getPlanTraitement());
 			fichePatientDto.setTypeFichePatient(fichePatient.getTypeFichePatient());
 			fichePatientDtos.add(fichePatientDto);	
@@ -81,7 +80,7 @@ public class FichePatientBusinessImpl implements FichePatientBusiness {
 			      //fichePatient.setInterventionList();
 			      fichePatient.setObservation(fichePatientDto.getObservation());	
 			      
-			      fichePatient.setPersonnel(personnelRepository.findOne(fichePatientDto.getPersonnelDto().getPersonneId()));
+		//	      fichePatient.setPersonnel(personnelRepository.findOne(fichePatientDto.getPersonnelDto().getPersonneId()));
 			      fichePatient.setPlanTraitement(fichePatientDto.getPlanTraitement());
 			      fichePatient.setTypeFichePatient(fichePatientDto.getTypeFichePatient());
 			      

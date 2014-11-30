@@ -9,4 +9,12 @@
   <groupId>applimedical.sighal.fmk</groupId>
   <artifactId>fmk-core</artifactId>
   <name>fmk-core</name>
+  
+    <dependencies>
+  	<dependency>
+  		<groupId>applimedical.sighal.api</groupId>
+  		<artifactId>api-model</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

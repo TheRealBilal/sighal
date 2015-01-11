@@ -45,6 +45,16 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>recherchePatientDossier</from-outcome>
+			<to-view-id>/pages/ressources/recherchePatientDossier.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
@@ -58,6 +68,14 @@
 		<navigation-case>
 			<from-outcome>editionFichePatient</from-outcome>
 			<to-view-id>/pages/dossiers/editionFichePatient.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+	<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>creerDossierPatient</from-outcome>
+			<to-view-id>/pages/dossiers/creerDossierPatient.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>

@@ -8,20 +8,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import applimedical.sighal.api.pojo.FichePatient;
-import applimedical.sighal.api.pojo.Personnel;
-import applimedical.sighal.api.pojo.Salle;
 import applimedical.sighal.business.FichePatientBusiness;
-import applimedical.sighal.dto.FichePatientDto;
-import applimedical.sighal.dto.SalleDto;
-
 import applimedical.sighal.dao.FichePatientRepository;
-import applimedical.sighal.dao.PersonnelRepository;
+import applimedical.sighal.dto.FichePatientDto;
+
 
 @Service("FichePatientBusiness")
 @Transactional
 public class FichePatientBusinessImpl implements FichePatientBusiness {
 	@Autowired
 	private FichePatientRepository fichePatientRepo;
+	
+	
 	public List<FichePatientDto> getToutesLesFichesPatient() {
 		List<FichePatient> fichePatients= fichePatientRepo.findAll();
 		List<FichePatientDto> fichePatientDtos = new ArrayList<FichePatientDto>( );

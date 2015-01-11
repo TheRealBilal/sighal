@@ -1,0 +1,89 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="template_head">
+		<title><h:outputText value="#{msg['search.title']}" /></title>
+	</ui:define>
+
+	<ui:define name="template_body">
+		<h:form id="recherchePDId">
+			<p:toolbar>
+		        <f:facet name="left">
+		            <p:commandButton type="push" title="#{msg['button.new']}" icon="ui-icon-document"
+		            	action="#{dossPati.initCreer}" />
+		        </f:facet>
+	        </p:toolbar>
+			<p:panel header="#{msg['search.title']}">
+				<p:panelGrid>
+					<p:row>
+						<p:column colspan="2">
+							<h:outputLabel for="nomPatient" value="#{msg['search.name']}" />
+							<h:inputText id="nomPatient"
+								value="#{dossPatiRechercher.patient.nom}" size="16"
+								maxlength="16" />
+						</p:column>
+						<p:column colspan="2">
+							<h:outputLabel for="prenomPatient" value="#{msg['search.firstname']}" />
+							<h:inputText id="prenomPatient"
+								value="#{dossPatiRechercher.patient.prenom}" size="30"
+								maxlength="30" />
+						</p:column>
+						<p:column></p:column>
+					</p:row>
+							<p:row>
+						<p:column colspan="2">
+							<h:outputLabel for="numDossPatient" value="#{msg['search.doss.number']}" />
+							<h:inputText id="numDossPatient"
+								value="#{dossPatiRechercher.dossier.dossierPatientId}" size="16"
+								maxlength="16" />
+						</p:column>
+						<p:column colspan="2">
+							<h:outputLabel for="matriculePatient" value="#{msg['search.matricule']}" />
+							<h:inputText id="matriculePatient"
+								value="#{dossPatiRechercher.patient.matricule}" size="30"
+								maxlength="30" />
+						</p:column>
+						<p:column></p:column>
+					</p:row>
+					<p:row>
+						<p:column colspan="4"><p:spacer /></p:column>
+			            <p:column>
+			            	<p:commandButton type="reset" title="#{msg['button.reset']}" value="#{msg['button.reset']}" />
+			            	<p:commandButton title="#{msg['button.search']}"
+			            		value="#{msg['button.search']}"
+			            		action="#{dossPatiRechercher.rechercher}" />
+			            </p:column>
+		            </p:row>
+				</p:panelGrid>
+			</p:panel>
+	        <p:messages autoUpdate="true" />
+			<p:dataTable id="salleDatatable" emptyMessage="#{msg['table.empty']}"
+					var="salleIt" value="#{salleBn.salleList}">
+			 	<f:facet name="header">
+					<h:outputText value="#{msg['room.table.title']}" />
+			    </f:facet>
+			    <p:column headerText="#{msg['room.field.code']}">
+			        <h:outputText value="#{salleIt.codeSalle}" />
+			    </p:column>
+			    <p:column headerText="#{msg['room.field.name']}">
+			        <h:outputText value="#{salleIt.nomSalle}" />
+			    </p:column>
+			    <p:column headerText="#{msg['room.field.description']}">
+			        <h:outputText value="#{salleIt.descriptionSalle}" />
+			    </p:column>
+			    <p:column width="8%">
+		            <p:commandButton title="#{msg['button.update']}" icon="ui-icon-pencil"
+		            	action="#{salleBn.initModifier(salleIt)}" ajax="false"/>
+			    </p:column>
+			    <p:column width="8%">
+		            <p:commandButton title="#{msg['button.delete']}" icon="ui-icon-trash"
+		            	action="#{salleBn.supprimer(salleIt.salleId)}" />
+			    </p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

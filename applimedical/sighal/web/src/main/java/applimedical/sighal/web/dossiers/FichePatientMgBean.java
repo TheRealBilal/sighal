@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import applimedical.sighal.business.FichePatientBusiness;
 import applimedical.sighal.dto.FichePatientDto;
+
 import org.primefaces.event.FlowEvent;
 			
 @Controller("FichePatientBn")

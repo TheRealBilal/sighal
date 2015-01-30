@@ -1,7 +1,5 @@
 package applimedical.sighal.business.impl;
 
-import java.lang.reflect.Field;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +24,7 @@ public class DossierPatientBusinessImpl implements DossierPatientBusiness {
 	private DossierPatientRepository dossierPatientRepository;
 	
 	
-	public DossierPatientDto createDossierPassient(DossierPatientDto dossier){
+	public DossierPatientDto createDossierPatient(DossierPatientDto dossier){
 		
 		DossierPatient doss =dossierPatientRepository.save(MappingUtils.dossierPatientDtoToEntity(dossier));
 		dossier.setDossierPatientId(doss.getDossierPatientId());

@@ -25,7 +25,7 @@
 						<h:panelGrid columns="2" columnClasses="label, value">
 							
 							<h:outputText id="civili" value="Civilité *" />
-							<p:selectOneRadio id="console" value="#">
+							<p:selectOneRadio id="console" value="{dossPati.patient.civilite}" required="true">
 								<f:selectItem itemLabel="Mr" itemValue="Mr" />
 								<f:selectItem itemLabel="Mme" itemValue="Mme" />
 								<f:selectItem itemLabel="Mlle" itemValue="Mlle" />
@@ -41,35 +41,35 @@
 							<p:inputText value="#{dossPati.patient.prenom}" required="true"
 								label="Lastname" />
 
-							<h:outputText id="age2" value="Date de naissance: " />
+							<h:outputText id="datenaiss" value="Date de naissance: " />
 							<p:calendar value="#{dossPati.patient.dateNaissance}" lang="fr"
-								navigator="true" pattern="yyyy-MMM-dd"  mindate="1/1/1930" maxdate="1/1/2035"/>
+								navigator="true" pattern="dd-MM-yyyy" mindate="01-01-1900" yearRange = "c-120:"/>
 								
-								<h:outputText value="lieu de naissance: *" />
-							<p:inputText value="#" required="false" />
-
-							<h:outputText value="Skip to last: " />
-							<h:selectBooleanCheckbox value="true" /> 
+							
+							<h:outputText value="aller à la fin: " />
+							<h:selectBooleanCheckbox value="flse" /> 
 						</h:panelGrid>
 					</p:panel>
-					<p:tooltip id="toolTipTrack" for="age2" value="tt" trackMouse="" />
+					
 				</p:tab>
 
 				<p:tab id="address" title="Address">
 					<p:panel header="Address Details">
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:outputText value="Numero de rue: " />
-							<p:inputText value="#" />
 
 							<h:outputText value="Rue: " />
-							<p:inputText value="#" />
+							<p:inputText value="#{dossPati.patient.adresse}" />
 
 							<h:outputText value="Ville: " />
-							<p:inputText value="#" />
-
-							<h:outputText value="Skip to last: " />
-							<h:selectBooleanCheckbox value="true" />
+							<p:inputText value="#{dossPati.patient.ville}" />
+							
+							<h:outputText value="Wilaya: " />
+							<p:inputText value="#{dossPati.patient.region}" />
+							
+							<h:outputText value="Pays: " />
+							<p:inputText value="#{dossPati.patient.pays}" />
+							
 						</h:panelGrid>
 					</p:panel>
 				</p:tab>
@@ -79,14 +79,12 @@
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<h:outputText value="Email: *" />
-							<p:inputText value="#" required="true"
+							<p:inputText value="#{dossPati.patient.email}" required="true"
 								label="Email" />
 
-							<h:outputText value="Phone: " />
-							<p:inputText value="#" />
-
-							<h:outputText value="Additional Info: " />
-							<p:inputText value="#" />
+							<h:outputText value="N° telephonne: " />
+							<p:inputText value="#{dossPati.patient.telephonne}" />
+							
 						</h:panelGrid>
 					</p:panel>
 				</p:tab>
@@ -96,12 +94,12 @@
 						<h:panelGrid id="confirmation" columns="3"
 							columnClasses="grid,grid,grid">
 							<h:panelGrid columns="2" columnClasses="label, value">
-								<h:outputText value="Firstname: " />
-								<h:outputText value="#"
+								<h:outputText value="nom: " />
+								<h:outputText value="#{dossPati.patient.nom}"
 									styleClass="outputLabel" />
 
-								<h:outputText value="Lastname: " />
-								<h:outputText value="#"
+								<h:outputText value="prenom: " />
+								<h:outputText value="#{dossPati.patient.prenom}"
 									styleClass="outputLabel" />
 
 								<h:outputText value="Age: " />
@@ -142,7 +140,7 @@
 						</h:panelGrid>
 
 						<p:commandButton value="Submit"
-							actionListener="#{userWizard.save}" update="growl"
+							actionListener="#{dossPati.save}" update="growl"
 							process="@this" />
 					</p:panel>
 				</p:tab>

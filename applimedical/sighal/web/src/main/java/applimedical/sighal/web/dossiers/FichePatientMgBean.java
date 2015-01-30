@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import applimedical.sighal.business.FichePatientBusiness;
+import applimedical.sighal.dto.DossierPatientDto;
 import applimedical.sighal.dto.FichePatientDto;
+import applimedical.sighal.dto.PatientDto;
 
 import org.primefaces.event.FlowEvent;
 			
@@ -24,7 +26,8 @@ public class FichePatientMgBean {
 	
 	private FichePatientDto selectedFichePatient ;
 	private List<FichePatientDto> fichepatientList;
-	
+	private DossierPatientDto dossierPatientDto ;
+	private PatientDto patientDto;
 	 @PostConstruct
 	   public void init() {
 		 selectedFichePatient = new FichePatientDto();
@@ -42,7 +45,8 @@ public class FichePatientMgBean {
 
 	   public String initCreer() {
 	      selectedFichePatient = new FichePatientDto();
-	      return "editionFichePatient";
+	      
+	   	      return "editionFichePatient";
 	   }
 
 	   public String initModifier(FichePatientDto fichePatientDto) {
@@ -60,8 +64,8 @@ public class FichePatientMgBean {
 	      return startPage();
 	   }
 	   public String onFlowProcess(FlowEvent event) {
-	        
-	            return event.getNewStep();
+		   setDossierPatientDto(new DossierPatientDto());
+		            return event.getNewStep();
 	        }
 
 	   public FichePatientDto getselectedFichePatient() {
@@ -79,5 +83,33 @@ public class FichePatientMgBean {
 	   public void setfichepatientList(List<FichePatientDto> fichepatientList) {
 	      this.fichepatientList = fichepatientList;
 	   }
+
+	/**
+	 * @return the dossierPatientDto
+	 */
+	public DossierPatientDto getDossierPatientDto() {
+		return dossierPatientDto;
+	}
+
+	/**
+	 * @param dossierPatientDto the dossierPatientDto to set
+	 */
+	public void setDossierPatientDto(DossierPatientDto dossierPatientDto) {
+		this.dossierPatientDto = dossierPatientDto;
+	}
+
+	/**
+	 * @return the patientDto
+	 */
+	public PatientDto getPatientDto() {
+		return patientDto;
+	}
+
+	/**
+	 * @param patientDto the patientDto to set
+	 */
+	public void setPatientDto(PatientDto patientDto) {
+		this.patientDto = patientDto;
+	}
 	 
 }

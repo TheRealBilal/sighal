@@ -31,6 +31,7 @@ public class PersonneBusinessImpl implements PersonneBusiness {
          return null;
       }
       PersonnelDto personnelDto = new PersonnelDto();
+      personnelDto.setPersonneId(personnel.getPersonneId());
       personnelDto.setNom(personnel.getNom());
       personnelDto.setPrenom(personnel.getPrenom());
       personnelDto.setLogin(personnel.getLogin());

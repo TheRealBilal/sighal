@@ -55,11 +55,16 @@ public class DossierPatientBean implements Serializable{
 
 	public void save() {       
 		DossierPatientDto dossier= new DossierPatientDto();
-		dossier.setPatientDto(patient);
+//		dossier.setPatientDto(patient);
 		dossier.setDateCreation(new Date());
 		dossier.setPersonnelDto(UserUtils.utilisateurCourant());
-		DossierPatientDto numeroDossier = dossierPatientBusiness.createDossierPatient(dossier);
-		FacesMessage msg = new FacesMessage("Successful", "création de :" + numeroDossier.getDossierPatientId() +" avec succes");
+		
+		patient.setDossierPatientDto(dossier);
+		patient.setPersonneId(UserUtils.utilisateurCourant().getPersonneId());
+		
+		
+		Long numeroDossier = dossierPatientBusiness.createDossierPatient(patient);
+		FacesMessage msg = new FacesMessage("Successful", "création de :" + numeroDossier +" avec succes");
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 

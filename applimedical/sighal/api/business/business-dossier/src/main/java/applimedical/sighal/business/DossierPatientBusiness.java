@@ -1,9 +1,9 @@
 
 package applimedical.sighal.business;
 
-import applimedical.sighal.dto.DossierPatientDto;
+import applimedical.sighal.dto.PatientDto;
 
 public interface DossierPatientBusiness {
 
-	public DossierPatientDto createDossierPatient(DossierPatientDto dossier);
+	public Long createDossierPatient(PatientDto patientdto);
 }

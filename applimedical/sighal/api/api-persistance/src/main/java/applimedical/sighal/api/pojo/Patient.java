@@ -32,7 +32,7 @@ public class Patient extends Personne {
    @OneToMany(cascade=CascadeType.ALL, mappedBy="patient",fetch=FetchType.LAZY)
    private List<RendezVous> rendezVousList;
 
-   @OneToOne()
+   @OneToOne(cascade = CascadeType.ALL )
    @JoinColumn(name="dossier_patient_id")
    private DossierPatient dossierPatient;
    

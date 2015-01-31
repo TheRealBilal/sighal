@@ -5,11 +5,12 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import applimedical.sighal.api.pojo.DossierPatient;
+import applimedical.sighal.api.pojo.Patient;
 import applimedical.sighal.business.DossierPatientBusiness;
 import applimedical.sighal.dao.DossierPatientRepository;
+import applimedical.sighal.dao.PatientRepository;
 import applimedical.sighal.dao.PersonnelRepository;
-import applimedical.sighal.dto.DossierPatientDto;
+import applimedical.sighal.dto.PatientDto;
 import applimedical.sighal.utils.MappingUtils;
 
 
@@ -22,13 +23,13 @@ public class DossierPatientBusinessImpl implements DossierPatientBusiness {
 	
 	@Autowired
 	private DossierPatientRepository dossierPatientRepository;
+	@Autowired
+	private PatientRepository patientRepository;
+ 	
 	
-	
-	public DossierPatientDto createDossierPatient(DossierPatientDto dossier){
-		
-		DossierPatient doss =dossierPatientRepository.save(MappingUtils.dossierPatientDtoToEntity(dossier));
-		dossier.setDossierPatientId(doss.getDossierPatientId());
-		return dossier;
+	public Long createDossierPatient(PatientDto patientDto){
+		Patient pat = patientRepository.save(MappingUtils.patientDtoToEntity(patientDto));
+		return pat.getDossierPatient().getDossierPatientId();
 	}
 	
 }

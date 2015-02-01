@@ -28,7 +28,7 @@ public class MappingUtils {
 		return newTo;
 	}
 
-	public static DossierPatient dossierPatientDtoToEntity(DossierPatientDto dossierDto){
+	public static  DossierPatient dossierPatientDtoToEntity(DossierPatientDto dossierDto){
 		DossierPatient doss = new DossierPatient();
 
 
@@ -36,9 +36,15 @@ public class MappingUtils {
 		doss.setDateModification(dossierDto.getDateModification());
 		doss.setDossierPatientId(dossierDto.getDossierPatientId());
 
+		if(null!= dossierDto.getPatientDto()){
+			Patient patient=patientDtoToEntity(dossierDto.getPatientDto());
+			doss.setPatient(patient);
+		}
 
-		doss.setPatient(patientDtoToEntity(dossierDto.getPatientDto()));
-		doss.setPersonnel(personnelDtoToEntity(dossierDto.getPersonnelDto()));
+		if(null!=dossierDto.getPersonnelDto()){
+			Personnel personnel = personnelDtoToEntity(dossierDto.getPersonnelDto());
+			doss.setPersonnel(personnel);
+		}
 
 		if(null!= dossierDto.getFichePatientDtoList() && !! dossierDto.getFichePatientDtoList().isEmpty())
 			doss.setFichePatientList(fichesPatientDtoToEntities(dossierDto.getFichePatientDtoList()));
@@ -47,7 +53,7 @@ public class MappingUtils {
 		return doss;
 	}
 
-	public static List<FichePatient> fichesPatientDtoToEntities(
+	public static  List<FichePatient> fichesPatientDtoToEntities(
 			List<FichePatientDto> fichePatientDtoList) {
 
 		List<FichePatient> listEnt = new ArrayList<FichePatient>();
@@ -80,26 +86,26 @@ public class MappingUtils {
 		return null;
 	}
 
-	public static FichePatient fichePatientDtoToEntity(FichePatientDto ficheDto) {
-		
+	public static  FichePatient fichePatientDtoToEntity(FichePatientDto ficheDto) {
+
 		FichePatient fiche = new FichePatient();
-		
+
 		fiche.setFichePatientId(ficheDto.getFichePatientId());
 		fiche.setDateCreation(ficheDto.getDateCreation());
 		fiche.setDateModification(ficheDto.getDateModification());
-		
+
 		//TODO il faut ajouter la fiche dans la liste des fiches dans dossier
 		fiche.setDossierPatient(null);
 		//TODO 
 		fiche.setInterventionList(null);
-		
+
 		fiche.setEtatGeneraleActuelPatient(ficheDto.getEtatGeneraleActuelPatient());
 		fiche.setObservation(ficheDto.getObservation());
 		fiche.setPersonnel(personnelDtoToEntity(ficheDto.getPersonnelDto()));
 		fiche.setPlanTraitement(ficheDto.getPlanTraitement());
 		fiche.setTypeFichePatient(ficheDto.getTypeFichePatient());
-		
-		
+
+
 		return fiche;
 	}
 
@@ -112,8 +118,22 @@ public class MappingUtils {
 		return null;
 	}
 
-	public static Patient patientDtoToEntity(PatientDto passient){
-		return null;
+	public static  Patient patientDtoToEntity(PatientDto patient){
+		Patient patientPojo = new Patient();
+		patientPojo.setNom(patient.getNom());
+		patientPojo.setNomJeuneFille(patient.getNomJeuneFille());
+		patientPojo.setPrenom(patient.getPrenom());
+		patientPojo.setSex(patient.getSex());
+		patientPojo.setAdresse(patient.getAdresse());
+		patientPojo.setCivilite(patient.getCivilite());
+		patientPojo.setCodePostale(patient.getCodePostale());
+		patientPojo.setEmail(patient.getEmail());
+		patientPojo.setMatricule(patient.getMatricule());
+		patientPojo.setPays(patient.getPays());
+		patientPojo.setRegion(patient.getRegion());
+		patientPojo.setTelephonne(patient.getTelephonne());
+		patientPojo.setDossierPatient(dossierPatientDtoToEntity(patient.getDossierPatientDto()));
+		return patientPojo;
 	}
 
 
@@ -121,7 +141,22 @@ public class MappingUtils {
 		return null;
 	}
 
-	public static Personnel personnelDtoToEntity(PersonnelDto personnelDto){
-		return null;
+	public static  Personnel personnelDtoToEntity(PersonnelDto personnel){
+		Personnel personnelPojo = new Personnel();
+		personnelPojo.setPersonneId(personnel.getPersonneId());
+		personnelPojo.setNom(personnel.getNom());
+		personnelPojo.setNomJeuneFille(personnel.getNomJeuneFille());
+		personnelPojo.setPrenom(personnel.getPrenom());
+		personnelPojo.setSex(personnel.getSex());
+		personnelPojo.setAdresse(personnel.getAdresse());
+		personnelPojo.setCivilite(personnel.getCivilite());
+		personnelPojo.setCodePostale(personnel.getCodePostale());
+		personnelPojo.setEmail(personnel.getEmail());
+		personnelPojo.setMatricule(personnel.getMatricule());
+		personnelPojo.setPays(personnel.getPays());
+		personnelPojo.setRegion(personnel.getRegion());
+		personnelPojo.setTelephonne(personnel.getTelephonne());
+
+		return personnelPojo;
 	}
 }

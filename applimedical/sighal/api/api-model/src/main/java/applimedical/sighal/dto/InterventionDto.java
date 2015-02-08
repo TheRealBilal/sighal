@@ -19,8 +19,16 @@ public class InterventionDto {
 
    private List<LigneSortieDto> ligneSortieDtoList;
 
-	private RendezVousDto rendezVousDto;
+   private RendezVousDto rendezVousDto;
+	
+	private Float tension;
 
+	private Float poids;
+	
+	private String motif_consultation;
+	
+	private String evolution;
+	
    public Long getInterventionId() {
       return interventionId;
    }
@@ -92,4 +100,36 @@ public class InterventionDto {
    public void setRendezVousDto(RendezVousDto rendezVousDto) {
       this.rendezVousDto = rendezVousDto;
    }
+
+public Float getTension() {
+	return tension;
+}
+
+public void setTension(Float tension) {
+	this.tension = tension;
+}
+
+public Float getPoids() {
+	return poids;
+}
+
+public void setPoids(Float poids) {
+	this.poids = poids;
+}
+
+public String getMotif_consultation() {
+	return motif_consultation;
+}
+
+public void setMotif_consultation(String motif_consultation) {
+	this.motif_consultation = motif_consultation;
+}
+
+public String getEvolution() {
+	return evolution;
+}
+
+public void setEvolution(String evolution) {
+	this.evolution = evolution;
+}
 }

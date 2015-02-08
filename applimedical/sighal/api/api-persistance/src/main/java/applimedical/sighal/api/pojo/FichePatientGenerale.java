@@ -17,7 +17,7 @@ public class FichePatientGenerale extends FichePatient {
 
 	@Column(name = "domaine")
 	private DomaineEnum domaine;
-
+	
 	public String getDescription() {
 		return description;
 	}

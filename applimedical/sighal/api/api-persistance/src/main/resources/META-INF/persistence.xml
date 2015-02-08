@@ -41,6 +41,7 @@
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.user" value="sighalWebUser" />
 			<property name="javax.persistence.jdbc.password" value="123456" />
+<!-- 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://78.193.48.249:3306/sighal_database" /> -->
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sighal_database" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />

@@ -7,6 +7,7 @@ public class FichePatientGeneraleDto extends FichePatientDto {
 	private String description;
 
 	private DomaineEnum domaine;
+	
 
 	public String getDescription() {
 		return description;

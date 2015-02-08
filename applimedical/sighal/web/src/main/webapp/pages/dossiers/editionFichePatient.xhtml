@@ -11,22 +11,120 @@
 
 	<ui:define name="template_body">
 	
-		<h:form id="frmFichePatient">
-		<p:wizard flowListener="#{FichePatientBn.onFlowProcess}">
-			<p:tab id="dossier_patient" title="Dossier Patient">
-				<p:panel header="Personal Details">
-		        <p:messages />
-		        <h:panelGrid columns="2" columnClasses="label, value">
+		<h:form id="frmFichePatient" >
+<!-- 		<p:wizard flowListener="#{FichePatientBn.onFlowProcess}"> -->
+<!-- 			<p:tab id="dossier_patient" title="Dossier Patient"> -->
+<!-- 				<p:panel header="Personal Details"> -->
+<!-- 		        <p:messages /> -->
+<!-- 		        <h:panelGrid columns="2" columnClasses="label, value"> -->
 
-                    <h:outputText value="nom: *" />
-                    <p:inputText value="#{FichePatientBn.dossierPatientDto.patientDto}"  required="true" label="Lastname"/>
+<!--                     <h:outputText value="nom: *" /> -->
+<!--                     <p:inputText value="#{FichePatientBn.dossierPatientDto.patientDto}"  required="true" label="Lastname"/> -->
 
-                </h:panelGrid>
-                </p:panel>
-			</p:tab>
-			<p:tab id="fiche_patient" title="Fiche Patient">
-			</p:tab>
-		</p:wizard>
+<!--                 </h:panelGrid> -->
+<!--                 </p:panel> -->
+<!-- 			</p:tab> -->
+<!-- 			<p:tab id="fiche_patient" title="Fiche Patient"> -->
+<!-- 			</p:tab> -->
+<!-- 		</p:wizard> -->
+
+
+    <p:panel header="Validate" >
+        <p:messages autoUpdate="true"/>
+ 
+        <h:panelGrid id="grid" columns="6" cellpadding="5">
+        
+        
+            <h:outputLabel for="matricule" value="matricule:" style="font-weight:bold"/>                    
+            <p:inputText id="matricule" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.matricule}" required="true" label="Name"/>
+            <p:message for="matricule" />
+             
+            
+            <h:outputLabel  for="name" value="Nom:" style="font-weight:bold"/>                    
+            <p:inputText id="name" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.nom}" required="true" label="Name"/>
+            <p:message for="name" />
+             
+            
+             <h:outputLabel for="nomJeuneFille" value="Nom Jeune Fille:" style="font-weight:bold"/>                    
+            <p:inputText id="nomJeuneFille" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.nomJeuneFille}" required="true" label="Name"/>
+            <p:message for="nomJeuneFille" />
+             
+            
+            <h:outputLabel for="prenom" value="prenom:" style="font-weight:bold"/>                    
+            <p:inputText id="prenom" readonly="true"  value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.prenom}" required="true" label="Name"/>
+            <p:message for="name" />
+                                 
+            
+            <h:outputLabel for="dateNaissance" value="Date de Naissance" style="font-weight:bold"/>                    
+            <p:calendar readonlyInput="true" showOn="false" id="dateNaissance" pattern="dd MMMM yyyy" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.dateNaissance}" required="true" label="Name"/>            
+            <p:message for="dateNaissance" />
+            
+            
+            
+            <h:outputLabel for="sex" value="sex:" style="font-weight:bold"/>                    
+            <p:inputText id="sex" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.sex}" required="true" label="Name"/>
+            <p:message for="sex" />
+             
+            
+            
+            <h:outputLabel for="titre" value="titre:" style="font-weight:bold"/>                    
+            <p:inputText id="titre" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.titre}" required="true" label="Name"/>
+            <p:message for="titre" />
+             
+            
+             
+            <h:outputLabel for="civilite" value="civilite:" style="font-weight:bold"/> 
+            <h:selectOneMenu id="civilite" disabled="true" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.civilite}" required="true" label="Name">
+            <f:selectItem itemLabel="Mr" itemValue="1"/>
+            <f:selectItem itemLabel="Mme" itemValue="2"/>
+            <f:selectItem itemLabel="melle" itemValue="3"/>
+            </h:selectOneMenu>                               
+            <p:message for="civilite" />
+            
+            
+             
+            <h:outputLabel for="adresse" value="adresse:" style="font-weight:bold"/>                    
+            <p:inputText id="adresse" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.adresse}" required="true" label="Name"/>
+            <p:message for="adresse" />
+             
+            
+             
+            <h:outputLabel for="codePostale" value="code Postale:" style="font-weight:bold"/>                    
+            <p:inputText id="codePostale" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.codePostale}" required="true" label="Name"/>
+            <p:message for="codePostale" />
+              
+            
+             
+            <h:outputLabel for="ville" value="ville:" style="font-weight:bold"/>                    
+            <p:inputText id="ville" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.ville}" required="true" label="Name"/>
+            <p:message for="ville" />
+            
+            
+             
+            <h:outputLabel for="region" value="ville:" style="font-weight:bold"/>                    
+            <p:inputText id="region" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.region}" required="true" label="Name"/>
+            <p:message for="region" />
+            
+            
+             
+            <h:outputLabel for="pays" value="pays:" style="font-weight:bold"/>                    
+            <p:inputText id="pays" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.pays}" required="true" label="Name"/>
+            <p:message for="pays" />
+            
+            
+            
+            
+             
+            <h:outputLabel for="telephonne" value="telephonne:" style="font-weight:bold"/>                    
+            <p:inputText id="telephonne" value="#{fichePatientBn.selectedFichePatient.dossierPatientDto.patientDto.telephonne}" required="true" label="Name"/>
+            <p:message for="telephonne" />
+            
+             
+            
+        </h:panelGrid>
+ 
+    </p:panel>
+
 		</h:form>
 	</ui:define>
 </ui:composition>

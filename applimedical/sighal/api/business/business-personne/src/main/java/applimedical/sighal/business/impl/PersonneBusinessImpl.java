@@ -16,15 +16,13 @@ public class PersonneBusinessImpl implements PersonneBusiness {
 	@Autowired
 	private PersonnelRepository personnelRepo;
 
-   @Override
-	@Transactional(readOnly = true)
+   @Transactional(readOnly = true)
 	public boolean authentifier(String login, String mdp) {
 		Personnel personnel = personnelRepo.findByLogin(login); 
 		return personnel !=null && personnel.getMotDePasse().equals(mdp);
 	}
 
-	@Override
-   @Transactional(readOnly = true)
+	@Transactional(readOnly = true)
    public PersonnelDto chargerPersonnel(String login) {
       Personnel personnel = personnelRepo.findByLogin(login); 
       if (personnel == null) {

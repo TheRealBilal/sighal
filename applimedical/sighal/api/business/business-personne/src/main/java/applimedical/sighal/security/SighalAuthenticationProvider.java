@@ -22,7 +22,7 @@ public class SighalAuthenticationProvider implements AuthenticationProvider {
     @Qualifier("personneBusiness")
     private PersonneBusiness personneBusiness;
 
-    @Override
+    
     public Authentication authenticate(Authentication authentication)
             throws AuthenticationException {
         String username = authentication.getName();
@@ -54,7 +54,7 @@ public class SighalAuthenticationProvider implements AuthenticationProvider {
                 grantedAuthorities);
     }
 
-    @Override
+    
     public boolean supports(Class<?> arg0) {
         return true;
     }

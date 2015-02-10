@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import applimedical.sighal.api.pojo.DossierPatient;
 import applimedical.sighal.api.pojo.Patient;
 import applimedical.sighal.business.DossierPatientBusiness;
+import applimedical.sighal.criteres.CriteresDossierPatient;
 import applimedical.sighal.dao.DossierPatientRepository;
 import applimedical.sighal.dao.PatientRepository;
 import applimedical.sighal.dao.PersonnelRepository;
@@ -25,14 +26,14 @@ public class DossierPatientBusinessImpl implements DossierPatientBusiness {
 
 	@Autowired
 	private PersonnelRepository personnelRepo;
-	
+
 	@Autowired
 	private DossierPatientRepository dossierPatientRepository;
 	
 	@Autowired
 	private PatientRepository patientRepository;
- 	
-	
+
+
 	public Long createDossierPatient(PatientDto patientDto){
 		Patient pat = patientRepository.save(MappingUtils.patientDtoToEntity(patientDto));
 		return pat.getDossierPatient().getDossierPatientId();
@@ -56,5 +57,15 @@ public class DossierPatientBusinessImpl implements DossierPatientBusiness {
 		
 		return MappingUtils.dossierPatientEntityToDto(dossierPatient);
 	}
-	
+
+	public List<PatientDto> recherchePatientDossier(CriteresDossierPatient criteres){
+		List<PatientDto>resultPat= MappingUtils.listPatientEntityToListDto(patientRepository.findListePatient(
+				criteres.getNom()==null ? "%" : "%" + criteres.getNom() +"%",
+				criteres.getPrenom()==null ? "%" : "%" + criteres.getPrenom() +"%",
+				criteres.getNumDossier()==null||criteres.getNumDossier().isEmpty()? null : Long.valueOf(criteres.getNumDossier()),
+				criteres.getMatricule()));
+
+		return resultPat;
+	}
+
 }

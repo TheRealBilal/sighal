@@ -5,26 +5,19 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 
+import org.primefaces.context.RequestContext;
+import org.primefaces.event.FlowEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import applimedical.sighal.api.constantes.DomaineEnum;
-import applimedical.sighal.api.pojo.FichePatient;
 import applimedical.sighal.business.DossierPatientBusiness;
-import applimedical.sighal.business.FichePatientBusiness;
 import applimedical.sighal.business.FichePatientGeneraleBusiness;
-import applimedical.sighal.business.impl.DossierPatientBusinessImpl;
 import applimedical.sighal.dto.DossierPatientDto;
 import applimedical.sighal.dto.FichePatientDto;
 import applimedical.sighal.dto.FichePatientGeneraleDto;
-
-
-import org.primefaces.context.RequestContext;
-import org.primefaces.event.FlowEvent;
 			
 @Controller("fichePatientBn")
 @ManagedBean(name="fichePatientMgBean")

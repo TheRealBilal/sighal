@@ -87,7 +87,7 @@ public class MappingUtils {
 
 
 	private static FichePatientDto fichePatientEntityToDto(FichePatient fiche) {
-		
+
 		FichePatientDto fichePatientDto = new FichePatientDto();
 		fichePatientDto.setDateCreation(fiche.getDateCreation());
 		fichePatientDto.setDateModification(fiche.getDateModification());
@@ -95,21 +95,21 @@ public class MappingUtils {
 		fichePatientDto.getDossierPatientDto().setPatientDto( patientEntityToDto(fiche.getDossierPatient().getPatient()));
 		fichePatientDto.getDossierPatientDto().setDateCreation(fiche.getDateCreation());
 		fichePatientDto.getDossierPatientDto().setDateModification(fiche.getDateModification());				
-		
+
 		//
 		fichePatientDto.setEtatGeneraleActuelPatient(fiche.getEtatGeneraleActuelPatient());
 		fichePatientDto.setFichePatientId(fiche.getFichePatientId());
 		fichePatientDto.setInterventionDtoList(MappingUtils.interventionListeEntityToDto(fiche.getInterventionList()));
 		fichePatientDto.setObservation(fiche.getObservation());
-//		fichePatientDto.setPersonnelDto(new PersonnelBusinessImpl().getPersonnelDtoParId(fichePatient.getPersonnel().getPersonneId()));;
+		//		fichePatientDto.setPersonnelDto(new PersonnelBusinessImpl().getPersonnelDtoParId(fichePatient.getPersonnel().getPersonneId()));;
 		fichePatientDto.setPlanTraitement(fiche.getPlanTraitement());
 		fichePatientDto.setTypeFichePatient(fiche.getTypeFichePatient());
-			
+
 		return fichePatientDto;
-		
+
 	}
-	
-	
+
+
 	public static  PatientDto patientEntityToDto(Patient patient) {
 		PatientDto dto = new PatientDto();
 		dto.setCivilite(patient.getCivilite());
@@ -119,12 +119,14 @@ public class MappingUtils {
 		dto.setNomJeuneFille(patient.getNomJeuneFille());
 		dto.setDateNaissance(patient.getDateNaissance());
 		dto.setMatricule(patient.getMatricule());
-		
+		if(patient.getDossierPatient()!=null)
+		dto.setDossierPatientDto(dossierPatientEntityToDto(patient.getDossierPatient()));
+
 		return dto;
-		
-		
+
+
 	}
-	
+
 
 	public static  FichePatient fichePatientDtoToEntity(FichePatientDto ficheDto) {
 
@@ -170,66 +172,66 @@ public class MappingUtils {
 
 
 	public static PersonnelDto personnelEntityToDto(Personnel personnel){
-		
+
 		return null;
 	}
-	
+
 	public static FichePatientGeneraleDto fichePatientGeneraleEntityToDto(FichePatientGenerale fichePatientGenerale){
-		
+
 		FichePatientGeneraleDto dto = new FichePatientGeneraleDto();
 		dto.setDateCreation(fichePatientGenerale.getDateCreation());
 		dto.setDateModification(fichePatientGenerale.getDateModification());
 		dto.setDescription(fichePatientGenerale.getDescription());
 		dto.setDomaine(fichePatientGenerale.getDomaine());
 		dto.setEtatGeneraleActuelPatient(fichePatientGenerale.getEtatGeneraleActuelPatient());
-		
+
 		dto.setFichePatientId(fichePatientGenerale.getFichePatientId());
-		
+
 		dto.setObservation(fichePatientGenerale.getObservation());
 		dto.setPlanTraitement(fichePatientGenerale.getPlanTraitement());
-		
-		
+
+
 		dto.setTypeFichePatient(fichePatientGenerale.getTypeFichePatient());
 		///remplir dossier patient
 		dto.getDossierPatientDto().setPatientDto(MappingUtils.patientEntityToDto(fichePatientGenerale.getDossierPatient().getPatient()));
 		return dto;
-		
+
 	}
 	public static InterventionDto interventionEntityToDto(Intervention intervention){
 		InterventionDto dto = new InterventionDto();
 		dto.setDateIntervention(intervention.getDateIntervention());
 		dto.setDescription(intervention.getDescription());
 		dto.setDureeIntervention(intervention.getDureeIntervention());
-		dto.setEvolution(intervention.getEvolution());
+				dto.setEvolution(intervention.getEvolution());
 		dto.setFichePatientDto(MappingUtils.fichePatientEntityToDto(intervention.getFichePatient()));
 		dto.setInterventionId(intervention.getInterventionId());
 		//dto.setLigneSortieDtoList(ligneSortieDtoList) à completer 
-		dto.setMotif_consultation(intervention.getMotif_consultation());
-		dto.setPoids(intervention.getPoids());
+				dto.setMotif_consultation(intervention.getMotif_consultation());
+				dto.setPoids(intervention.getPoids());
 		//dto.setRendezVousDto(intervention.getRendezVous()) /à completer
 		//dto.setSoinDtoList(intervention.getSoinList()) à completer
-		dto.setTension(intervention.getTension());
+				dto.setTension(intervention.getTension());
 		//dto.setTypeInterventionDto(intervention.getTypeIntervention()); à completer
 		return dto;
-		
+
 	}
-	
+
 	public static Intervention interventionDtoToEntity(InterventionDto interventionDto){
 		Intervention intervention = new Intervention();
 		intervention.setDateIntervention(interventionDto.getDateIntervention());
 		intervention.setDescription(interventionDto.getDescription());
 		intervention.setDureeIntervention(interventionDto.getDureeIntervention());
-		intervention.setEvolution(interventionDto.getEvolution());
+				intervention.setEvolution(interventionDto.getEvolution());
 		intervention.setFichePatient(MappingUtils.fichePatientDtoToEntity(interventionDto.getFichePatientDto()));
 		intervention.setInterventionId(interventionDto.getInterventionId());
 		//dto.setLigneSortieDtoList(ligneSortieDtoList) à completer 
-		intervention.setMotif_consultation(interventionDto.getMotif_consultation());
-		intervention.setPoids(interventionDto.getPoids());
+				intervention.setMotif_consultation(interventionDto.getMotif_consultation());
+				intervention.setPoids(interventionDto.getPoids());
 		//dto.setRendezVousDto(intervention.getRendezVous()) /à completer
 		//dto.setSoinDtoList(intervention.getSoinList()) à completer
-		intervention.setTension(interventionDto.getTension());
+				intervention.setTension(interventionDto.getTension());
 		//dto.setTypeInterventionDto(intervention.getTypeIntervention()); à completer
-		
+
 		return intervention;
 	}
 
@@ -251,7 +253,7 @@ public class MappingUtils {
 
 		return personnelPojo;
 	}
-	
+
 	public static List <Intervention> interventionListeDtoToEntity(List<InterventionDto> interventionListeDto){
 		List <Intervention> interventionList = new ArrayList<Intervention>();
 		for(InterventionDto interDto:interventionListeDto){
@@ -259,10 +261,10 @@ public class MappingUtils {
 		}
 		return interventionList;
 	}
-	
+
 	public static List <InterventionDto> interventionListeEntityToDto(List<Intervention> interventionListe){
 		List <InterventionDto> interventionListDto = new ArrayList<InterventionDto>();
-		
+
 		for(Intervention inter:interventionListe){
 			interventionListDto.add(MappingUtils.interventionEntityToDto((inter)));
 		}
@@ -272,9 +274,24 @@ public class MappingUtils {
 		DossierPatientDto dto = new DossierPatientDto();
 		dto.setDateCreation(dossierPatient.getDateCreation());
 		dto.setDateModification(dossierPatient.getDateModification());
-		dto.setPatientDto(MappingUtils.patientEntityToDto(dossierPatient.getPatient()));
+//		if(null != dossierPatient.getPatient())
+//			dto.setPatientDto(MappingUtils.patientEntityToDto(dossierPatient.getPatient()));
 		dto.setDossierPatientId(dossierPatient.getDossierPatientId());
-		dto.setFichePatientDtoList(MappingUtils.fichesPatientEntitiesToDto(dossierPatient.getFichePatientList()));
-		dto.setPersonnelDto(MappingUtils.personnelEntityToDto(dossierPatient.getPersonnel()));
+		if(null !=dossierPatient.getFichePatientList() && !dossierPatient.getFichePatientList().isEmpty())
+			dto.setFichePatientDtoList(MappingUtils.fichesPatientEntitiesToDto(dossierPatient.getFichePatientList()));
+		if(null != dossierPatient.getPersonnel())
+			dto.setPersonnelDto(MappingUtils.personnelEntityToDto(dossierPatient.getPersonnel()));
 		return dto;	}
+
+	public static List<PatientDto> listPatientEntityToListDto(
+			List<Patient> listePatient) {
+
+		List<PatientDto> resultList = new ArrayList<PatientDto>();
+		for(Patient pat : listePatient){
+			
+			resultList.add(patientEntityToDto(pat));
+		}
+		
+		return resultList;
+	}
 }

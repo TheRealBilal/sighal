@@ -23,13 +23,13 @@
 						<p:column colspan="2">
 							<h:outputLabel for="nomPatient" value="#{msg['search.name']}" />
 							<h:inputText id="nomPatient"
-								value="#{dossPatiRechercher.patient.nom}" size="16"
+								value="#{dossPatiRechercher.criteres.nom}" size="16"
 								maxlength="16" />
 						</p:column>
 						<p:column colspan="2">
 							<h:outputLabel for="prenomPatient" value="#{msg['search.firstname']}" />
 							<h:inputText id="prenomPatient"
-								value="#{dossPatiRechercher.patient.prenom}" size="30"
+								value="#{dossPatiRechercher.criteres.prenom}" size="30"
 								maxlength="30" />
 						</p:column>
 						<p:column></p:column>
@@ -38,13 +38,13 @@
 						<p:column colspan="2">
 							<h:outputLabel for="numDossPatient" value="#{msg['search.doss.number']}" />
 							<h:inputText id="numDossPatient"
-								value="#{dossPatiRechercher.dossier.dossierPatientId}" size="16"
+								value="#{dossPatiRechercher.criteres.numDossier}" size="16"
 								maxlength="16" />
 						</p:column>
 						<p:column colspan="2">
 							<h:outputLabel for="matriculePatient" value="#{msg['search.matricule']}" />
 							<h:inputText id="matriculePatient"
-								value="#{dossPatiRechercher.patient.matricule}" size="30"
+								value="#{dossPatiRechercher.criteres.matricule}" size="30"
 								maxlength="30" />
 						</p:column>
 						<p:column></p:column>
@@ -61,28 +61,31 @@
 				</p:panelGrid>
 			</p:panel>
 	        <p:messages autoUpdate="true" />
-			<p:dataTable id="salleDatatable" emptyMessage="#{msg['table.empty']}"
-					var="salleIt" value="#{salleBn.salleList}">
+			<p:dataTable id="resultatRecherche" emptyMessage="#{msg['table.empty']}"
+					var="pat" value="#{dossPatiRechercher.resultList}" rows="10"  paginator="true" 
+					paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink}  "
+					rowsPerPageTemplate="5,10,15" resizableColumns="true"
+					rowStyleClass="#{dossPatiRechercher.resultList le null ? 'old' : null}">
+			 		
 			 	<f:facet name="header">
 					<h:outputText value="#{msg['room.table.title']}" />
 			    </f:facet>
-			    <p:column headerText="#{msg['room.field.code']}">
-			        <h:outputText value="#{salleIt.codeSalle}" />
+			    <p:column headerText="nom">
+			        <h:outputText value="#{pat.nom}" />
 			    </p:column>
-			    <p:column headerText="#{msg['room.field.name']}">
-			        <h:outputText value="#{salleIt.nomSalle}" />
+			    
+			    <p:column headerText="prenom">
+			        <h:outputText value="#{pat.prenom}" />
 			    </p:column>
-			    <p:column headerText="#{msg['room.field.description']}">
-			        <h:outputText value="#{salleIt.descriptionSalle}" />
+			    
+			    <p:column headerText="date de naissance">
+			        <h:outputText value="#{pat.dateNaissance}" />
 			    </p:column>
-			    <p:column width="8%">
-		            <p:commandButton title="#{msg['button.update']}" icon="ui-icon-pencil"
-		            	action="#{salleBn.initModifier(salleIt)}" ajax="false"/>
+			    
+			    <p:column headerText="numero dossier">
+			        <h:outputText value="#{pat.dossierPatientDto.dossierPatientId}" />
 			    </p:column>
-			    <p:column width="8%">
-		            <p:commandButton title="#{msg['button.delete']}" icon="ui-icon-trash"
-		            	action="#{salleBn.supprimer(salleIt.salleId)}" />
-			    </p:column>
+			    
 			</p:dataTable>
 		</h:form>
 	</ui:define>

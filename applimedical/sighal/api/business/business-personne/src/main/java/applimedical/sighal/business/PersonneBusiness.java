@@ -1,8 +1,8 @@
 package applimedical.sighal.business;
 
-import applimedical.sighal.dto.PersonnelDto;
+import applimedical.sighal.api.pojo.Personnel;
 
 public interface PersonneBusiness {
 	boolean authentifier (String login, String mdp);
-   PersonnelDto chargerPersonnel(String login);
+   Personnel chargerPersonnel(String login);
 }

@@ -9,10 +9,10 @@ import javax.faces.bean.ViewScoped;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import applimedical.sighal.api.pojo.DossierPatient;
+import applimedical.sighal.api.pojo.Patient;
 import applimedical.sighal.business.DossierPatientBusiness;
 import applimedical.sighal.criteres.CriteresDossierPatient;
-import applimedical.sighal.dto.DossierPatientDto;
-import applimedical.sighal.dto.PatientDto;
 
 @Controller("dossPatiRechercher")
 @ManagedBean
@@ -21,21 +21,19 @@ public class RecherchePatientDossier {
 	@Autowired
 	private DossierPatientBusiness dossierPatientBusiness ;
 	
-	private PatientDto patient = new PatientDto();
-	private DossierPatientDto dossier = new DossierPatientDto();
-	private List<PatientDto> resultList = new ArrayList<PatientDto>();
+	private Patient patient = new Patient();
+	private DossierPatient dossier = new DossierPatient();
+	private List<Patient> resultList = new ArrayList<Patient>();
 	CriteresDossierPatient criteres = new CriteresDossierPatient();
+	private Patient patientSelectionne = new Patient();
 	
 	
 
 	public String initCreer() {
-		setPatient(new PatientDto());
 		return "creerDossierPatient";
 	}
 	
 	public String  startPage() {
-		 setPatient(new PatientDto());
-		 setDossier(new DossierPatientDto());
 		 return "recherchePatientDossier";
 	   }
 	
@@ -46,56 +44,62 @@ public class RecherchePatientDossier {
 	      return "recherchePatientDossier";
 	   }
 
-
-	 
-	 
-	 
 	/**
 	 * @return the patient
 	 */
-	public PatientDto getPatient() {
+	public Patient getPatient() {
 		return patient;
 	}
 
 	/**
 	 * @param patient the patient to set
 	 */
-	public void setPatient(PatientDto patient) {
+	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
 
 	/**
 	 * @return the dossier
 	 */
-	public DossierPatientDto getDossier() {
+	public DossierPatient getDossier() {
 		return dossier;
 	}
 
 	/**
 	 * @param dossier the dossier to set
 	 */
-	public void setDossier(DossierPatientDto dossier) {
+	public void setDossier(DossierPatient dossier) {
 		this.dossier = dossier;
 	}
-
-
 
 	/**
 	 * @return the resultList
 	 */
-	public List<PatientDto> getResultList() {
+	public List<Patient> getResultList() {
 		return resultList;
 	}
-
-
 
 	/**
 	 * @param resultList the resultList to set
 	 */
-	public void setResultList(List<PatientDto> resultList) {
+	public void setResultList(List<Patient> resultList) {
 		this.resultList = resultList;
 	}
-	
+
+	/**
+	 * @return the patientSelectionne
+	 */
+	public Patient getPatientSelectionne() {
+		return patientSelectionne;
+	}
+
+	/**
+	 * @param patientSelectionne the patientSelectionne to set
+	 */
+	public void setPatientSelectionne(Patient patientSelectionne) {
+		this.patientSelectionne = patientSelectionne;
+	}
+
 	/**
 	 * @return the criteres
 	 */
@@ -109,4 +113,10 @@ public class RecherchePatientDossier {
 	public void setCriteres(CriteresDossierPatient criteres) {
 		this.criteres = criteres;
 	}
+
+
+	 
+	 
+	 
+
 }

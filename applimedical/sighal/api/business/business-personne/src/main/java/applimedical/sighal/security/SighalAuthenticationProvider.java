@@ -13,8 +13,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import applimedical.sighal.api.pojo.Personnel;
 import applimedical.sighal.business.PersonneBusiness;
-import applimedical.sighal.dto.PersonnelDto;
 
 @Component("authenticationProvider")
 public class SighalAuthenticationProvider implements AuthenticationProvider {
@@ -27,7 +27,7 @@ public class SighalAuthenticationProvider implements AuthenticationProvider {
             throws AuthenticationException {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
-        PersonnelDto utilisateur = personneBusiness.chargerPersonnel(username);
+        Personnel utilisateur = personneBusiness.chargerPersonnel(username);
 
         if (utilisateur == null) {
             throw new BadCredentialsException("Utilisateur non reconnnu.");
@@ -48,7 +48,7 @@ public class SighalAuthenticationProvider implements AuthenticationProvider {
                         new SimpleGrantedAuthority(Constants.ROLE_PREFIX + userGroup.getName().toUpperCase()));
             }
         }*/
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + utilisateur.getFonctionDto().getNomFonction().toUpperCase()));
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + utilisateur.getFonction().getNomFonction().toUpperCase()));
 
         return new SighalAuthentication(utilisateur, username, password,
                 grantedAuthorities);

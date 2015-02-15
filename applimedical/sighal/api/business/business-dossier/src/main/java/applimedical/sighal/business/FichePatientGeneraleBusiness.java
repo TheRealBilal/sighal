@@ -2,19 +2,18 @@ package applimedical.sighal.business;
 
 import java.util.List;
 
-import applimedical.sighal.dto.FichePatientDto;
-import applimedical.sighal.dto.FichePatientGeneraleDto;
+import applimedical.sighal.api.pojo.FichePatient;
+import applimedical.sighal.api.pojo.FichePatientGenerale;
 
 public interface FichePatientGeneraleBusiness {
 	
 
-	List<FichePatientGeneraleDto> getToutesLesFichesPatientGenerale();
+	List<FichePatientGenerale> getToutesLesFichesPatientGenerale();
 	
-	FichePatientGeneraleDto getFichePatienGeneraleParId(Long fichePatientgeneraleId);
+	FichePatientGenerale getFichePatienGeneraleParId(Long fichePatientgeneraleId);
 	
-	//List<FichePatientDto> getFichesPatient(String code, String nom);
 	
-	FichePatientDto sauvegarderFichePatientGenerale(FichePatientGeneraleDto fichePatientGeneraleDto);
+	FichePatient sauvegarderFichePatientGenerale(FichePatientGenerale fichePatientGenerale);
 	void supprimerFichePatientGenerale(Long ficheFichePatientGeneraleId);
 
 }

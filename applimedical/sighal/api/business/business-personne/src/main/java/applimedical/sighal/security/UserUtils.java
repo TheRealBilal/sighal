@@ -4,14 +4,18 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import applimedical.sighal.api.pojo.Personnel;
 import applimedical.sighal.dto.PersonnelDto;
 
 public abstract class UserUtils {
 
-    public static PersonnelDto utilisateurCourant() {
+    /*public static PersonnelDto utilisateurCourant() {
+        return ((SighalAuthentication) SecurityContextHolder.getContext().getAuthentication()).getUtilisateur();
+    }*/
+    
+    public static Personnel utilisateurCourant() {
         return ((SighalAuthentication) SecurityContextHolder.getContext().getAuthentication()).getUtilisateur();
     }
-
     public static boolean isAuthentifie() {
        return SecurityContextHolder.getContext().getAuthentication() instanceof SighalAuthentication;
    }

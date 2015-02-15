@@ -5,31 +5,30 @@ package applimedical.sighal.web.dossiers;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.event.FlowEvent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.sun.faces.application.ApplicationAssociate;
-import com.sun.faces.el.ELContextImpl;
-
+import applimedical.sighal.api.constantes.DomaineEnum;
+import applimedical.sighal.api.pojo.DossierPatient;
+import applimedical.sighal.api.pojo.FichePatient;
+import applimedical.sighal.api.pojo.Patient;
 import applimedical.sighal.business.DossierPatientBusiness;
-import applimedical.sighal.business.RessourceBusiness;
-import applimedical.sighal.dto.DossierPatientDto;
-import applimedical.sighal.dto.PatientDto;
 import applimedical.sighal.security.UserUtils;
 import applimedical.sighal.web.utils.ManagedBan;
 
+
 @Controller("dossPati")
-@ManagedBean
-@ViewScoped
+@Scope("session")
 public class DossierPatientBean implements Serializable{
 	/**
 	 * 
@@ -38,18 +37,23 @@ public class DossierPatientBean implements Serializable{
 	private static final long serialVersionUID = 4764922958280561337L;
 	private boolean skip;
 
-	private DossierPatientDto dossierPatient = new DossierPatientDto();
+	private DossierPatient dossierPatient = new DossierPatient();
 
-	private PatientDto patient ;
+
+	private Patient patient ;
 	@Autowired
 	private DossierPatientBusiness dossierPatientBusiness ;	
 	
-	@ManagedProperty(value="#{fichePatientMgBean}")
+	@Autowired
 	private FichePatientMgBean fichePatientMgBean;
 	
+	private String seletedDomaine ;
 
+	private List<FichePatient> fichepatientPatientList;
+	private DomaineEnum[] domaineEnum;
+	
 	public String initCreer() {
-		setPatient(new PatientDto());
+		patient= new Patient();
 		return "creerDossierPatient";
 	}
 
@@ -64,17 +68,16 @@ public class DossierPatientBean implements Serializable{
 		}
 	}
 
-	public String save() {       
+	public String enregistrer() {       
 		
 		
 		
-		
-		DossierPatientDto dossier= new DossierPatientDto();
+		DossierPatient dossier= new DossierPatient();
 //		dossier.setPatientDto(patient);
 		dossier.setDateCreation(new Date());
-		dossier.setPersonnelDto(UserUtils.utilisateurCourant());
+		dossier.setPersonnel(UserUtils.utilisateurCourant());
 		
-		patient.setDossierPatientDto(dossier);
+		patient.setDossierPatient(dossier);
 		patient.setPersonneId(UserUtils.utilisateurCourant().getPersonneId());
 		
 		
@@ -82,49 +85,99 @@ public class DossierPatientBean implements Serializable{
 		FacesMessage msg = new FacesMessage("Successful", "création de :" + numeroDossier +" avec succes");
 		
 		FacesContext.getCurrentInstance().addMessage(null, msg);	
-		fichePatientMgBean = (FichePatientMgBean) ManagedBan.getManagedBean("fichePatientMgBean");
-		fichePatientMgBean.setIdDossier(numeroDossier);
-		fichePatientMgBean.setDossierPatientBusiness(dossierPatientBusiness);
-		return fichePatientMgBean.startPageWithNumDossier();
+//		fichePatientMgBean = (FichePatientMgBean) ManagedBan.getManagedBean("fichePatientMgBean");
+////		fichePatientMgBean.setIdDossier(numeroDossier);
+////		fichePatientMgBean.setDossierPatientBusiness(dossierPatientBusiness);
+		return startPageWithNumDossier(numeroDossier);
 		 
+	}
+	
+	
+	public String startPage() {
+		
+	      seletedDomaine = DomaineEnum.AUTRE.toString();
+	      
+	      return "listeFichePatient";
+	   }
+
+	
+	public String startPageWithNumDossier(DossierPatient dossierPatient) {
+		setDossierPatient(dossierPatient);
+		
+		return startPageWithNumDossier(dossierPatient.getDossierPatientId());
+	      
+	   }
+	
+	
+	public String startPageWithNumDossier(Long idDossier) {
+		dossierPatient= dossierPatientBusiness.getDossierPatient(idDossier);
+		setFichepatientPatientList(dossierPatient.getFichePatientList());
+		return "listeFichePatient";
+	   }
+	
+
+	/**
+	 * @return the dossierPatient
+	 */
+	public DossierPatient getDossierPatient() {
+		return dossierPatient;
+	}
+
+
+	/**
+	 * @param dossierPatient the dossierPatient to set
+	 */
+	public void setDossierPatient(DossierPatient dossierPatient) {
+		this.dossierPatient = dossierPatient;
 	}
 
 
 	/**
 	 * @return the patient
 	 */
-	public PatientDto getPatient() {
+	public Patient getPatient() {
 		return patient;
 	}
+
+
 	/**
 	 * @param patient the patient to set
 	 */
-	public void setPatient(PatientDto patient) {
+	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
-	/**
-	 * @return the dossierPatient
-	 */
-	public DossierPatientDto getDossierPatient() {
-		return dossierPatient;
-	}
-	/**
-	 * @param dossierPatient the dossierPatient to set
-	 */
-	public void setDossierPatient(DossierPatientDto dossierPatient) {
-		this.dossierPatient = dossierPatient;
+	
+	
+	public String getSeletedDomaine() {
+		return seletedDomaine;
 	}
 
+	public void setSeletedDomaine(String seletedDomaine) {
+		this.seletedDomaine = seletedDomaine;
+	}
+
+
+	/**
+	 * @return the fichepatientPatientList
+	 */
+	public List<FichePatient> getFichepatientPatientList() {
+		return fichepatientPatientList;
+	}
+
+
+	/**
+	 * @param fichepatientPatientList the fichepatientPatientList to set
+	 */
+	public void setFichepatientPatientList(List<FichePatient> fichepatientPatientList) {
+		this.fichepatientPatientList = fichepatientPatientList;
+	}
 	
 
-
-	public FichePatientMgBean getFichePatientMgBean() {
-		return fichePatientMgBean;
+	public DomaineEnum[] getDomaineEnum() {
+		return domaineEnum;
 	}
 
-	
-	public void setFichePatientMgBean(FichePatientMgBean fichePatientMgBean) {
-		this.fichePatientMgBean = fichePatientMgBean;
+	public void setDomaineEnum(DomaineEnum[] domaineEnum) {
+		this.domaineEnum = domaineEnum;
 	}
-
 }

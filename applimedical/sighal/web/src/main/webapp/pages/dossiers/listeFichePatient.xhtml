@@ -11,184 +11,105 @@
 
 	<ui:define name="template_body">
 		<h:form id="frmFichePatient">
-			<p:toolbar>
-		        <f:facet name="left">
-		            <p:commandButton type="push" title="#{msg['button.new']}" icon="ui-icon-document"
-		            	action="#{FichePatientBn.initCreer}" />
-		            <p:commandButton type="push" title="#{msg['button.delete']}" icon="ui-icon-trash"
-		            	action="#{FichePatientBn.supprimer(null)}" ajax="false" />
-		        </f:facet>
-	        </p:toolbar>
-			
-	        <p:messages autoUpdate="true" />
-			<p:dataTable id="fichePatientDatatable" emptyMessage="#{msg['table.empty']}" rendered="false"
-					var="fichePatientIt" value="#{fichePatientBn.fichepatientList}">
-			 	<f:facet name="header">
-					<h:outputText value="#{msg['fichePatient.table.title']}" />
-			    </f:facet>
-			    <p:column headerText="#{msg['fichePatient.field.id']}">
-			        <h:outputText value="#{fichePatientIt.fichePatientId}" />
-			    </p:column>
-			    <p:column headerText="#{msg['fichePatient.field.type']}">
-			        <h:outputText value="#{fichePatientIt.typeFichePatient}" />
-			    </p:column>
-			    <p:column headerText="#{msg['fichePatient.field.description']}">
-			        <h:outputText value="#{fichePatientIt.observation}" />
-			    </p:column>
-			    <p:column width="8%">
-		            <p:commandButton title="#{msg['button.update']}" icon="ui-icon-pencil"
-		            	action="#{fichePatientBn.initModifier(fichePatientIt)}" ajax="false"/>
-			    </p:column>
-			    <p:column width="8%">
-		            <p:commandButton title="#{msg['button.delete']}" icon="ui-icon-trash"
-		            	action="#{fichePatientBn.supprimer(fichePatientIt.fichePatientId)}" />
-			    </p:column>
-			</p:dataTable>
-			<h:panelGrid id="grid" columns="6" cellpadding="5">
-        
-        
-            <h:outputLabel for="matricule" value="matricule:" style="font-weight:bold"/>                    
-            <p:inputText id="matricule" value="#{fichePatientMgBean.dossierPatientDto.patientDto.matricule}" required="true" label="Name"/>
-            <p:message for="matricule"  />
-             
-            
-            <h:outputLabel  for="name" value="Nom:" style="font-weight:bold"/>                    
-            <p:inputText id="name" value="#{fichePatientMgBean.dossierPatientDto.patientDto.nom}" required="true" label="Name"/>
-            <p:message for="name" />
-             
-            
-             <h:outputLabel for="nomJeuneFille" value="Nom Jeune Fille:" style="font-weight:bold"/>                    
-            <p:inputText id="nomJeuneFille" value="#{fichePatientMgBean.dossierPatientDto.patientDto.nomJeuneFille}" required="true" label="Name"/>
-            <p:message for="nomJeuneFille" />
-             
-            
-            <h:outputLabel for="prenom" value="prenom:" style="font-weight:bold"/>                    
-            <p:inputText id="prenom" readonly="true"  value="#{fichePatientMgBean.dossierPatientDto.patientDto.prenom}" required="true" label="Name"/>
-            <p:message for="name" />
-                                 
-            
-            <h:outputLabel for="dateNaissance" value="Date de Naissance" style="font-weight:bold"/>                    
-            <p:calendar readonlyInput="true" showOn="false" id="dateNaissance" pattern="dd MMMM yyyy" value="#{fichePatientMgBean.dossierPatientDto.patientDto.dateNaissance}" required="true" label="Name"/>            
-            <p:message for="dateNaissance" />
-            
-            
-            
-            <h:outputLabel for="sex" value="sex:" style="font-weight:bold"/>                    
-            <p:inputText id="sex" value="#{fichePatientMgBean.dossierPatientDto.patientDto.sex}" required="true" label="Name"/>
-            <p:message for="sex" />
-             
-            
-            
-            <h:outputLabel for="titre" value="titre:" style="font-weight:bold"/>                    
-            <p:inputText id="titre" value="#{fichePatientMgBean.dossierPatientDto.patientDto.titre}" required="true" label="Name"/>
-            <p:message for="titre" />
-             
-            
-             
-            <h:outputLabel for="civilite" value="civilite:" style="font-weight:bold"/> 
-            <h:selectOneMenu id="civilite" disabled="true" value="#{fichePatientMgBean.dossierPatientDto.patientDto.civilite}" required="true" label="Name">
-            <f:selectItem itemLabel="Mr" itemValue="1"/>
-            <f:selectItem itemLabel="Mme" itemValue="2"/>
-            <f:selectItem itemLabel="melle" itemValue="3"/>
-            </h:selectOneMenu>                               
-            <p:message for="civilite" />
-            
-            
-             
-            <h:outputLabel for="adresse" value="adresse:" style="font-weight:bold"/>                    
-            <p:inputText id="adresse" value="#{fichePatientMgBean.dossierPatientDto.patientDto.adresse}" required="true" label="Name"/>
-            <p:message for="adresse" />
-             
-            
-             
-            <h:outputLabel for="codePostale" value="code Postale:" style="font-weight:bold"/>                    
-            <p:inputText id="codePostale" value="#{fichePatientMgBean.dossierPatientDto.patientDto.codePostale}" required="true" label="Name"/>
-            <p:message for="codePostale" />
-              
-            
-             
-            <h:outputLabel for="ville" value="ville:" style="font-weight:bold"/>                    
-            <p:inputText id="ville" value="#{fichePatientMgBean.dossierPatientDto.patientDto.ville}" required="true" label="Name"/>
-            <p:message for="ville" />
-            
-            
-             
-            <h:outputLabel for="region" value="ville:" style="font-weight:bold"/>                    
-            <p:inputText id="region" value="#{fichePatientMgBean.dossierPatientDto.patientDto.region}" required="true" label="Name"/>
-            <p:message for="region" />
-            
-            
-             
-            <h:outputLabel for="pays" value="pays:" style="font-weight:bold"/>                    
-            <p:inputText id="pays" value="#{fichePatientMgBean.dossierPatientDto.patientDto.pays}" required="true" label="Name"/>
-            <p:message for="pays" />
-            
-            
-            
-            
-             
-            <h:outputLabel for="telephonne" value="telephonne:" style="font-weight:bold"/>                    
-            <p:inputText id="telephonne" value="#{fichePatientMgBean.dossierPatientDto.patientDto.telephonne}" required="true" label="Name"/>
-            <p:message for="telephonne" />
-            
-             
-            <h:outputLabel for="email" value="email:" style="font-weight:bold"/>                    
-            <p:inputText id="email" value="#{fichePatientMgBean.dossierPatientDto.patientDto.email}" required="true" label="Name"/>
-            <p:message for="email" />
-            
-            <h:outputLabel for="domaine" value="domaine" style="font-weight:bold"/>                    
-            <p:selectOneMenu  id="domaine"  value="#{fichePatientMgBean.seletedDomaine}"  style="width:150px" required="true" label="Name">	
-              <p:ajax listener="#{fichePatientBn.onDomaineChange}" update="listFP"  />            
-	            <f:selectItem itemLabel="generale" itemValue="generale"/>
-	            <f:selectItem itemLabel="dentiste" itemValue="dentiste"/>
-            	<f:selectItem itemLabel="AUTRE" itemValue="AUTRE"/>
-            	
-            </p:selectOneMenu>
-            <p:message for="domaine" />	                        
-                         
-                         
-        </h:panelGrid>
-        
-        <p:separator />
-        <p:panel header="liste des fiches patient" style="margin-bottom:20px;aligne:center"/>
-        
-        <p:accordionPanel widgetVar="listfichpat" id="listFP" value="#{fichePatientBn.fichepatientList}" var="fichIt">
-        
-		<p:tab id="id_#{fichIt.personnelDto.matricule}" title="date creation  : #{fichIt.dateCreation}" >
-            <h:panelGrid columns="4" cellpadding="10">
-            
-            
-            	<h:outputLabel for="motif" value="motif de consultation : " style="font-weight:bold"/>  
-                <h:outputText id="motif" value="#{fichIt.motif_consultation}" />
-                
-                <h:outputLabel for="Medecin" value="Medecin : " style="font-weight:bold"/>  
-                <h:outputText id="Medecin" value="#{fichIt.personnelDto.nom}" />
-                
-                <h:outputLabel for="poids" value="Poids : " style="font-weight:bold"/>  
-                <h:outputText id="poids" value="#{fichIt.poids}" />
-                
-                <h:outputLabel for="tension" value="Tension : " style="font-weight:bold"/>  
-                <h:outputText id="tension" value="#{fichIt.tension}" />                
-              
-                <h:outputLabel for="observation" value="observation : " style="font-weight:bold" />  
-                <h:column >
-                <h:outputText id="observation" value="#{fichIt.personnelDto.observation}" />  
-              	</h:column>
-              
-                <h:outputLabel for="evolution" value="Evolution : " style="font-weight:bold"/>  
-                <h:outputText id="evolution" value="#{fichIt.personnelDto.evolution}" />
-               
-            </h:panelGrid>
-        </p:tab>
 
-		
-		</p:accordionPanel>
-		
+			<p:messages autoUpdate="true" />
+
+			<h:panelGrid id="grid" columns="8" cellpadding="5">
+
+
+				<h:outputLabel for="numDossier" value="Numero dossier "
+					style="font-weight:bold" />
+				<h:outputText id="matricule"
+					value="#{dossPati.dossierPatient.dossierPatientId}" />
+
+
+				<h:outputLabel for="name" value="Nom:" style="font-weight:bold" />
+				<h:outputText id="name"
+					value="#{dossPati.dossierPatient.patient.nom}" />
+
+
+
+
+				<h:outputLabel for="prenom" value="prenom:" style="font-weight:bold" />
+				<h:outputText id="prenom"
+					value="#{dossPati.dossierPatient.patient.prenom}" />
+
+
+
+				<h:outputLabel for="nomJeuneFille" value="Nom Jeune Fille:"
+					style="font-weight:bold" />
+				<h:outputText id="nomJeuneFille"
+					value="#{dossPati.dossierPatient.patient.nomJeuneFille}" />
+
+
+
+
+				<h:outputLabel for="domaine" value="domaine"
+					style="font-weight:bold" />
+				<p:selectOneMenu id="domaine"
+					value="#{dossPati.seletedDomaine}" style="width:150px"
+					required="true" label="Name">
+					<p:ajax listener="#{fichePatientBn.onDomaineChange}"
+						update="listFP" />
+					<f:selectItem itemLabel="generale" itemValue="generale" />
+					<f:selectItem itemLabel="dentiste" itemValue="dentiste" />
+					<f:selectItem itemLabel="AUTRE" itemValue="AUTRE" />
+
+				</p:selectOneMenu>
+				<p:message for="domaine" />
+
+
+			</h:panelGrid>
+
+			<p:separator />
+			<p:panel header="historique" style="margin-bottom:20px;aligne:center" />
+
+			<p:accordionPanel widgetVar="listfichpat" id="listFP"
+				value="#{fichePatientBn.fichepatientList}" var="fichIt">
+
+				<p:tab id="id_#{fichIt.personnel.matricule}"
+					title="date creation  : #{fichIt.dateCreation}">
+					<h:panelGrid columns="4" cellpadding="10">
+
+
+						<h:outputLabel for="motif" value="motif de consultation : "
+							style="font-weight:bold" />
+						<h:outputText id="motif" value="#{fichIt.motif_consultation}" />
+
+						<h:outputLabel for="Medecin" value="Medecin : "
+							style="font-weight:bold" />
+						<h:outputText id="Medecin" value="#{fichIt.personnel.nom}" />
+
+						<h:outputLabel for="poids" value="Poids : "
+							style="font-weight:bold" />
+						<h:outputText id="poids" value="#{fichIt.poids}" />
+
+						<h:outputLabel for="tension" value="Tension : "
+							style="font-weight:bold" />
+						<h:outputText id="tension" value="#{fichIt.tension}" />
+
+						<h:outputLabel for="observation" value="observation : "
+							style="font-weight:bold" />
+						<h:column>
+							<h:outputText id="observation"
+								value="#{fichIt.personnel.observation}" />
+						</h:column>
+
+						<h:outputLabel for="evolution" value="Evolution : "
+							style="font-weight:bold" />
+						<h:outputText id="evolution" value="#{fichIt.personnel.evolution}" />
+
+					</h:panelGrid>
+				</p:tab>
+
+
+			</p:accordionPanel>
+
 		</h:form>
-		
-		
-		
-		
-		
+
+
+
+
+
 	</ui:define>
 </ui:composition>

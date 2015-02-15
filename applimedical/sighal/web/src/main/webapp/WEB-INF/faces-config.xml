@@ -53,6 +53,11 @@
 			<to-view-id>/pages/ressources/recherchePatientDossier.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>listeFichePatient</from-outcome>
+			<to-view-id>/pages/dossiers/listeFichePatient.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>

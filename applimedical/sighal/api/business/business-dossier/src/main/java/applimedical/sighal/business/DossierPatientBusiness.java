@@ -2,17 +2,18 @@
 package applimedical.sighal.business;
 
 import java.util.List;
-import applimedical.sighal.dto.DossierPatientDto;
-import applimedical.sighal.dto.FichePatientDto;
+
+import applimedical.sighal.api.pojo.DossierPatient;
+import applimedical.sighal.api.pojo.FichePatient;
+import applimedical.sighal.api.pojo.Patient;
 import applimedical.sighal.criteres.CriteresDossierPatient;
-import applimedical.sighal.dto.PatientDto;
 
 public interface DossierPatientBusiness {
 
-	public Long createDossierPatient(PatientDto patientdto);
-	public List<FichePatientDto> getListeFichePatient(Long dossierPatientId);
+	public Long createDossierPatient(Patient patientdto);
+	public List<FichePatient> getListeFichePatient(Long dossierPatientId);
 
-	public DossierPatientDto getDossierPatient(Long id);
+	public DossierPatient getDossierPatient(Long id);
 
-	public List<PatientDto> recherchePatientDossier(CriteresDossierPatient criteres);
+	public List<Patient> recherchePatientDossier(CriteresDossierPatient criteres);
 }

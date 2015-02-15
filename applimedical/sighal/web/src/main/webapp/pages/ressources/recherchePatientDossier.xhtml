@@ -12,11 +12,11 @@
 	<ui:define name="template_body">
 		<h:form id="recherchePDId">
 			<p:toolbar>
-		        <f:facet name="left">
-		            <p:commandButton type="push" title="#{msg['button.new']}" icon="ui-icon-document"
-		            	action="#{dossPati.initCreer}" />
-		        </f:facet>
-	        </p:toolbar>
+				<f:facet name="left">
+					<p:commandButton type="push" title="#{msg['button.new']}"
+						icon="ui-icon-document" action="#{dossPati.initCreer}" />
+				</f:facet>
+			</p:toolbar>
 			<p:panel header="#{msg['search.title']}">
 				<p:panelGrid>
 					<p:row>
@@ -27,65 +27,77 @@
 								maxlength="16" />
 						</p:column>
 						<p:column colspan="2">
-							<h:outputLabel for="prenomPatient" value="#{msg['search.firstname']}" />
+							<h:outputLabel for="prenomPatient"
+								value="#{msg['search.firstname']}" />
 							<h:inputText id="prenomPatient"
 								value="#{dossPatiRechercher.criteres.prenom}" size="30"
 								maxlength="30" />
 						</p:column>
-						<p:column></p:column>
 					</p:row>
-							<p:row>
+					<p:row>
 						<p:column colspan="2">
-							<h:outputLabel for="numDossPatient" value="#{msg['search.doss.number']}" />
+							<h:outputLabel for="numDossPatient"
+								value="#{msg['search.doss.number']}" />
 							<h:inputText id="numDossPatient"
 								value="#{dossPatiRechercher.criteres.numDossier}" size="16"
 								maxlength="16" />
 						</p:column>
 						<p:column colspan="2">
-							<h:outputLabel for="matriculePatient" value="#{msg['search.matricule']}" />
+							<h:outputLabel for="matriculePatient"
+								value="#{msg['search.matricule']}" />
 							<h:inputText id="matriculePatient"
 								value="#{dossPatiRechercher.criteres.matricule}" size="30"
 								maxlength="30" />
 						</p:column>
-						<p:column></p:column>
 					</p:row>
 					<p:row>
-						<p:column colspan="4"><p:spacer /></p:column>
-			            <p:column>
-			            	<p:commandButton type="reset" title="#{msg['button.reset']}" value="#{msg['button.reset']}" />
-			            	<p:commandButton title="#{msg['button.search']}"
-			            		value="#{msg['button.search']}"
-			            		action="#{dossPatiRechercher.rechercher}" />
-			            </p:column>
-		            </p:row>
+						<p:column colspan="4">
+							<p:spacer />
+						</p:column>
+						<p:column>
+							<p:commandButton type="reset" title="#{msg['button.reset']}"
+								value="#{msg['button.reset']}" />
+							<p:commandButton title="#{msg['button.search']}"
+								value="#{msg['button.search']}"
+								action="#{dossPatiRechercher.rechercher}" />
+						</p:column>
+					</p:row>
 				</p:panelGrid>
 			</p:panel>
-	        <p:messages autoUpdate="true" />
-			<p:dataTable id="resultatRecherche" emptyMessage="#{msg['table.empty']}"
-					var="pat" value="#{dossPatiRechercher.resultList}" rows="10"  paginator="true" 
-					paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink}  "
-					rowsPerPageTemplate="5,10,15" resizableColumns="true"
-					rowStyleClass="#{dossPatiRechercher.resultList le null ? 'old' : null}">
-			 		
-			 	<f:facet name="header">
-					<h:outputText value="#{msg['room.table.title']}" />
-			    </f:facet>
-			    <p:column headerText="nom">
-			        <h:outputText value="#{pat.nom}" />
-			    </p:column>
-			    
-			    <p:column headerText="prenom">
-			        <h:outputText value="#{pat.prenom}" />
-			    </p:column>
-			    
-			    <p:column headerText="date de naissance">
-			        <h:outputText value="#{pat.dateNaissance}" />
-			    </p:column>
-			    
-			    <p:column headerText="numero dossier">
-			        <h:outputText value="#{pat.dossierPatientDto.dossierPatientId}" />
-			    </p:column>
-			    
+			<p:messages autoUpdate="true" />
+			<p:dataTable id="resultatRecherche"
+				emptyMessage="#{msg['table.empty']}" var="pat"
+				value="#{dossPatiRechercher.resultList}" rows="10" paginator="true"
+				paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink}  "
+				rowsPerPageTemplate="5,10,15" resizableColumns="true"
+				rowStyleClass="#{dossPatiRechercher.resultList le null ? 'old' : null}">
+
+				<f:facet name="header">
+					<h:outputText value="Resultat de recherche" />
+				</f:facet>
+				<p:column headerText="nom">
+					<h:outputText value="#{pat.nom}" />
+				</p:column>
+
+				<p:column headerText="prenom">
+					<h:outputText value="#{pat.prenom}" />
+				</p:column>
+
+				<p:column headerText="date de naissance">
+					<h:outputText value="#{pat.dateNaissance}" />
+				</p:column>
+
+				<p:column headerText="numero dossier">
+					<h:outputText value="#{pat.dossierPatient.dossierPatientId}" />
+				</p:column>
+
+				<p:column style="width:32px;text-align: center">
+					<p:commandButton 
+						action="#{dossPati.startPageWithNumDossier(pat.dossierPatient)}" icon="ui-icon-search"
+						title="fiches patient"
+					>
+					</p:commandButton>
+				</p:column>
 			</p:dataTable>
 		</h:form>
 	</ui:define>

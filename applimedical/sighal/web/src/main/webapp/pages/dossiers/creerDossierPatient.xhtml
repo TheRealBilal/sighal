@@ -18,39 +18,54 @@
 			<p:wizard flowListener="#{dossPati.onFlowProcess}">
 
 				<p:tab id="personal" title="Personnel">
-					
-					<p:panel header="Personal Details">
-						<p:messages />
-						
+
+					<p:panel header="Detail de la personne ">
+
 						<h:panelGrid columns="2" columnClasses="label, value">
-							
+
+
+
 							<h:outputText id="civili" value="Civilité *" />
-							<p:selectOneRadio id="console" value="{dossPati.patient.civilite}" required="true">
-								<f:selectItem itemLabel="Mr" itemValue="Mr" />
-								<f:selectItem itemLabel="Mme" itemValue="Mme" />
-								<f:selectItem itemLabel="Mlle" itemValue="Mlle" />
-							</p:selectOneRadio>
-							
+							<h:panelGroup>
+								<p:selectOneRadio id="console"
+									value="{dossPati.patient.civilite}" required="true">
+									<f:selectItem itemLabel="Mr" itemValue="Mr" />
+									<f:selectItem itemLabel="Mme" itemValue="Mme" />
+									<f:selectItem itemLabel="Mlle" itemValue="Mlle" />
+								</p:selectOneRadio>
+							</h:panelGroup>
+
 							<h:outputText id="nom" value="Nom: *" />
-							<p:inputText value="#{dossPati.patient.nom}" required="true"
-								title="test infobulle" label="Firstname" />
+							<h:panelGroup>
+								<p:inputText id="name" value="#{dossPati.patient.nom}"
+									label="Nom" required="true" title="test infobulle"
+									requiredMessage="veuillez introduire le nom s'il vous plait"
+									validatorMessage="le nom doit conternir que les caractres alphabitique">
+									<f:validateRegex pattern="^[A-Za-z]" />
+								</p:inputText>
+								<p:message for="name" />
+							</h:panelGroup>
 
 
 
 							<h:outputText value="Prenom: *" />
-							<p:inputText value="#{dossPati.patient.prenom}" required="true"
-								label="Lastname" />
+							<h:panelGroup>
+								<p:inputText value="#{dossPati.patient.prenom}" required="true"
+									label="Lastname" />
+							</h:panelGroup>
+
 
 							<h:outputText id="datenaiss" value="Date de naissance: " />
 							<p:calendar value="#{dossPati.patient.dateNaissance}" lang="fr"
-								navigator="true" pattern="dd-MM-yyyy" mindate="01-01-1900" yearRange = "c-120:"/>
-								
-							
+								navigator="true" pattern="dd-MM-yyyy" mindate="01-01-1900"
+								yearRange="c-120:" />
+
+
 							<h:outputText value="aller à la fin: " />
-							<h:selectBooleanCheckbox value="flse" /> 
+							<h:selectBooleanCheckbox value="flse" />
 						</h:panelGrid>
 					</p:panel>
-					
+
 				</p:tab>
 
 				<p:tab id="address" title="Address">
@@ -63,13 +78,13 @@
 
 							<h:outputText value="Ville: " />
 							<p:inputText value="#{dossPati.patient.ville}" />
-							
+
 							<h:outputText value="Wilaya: " />
 							<p:inputText value="#{dossPati.patient.region}" />
-							
+
 							<h:outputText value="Pays: " />
 							<p:inputText value="#{dossPati.patient.pays}" />
-							
+
 						</h:panelGrid>
 					</p:panel>
 				</p:tab>
@@ -80,11 +95,12 @@
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<h:outputText value="Email: *" />
 							<p:inputText value="#{dossPati.patient.email}" required="true"
-								label="Email" />
+								label="Email"  type="email">
+								</p:inputText>
 
 							<h:outputText value="N° telephonne: " />
 							<p:inputText value="#{dossPati.patient.telephonne}" />
-							
+
 						</h:panelGrid>
 					</p:panel>
 				</p:tab>
@@ -103,44 +119,36 @@
 									styleClass="outputLabel" />
 
 								<h:outputText value="Age: " />
-								<h:outputText value="#"
-									styleClass="outputLabel" />
+								<h:outputText value="#" styleClass="outputLabel" />
 							</h:panelGrid>
 
 							<h:panelGrid columns="2" columnClasses="label, value">
 								<h:outputText value="Street: " />
-								<h:outputText value="#"
-									styleClass="outputLabel" />
+								<h:outputText value="#" styleClass="outputLabel" />
 
 								<h:outputText value="Postal: " />
-								<h:outputText value="#"
-									styleClass="outputLabel" />
+								<h:outputText value="#" styleClass="outputLabel" />
 
 								<h:outputText value="City: " />
-								<h:outputText value="#"
-									styleClass="outputLabel" />
+								<h:outputText value="#" styleClass="outputLabel" />
 							</h:panelGrid>
 
 							<h:panelGrid columns="2" columnClasses="label, value">
 								<h:outputText value="Email: " />
-								<h:outputText value="#"
-									styleClass="outputLabel" />
+								<h:outputText value="#" styleClass="outputLabel" />
 
 								<h:outputText value="Phone " />
-								<h:outputText value="#"
-									styleClass="outputLabel" />
+								<h:outputText value="#" styleClass="outputLabel" />
 
 								<h:outputText value="Info: " />
-								<h:outputText value="#"
-									styleClass="outputLabel" />
+								<h:outputText value="#" styleClass="outputLabel" />
 
 								<h:outputText />
 								<h:outputText />
 							</h:panelGrid>
 						</h:panelGrid>
 
-						<p:commandButton value="Submit"
-							action="#{dossPati.save}"  />
+						<p:commandButton value="Submit" action="#{dossPati.enregistrer}" />
 					</p:panel>
 				</p:tab>
 			</p:wizard>

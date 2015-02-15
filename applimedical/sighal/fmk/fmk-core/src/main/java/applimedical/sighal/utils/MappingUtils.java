@@ -281,7 +281,23 @@ public class MappingUtils {
 			dto.setFichePatientDtoList(MappingUtils.fichesPatientEntitiesToDto(dossierPatient.getFichePatientList()));
 		if(null != dossierPatient.getPersonnel())
 			dto.setPersonnelDto(MappingUtils.personnelEntityToDto(dossierPatient.getPersonnel()));
-		return dto;	}
+		
+		if(null != dossierPatient.getPatient()){
+			PatientDto dtoPatient = new PatientDto();
+			dtoPatient.setCivilite(dossierPatient.getPatient().getCivilite());
+			dtoPatient.setAdresse(dossierPatient.getPatient().getAdresse());
+			dtoPatient.setNom(dossierPatient.getPatient().getNom());
+			dtoPatient.setPrenom(dossierPatient.getPatient().getPrenom());
+			dtoPatient.setNomJeuneFille(dossierPatient.getPatient().getNomJeuneFille());
+			dtoPatient.setDateNaissance(dossierPatient.getPatient().getDateNaissance());
+			dtoPatient.setMatricule(dossierPatient.getPatient().getMatricule());
+			dto.setPatientDto(dtoPatient);
+			
+		}
+		return dto;	
+		
+	
+	}
 
 	public static List<PatientDto> listPatientEntityToListDto(
 			List<Patient> listePatient) {

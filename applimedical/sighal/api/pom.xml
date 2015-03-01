@@ -18,4 +18,11 @@
   	<module>business</module>
   </modules>
 
+	<dependencies>
+	    <dependency>
+			<groupId>applimedical.sighal.fmk</groupId>
+			<artifactId>fmk-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+	</dependencies>
 </project>

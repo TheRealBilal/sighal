@@ -1,4 +1,4 @@
-package applimedical.sighal.api.pojo;
+package applimedical.sighal.api.pojo.cim;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class CimCategorie
   private String desc;
   @ManyToOne
   @JoinColumn(name="sous_chapitre_id", referencedColumnName="sous_chapitre_id")
-  private SousChapitre sousChapitre;
+  private CimSousChapitre sousChapitre;
   @OneToMany(cascade={javax.persistence.CascadeType.ALL}, mappedBy="cimCategorie", fetch=FetchType.LAZY)
   private List<CimSousCategorie> cimSousCategorieList;
   
@@ -73,12 +73,12 @@ public class CimCategorie
     this.desc = desc;
   }
   
-  public SousChapitre getSousChapitre()
+  public CimSousChapitre getSousChapitre()
   {
     return this.sousChapitre;
   }
   
-  public void setSousChapitre(SousChapitre sousChapitre)
+  public void setSousChapitre(CimSousChapitre sousChapitre)
   {
     this.sousChapitre = sousChapitre;
   }

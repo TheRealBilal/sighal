@@ -1,4 +1,4 @@
-package applimedical.sighal.api.pojo;
+package applimedical.sighal.api.pojo.cim;
 
 import java.util.List;
 import javax.persistence.Column;
@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="sous_chapitre")
-public class SousChapitre
+public class CimSousChapitre
 {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -30,7 +30,7 @@ public class SousChapitre
   private String desc;
   @ManyToOne
   @JoinColumn(name="chapitre_id", referencedColumnName="chapitre_id")
-  private Chapitre chapitre;
+  private CimChapitre chapitre;
   @OneToMany(cascade={javax.persistence.CascadeType.ALL}, mappedBy="sousChapitre", fetch=FetchType.LAZY)
   private List<CimCategorie> cimCategorieList;
   
@@ -84,12 +84,12 @@ public class SousChapitre
     this.desc = desc;
   }
   
-  public Chapitre getChapitre()
+  public CimChapitre getChapitre()
   {
     return this.chapitre;
   }
   
-  public void setChapitre(Chapitre chapitre)
+  public void setChapitre(CimChapitre chapitre)
   {
     this.chapitre = chapitre;
   }

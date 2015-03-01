@@ -36,11 +36,11 @@
 		<class>applimedical.sighal.api.pojo.SousCategorie</class>
 		<class>applimedical.sighal.api.pojo.TypeDeSoin</class>
 		<class>applimedical.sighal.api.pojo.TypeIntervention</class>
-		<class>applimedical.sighal.api.pojo.Chapitre</class>
-		<class>applimedical.sighal.api.pojo.SousChapitre</class>
-		<class>applimedical.sighal.api.pojo.CimCategorie</class>
-		<class>applimedical.sighal.api.pojo.CimSousCategorie</class>
-		<class>applimedical.sighal.api.pojo.CimSousDivis</class>
+		<class>applimedical.sighal.api.pojo.cim.CimChapitre</class>
+		<class>applimedical.sighal.api.pojo.cim.CimSousChapitre</class>
+		<class>applimedical.sighal.api.pojo.cim.CimCategorie</class>
+		<class>applimedical.sighal.api.pojo.cim.CimSousCategorie</class>
+		<class>applimedical.sighal.api.pojo.cim.CimSousDivis</class>
 		
 
 		<properties>

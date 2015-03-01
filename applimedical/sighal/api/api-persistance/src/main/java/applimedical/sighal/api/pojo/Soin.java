@@ -6,22 +6,17 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 
 @Entity
 @Table(name = "soin")
-public class Soin {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "soin_id")
-	private Long soinId;
+public class Soin extends BasePojo {
 
 	@Column (name= "type_soin")
 	private String typeSoin;
@@ -33,20 +28,12 @@ public class Soin {
 	private List<MembreOrgane> membresOrgane;
 
 	@ManyToOne
-	@JoinColumn (name ="type_soin_id", referencedColumnName= "type_soin_id")
+	@JoinColumn (name ="type_soin_id", referencedColumnName= "id")
 	private TypeDeSoin typeDeSoin;
 	
 	@ManyToOne
-	@JoinColumn (name ="intervention_id", referencedColumnName= "intervention_id")
+	@JoinColumn (name ="intervention_id", referencedColumnName= "id")
 	private Intervention intervention;
-
-	public Long getSoinId() {
-		return soinId;
-	}
-
-	public void setSoinId(Long soinId) {
-		this.soinId = soinId;
-	}
 
 	public String getTypeSoin() {
 		return typeSoin;

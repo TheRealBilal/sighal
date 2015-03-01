@@ -11,14 +11,13 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import applimedical.sighal.pojo.BasePojo;
 
 /*
  * reste liaison avec intervenant salle type intervention rdv et fiche patient 
@@ -26,11 +25,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Intervention")
-public class Intervention {
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "intervention_id")
-	private Long interventionId;
+public class Intervention extends BasePojo {
 
 	@Column(name = "date_intervention")
 	private Date dateIntervention;
@@ -54,11 +49,11 @@ public class Intervention {
 	private String evolution;
 
 	@ManyToOne()
-	@JoinColumn(name = "type_intervention_id", referencedColumnName = "type_intervention_id")
+	@JoinColumn(name = "type_intervention_id", referencedColumnName = "id")
 	private TypeIntervention typeIntervention;
 
 	@ManyToOne()
-	@JoinColumn(name = "fiche_patient_id", referencedColumnName = "fiche_patient_id")
+	@JoinColumn(name = "fiche_patient_id", referencedColumnName = "id")
 	private FichePatient fichePatient;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "intervention", fetch=FetchType.LAZY)
@@ -68,16 +63,8 @@ public class Intervention {
    private List<LigneSortie> ligneSortieList;
 
 	@OneToOne
-	@JoinColumn(name="rendez_vous_id", referencedColumnName="rendez_vous_id")
+	@JoinColumn(name="rendez_vous_id", referencedColumnName="id")
 	private RendezVous rendezVous;
-
-   public Long getInterventionId() {
-      return interventionId;
-   }
-
-   public void setInterventionId(Long interventionId) {
-      this.interventionId = interventionId;
-   }
 
    public Date getDateIntervention() {
       return dateIntervention;

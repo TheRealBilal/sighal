@@ -40,8 +40,8 @@ public class Personnel extends Personne {
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(
 			name="personnel_qualification",
-			joinColumns={@JoinColumn(name="personne_id", referencedColumnName="personne_id")},
-			inverseJoinColumns={@JoinColumn(name="qualification_id", referencedColumnName="qualification_id")}
+			joinColumns={@JoinColumn(name="personne_id", referencedColumnName="id")},
+			inverseJoinColumns={@JoinColumn(name="qualification_id", referencedColumnName="id")}
 			)
 	private List<Qualification> qualificationList;
 
@@ -51,13 +51,13 @@ public class Personnel extends Personne {
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(
 			name="personnel_rendez_vous",
-			joinColumns={@JoinColumn(name="personne_id", referencedColumnName="personne_id")},
-			inverseJoinColumns={@JoinColumn(name="rendez_vous_id", referencedColumnName="rendez_vous_id")}
+			joinColumns={@JoinColumn(name="personne_id", referencedColumnName="id")},
+			inverseJoinColumns={@JoinColumn(name="rendez_vous_id", referencedColumnName="id")}
 			)
 	private List<RendezVous> rendezVousPourList;
 
 	@ManyToOne
-	@JoinColumn(name ="fonction_id" , referencedColumnName ="fonction_id")
+	@JoinColumn(name ="fonction_id" , referencedColumnName ="id")
 	private Fonction fonction;
 
 	public List<PersonnelService> getPersonnelServiceList() {

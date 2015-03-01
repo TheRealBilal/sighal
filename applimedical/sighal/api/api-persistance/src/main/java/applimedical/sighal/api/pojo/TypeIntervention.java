@@ -6,20 +6,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name ="type_intervention")
-public class TypeIntervention {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "type_intervention_id")
-	private Long typeIntervId;
+public class TypeIntervention extends BasePojo {
 
 	@Column()
 	private String nom;
@@ -29,16 +23,6 @@ public class TypeIntervention {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "typeIntervention", fetch=FetchType.LAZY)
 	private List<Intervention> interventionList;
-
-	public Long getTypeIntervId() {
-		return typeIntervId;
-	}
-
-
-
-	public void setTypeIntervId(Long typeIntervId) {
-		this.typeIntervId = typeIntervId;
-	}
 
 	public String getNom() {
 		return nom;

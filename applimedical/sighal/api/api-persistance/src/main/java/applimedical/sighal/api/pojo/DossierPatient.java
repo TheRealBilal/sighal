@@ -7,25 +7,18 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 
 @Entity
 @Table(name = "dossier_patient")
-public class DossierPatient {
-
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "dossier_patient_id")
-	private Long dossierPatientId;
+public class DossierPatient extends BasePojo {
 
 	@Column(name = "date_creation")
 	private Date dateCreation;
@@ -40,16 +33,8 @@ public class DossierPatient {
    private Patient patient;
 
    @ManyToOne()
-   @JoinColumn(name="personnel_id", referencedColumnName="personne_id")
+   @JoinColumn(name="personnel_id", referencedColumnName="id")
    private Personnel personnel;
-
-   public Long getDossierPatientId() {
-      return dossierPatientId;
-   }
-
-   public void setDossierPatientId(Long dossierPatientId) {
-      this.dossierPatientId = dossierPatientId;
-   }
 
    public Date getDateCreation() {
       return dateCreation;

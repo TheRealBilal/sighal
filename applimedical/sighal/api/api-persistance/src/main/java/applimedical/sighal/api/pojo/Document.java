@@ -2,22 +2,16 @@ package applimedical.sighal.api.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 
 @Entity
 @Table(name = "document")
-public class Document {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "document_id")
-	private Long docId;
+public class Document extends BasePojo {
 
 	@Column(name = "type_doc")
 	private String typeDoc ;
@@ -29,16 +23,8 @@ public class Document {
 	private String cheminDoc;
 
    @ManyToOne()
-   @JoinColumn(name = "fiche_patient_id", referencedColumnName = "fiche_patient_id")
+   @JoinColumn(name = "fiche_patient_id", referencedColumnName = "id")
    private FichePatient fichePatient;
-
-	public Long getDocId() {
-		return docId;
-	}
-
-	public void setDocId(Long docId) {
-		this.docId = docId;
-	}
 
 	public String getTypeDoc() {
 		return typeDoc;

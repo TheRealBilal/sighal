@@ -4,18 +4,12 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-@Entity
-public class Module {
+import applimedical.sighal.pojo.BasePojo;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "module_id")
-	private Long moduleId;
+@Entity
+public class Module extends BasePojo {
 
 	@Column(name ="nom_module")
 	private String nom;
@@ -28,14 +22,6 @@ public class Module {
 	
 	@OneToMany (mappedBy ="module")
 	private List <RelFctModulePerm> listRelFctModulePerm;
-
-	public Long getModuleId() {
-		return moduleId;
-	}
-
-	public void setModuleId(Long moduleId) {
-		this.moduleId = moduleId;
-	}
 
 	public String getNom() {
 		return nom;

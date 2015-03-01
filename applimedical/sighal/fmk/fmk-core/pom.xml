@@ -5,16 +5,21 @@
     <artifactId>fmk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-
   <groupId>applimedical.sighal.fmk</groupId>
   <artifactId>fmk-core</artifactId>
   <name>fmk-core</name>
-  
-    <dependencies>
-  	<dependency>
-  		<groupId>applimedical.sighal.api</groupId>
-  		<artifactId>api-model</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+
+
+	<dependencies>
+		<dependency>
+		  <groupId>org.hibernate.javax.persistence</groupId>
+		  <artifactId>hibernate-jpa-2.1-api</artifactId>
+		  <version>1.0.0.Final</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.springframework.data</groupId>
+		  <artifactId>spring-data-jpa</artifactId>
+		  <version>1.5.1.RELEASE</version>
+		</dependency>
+	</dependencies>
 </project>

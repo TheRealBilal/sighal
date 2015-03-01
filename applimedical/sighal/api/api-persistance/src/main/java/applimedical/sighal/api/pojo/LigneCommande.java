@@ -2,27 +2,22 @@ package applimedical.sighal.api.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name = "ligne_commande")
-public class LigneCommande {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "ligne_commande_id")
-   private Long ligneCommandeId;
+public class LigneCommande extends BasePojo {
 
    @ManyToOne()
-   @JoinColumn(name = "commande_id", referencedColumnName = "commande_id")
+   @JoinColumn(name = "commande_id", referencedColumnName = "id")
    private Commande commande;
 
    @ManyToOne()
-   @JoinColumn(name = "produit_id", referencedColumnName = "produit_id")
+   @JoinColumn(name = "produit_id", referencedColumnName = "id")
    private Produit produit;
 
    @Column()
@@ -30,14 +25,6 @@ public class LigneCommande {
 
    @Column()
    private Double prix;
-
-   public Long getLigneCommandeId() {
-      return ligneCommandeId;
-   }
-
-   public void setLigneCommandeId(Long ligneCommandeId) {
-      this.ligneCommandeId = ligneCommandeId;
-   }
 
    public Commande getCommande() {
       return commande;

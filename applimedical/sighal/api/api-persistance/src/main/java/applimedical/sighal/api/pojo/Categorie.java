@@ -6,20 +6,15 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name = "categorie")
-public class Categorie {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "categorie_id")
-   private Long categorieId;
-   
+public class Categorie extends BasePojo {
+
    @Column()
    private String nom;
 
@@ -28,14 +23,6 @@ public class Categorie {
 
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categorie", fetch=FetchType.LAZY)
    private List<SousCategorie> sousCategorieList;
-
-   public Long getCategorieId() {
-      return categorieId;
-   }
-
-   public void setCategorieId(Long categorieId) {
-      this.categorieId = categorieId;
-   }
 
    public String getNom() {
       return nom;

@@ -29,5 +29,10 @@
 	  		<artifactId>api-constante</artifactId>
 	  		<version>0.0.1-SNAPSHOT</version>
 	  	</dependency>
+		<dependency>
+			<groupId>applimedical.sighal.fmk</groupId>
+			<artifactId>fmk-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
 	</dependencies>
 </project>

@@ -6,20 +6,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name = "type_soin")
-public class TypeDeSoin {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="type_soin_id")
-	private Long typeSoinId;
+public class TypeDeSoin extends BasePojo {
 
 	@Column(name ="nom_type")
 	private String nomType;
@@ -32,14 +26,6 @@ public class TypeDeSoin {
 
 	@OneToMany(mappedBy = "typeDeSoin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Soin> soin;
-
-	public Long getTypeSoinId() {
-		return typeSoinId;
-	}
-
-	public void setTypeSoinId(Long typeSoinId) {
-		this.typeSoinId = typeSoinId;
-	}
 
 	public String getNomType() {
 		return nomType;

@@ -5,20 +5,14 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name = "qualification")
-public class Qualification {
-
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "qualification_id")
-   private Long qualificationId;
+public class Qualification extends BasePojo {
 
    @Column()
    private String description;
@@ -31,14 +25,6 @@ public class Qualification {
 
    @ManyToMany(fetch=FetchType.LAZY, mappedBy="qualificationList")
    private List<Personnel> personnelList;
-
-   public Long getQualificationId() {
-      return qualificationId;
-   }
-
-   public void setQualificationId(Long qualificationId) {
-      this.qualificationId = qualificationId;
-   }
 
    public String getDescription() {
       return description;

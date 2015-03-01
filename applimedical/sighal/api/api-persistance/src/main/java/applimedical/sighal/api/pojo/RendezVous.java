@@ -8,9 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -21,15 +18,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import applimedical.sighal.api.constantes.EtatRdvEnum;
+import applimedical.sighal.pojo.BasePojo;
 
 @Entity
 @Table(name = "rendez_vous")
-public class RendezVous {
-
-	@Id
-	@GeneratedValue (strategy=GenerationType.IDENTITY)
-	@Column (name = "rendez_vous_id")
-	private Long rendezVousId;
+public class RendezVous extends BasePojo {
 
 	@Column (name ="date_prise_rdv")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -40,38 +33,30 @@ public class RendezVous {
 	private Date dateRdv;
 
 	@OneToOne()
-	@JoinColumn(name = "patient_id", referencedColumnName = "personne_id" , nullable= false)
+	@JoinColumn(name = "patient_id", referencedColumnName = "id" , nullable= false)
 	private Patient patient;
 
    @ManyToMany(fetch=FetchType.LAZY)
    @JoinTable(
          name="personnel_rendez_vous",
-         joinColumns={@JoinColumn(name="rendez_vous_id", referencedColumnName="rendez_vous_id")},
-         inverseJoinColumns={@JoinColumn(name="personne_id", referencedColumnName="personne_id")}
+         joinColumns={@JoinColumn(name="rendez_vous_id", referencedColumnName="id")},
+         inverseJoinColumns={@JoinColumn(name="personne_id", referencedColumnName="id")}
          )
    private List<Personnel> personnelList;
 
 	@ManyToOne
-	@JoinColumn(name = "arrange_par", referencedColumnName = "personne_id" , nullable= false)
+	@JoinColumn(name = "arrange_par", referencedColumnName = "id" , nullable= false)
 	private Personnel personnel;
 
 	@OneToOne(mappedBy = "rendezVous")
 	private Intervention intervention;
 
 	@ManyToOne()
-	@JoinColumn(name = "salle_id", referencedColumnName = "salle_id" , nullable= false)
+	@JoinColumn(name = "salle_id", referencedColumnName = "id" , nullable= false)
 	private Salle salle;
 	
 	@Enumerated(EnumType.ORDINAL)
 	private EtatRdvEnum etat;
-
-   public Long getRendezVousId() {
-      return rendezVousId;
-   }
-
-   public void setRendezVousId(Long rendezVousId) {
-      this.rendezVousId = rendezVousId;
-   }
 
    public Date getDatePriseRdv() {
       return datePriseRdv;

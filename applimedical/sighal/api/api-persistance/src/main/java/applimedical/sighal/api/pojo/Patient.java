@@ -33,11 +33,11 @@ public class Patient extends Personne {
    private List<RendezVous> rendezVousList;
 
    @OneToOne(cascade = CascadeType.ALL )
-   @JoinColumn(name="dossier_patient_id")
+   @JoinColumn(name="id")
    private DossierPatient dossierPatient;
    
    @ManyToOne()
-   @JoinColumn(name = "commande_id", referencedColumnName = "commande_id")
+   @JoinColumn(name = "commande_id", referencedColumnName = "id")
    private Commande commande;
 
    public String getMatricule() {

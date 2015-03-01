@@ -12,9 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
@@ -23,28 +20,24 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import applimedical.sighal.api.constantes.TypeFichePatientEnum;
+import applimedical.sighal.pojo.BasePojo;
 
 @Entity
 @Table(name="fiche_patient")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="TYPE", discriminatorType=DiscriminatorType.INTEGER)
 @DiscriminatorValue("0")
-public class FichePatient {
+public class FichePatient extends BasePojo {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "fiche_patient_id")
-	private Long fichePatientId;
-	
 	@Column(name = "date_creation")
 	private Date dateCreation;
-	
+
 	@Column(name = "date_modification")
 	private Date dateModification;
-	
+
 	@Column(name = "observation")
 	private String observation;
-	
+
 	@Column (name ="etat_generale_patient")
 	private String etatGeneraleActuelPatient;
 
@@ -52,7 +45,7 @@ public class FichePatient {
 	private String planTraitement;
 	
    @ManyToOne()
-   @JoinColumn(name = "dossier_patient_id", referencedColumnName = "dossier_patient_id")
+   @JoinColumn(name = "dossier_patient_id", referencedColumnName = "id")
    private DossierPatient dossierPatient;
 
    @Enumerated(EnumType.ORDINAL)
@@ -63,16 +56,8 @@ public class FichePatient {
    private List<Intervention> interventionList;
 
    @ManyToOne()
-   @JoinColumn(name = "personnel_id", referencedColumnName = "personne_id")
+   @JoinColumn(name = "personnel_id", referencedColumnName = "id")
    private Personnel personnel;
-
-   public Long getFichePatientId() {
-      return fichePatientId;
-   }
-
-   public void setFichePatientId(Long fichePatientId) {
-      this.fichePatientId = fichePatientId;
-   }
 
    public Date getDateCreation() {
       return dateCreation;

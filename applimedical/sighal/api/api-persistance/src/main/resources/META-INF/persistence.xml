@@ -5,6 +5,8 @@
 
 	<persistence-unit name="sighalPU"
 		transaction-type="RESOURCE_LOCAL">
+		<class>applimedical.sighal.pojo.BasePojo</class>
+
 
 		<class>applimedical.sighal.api.pojo.BonEntree</class>
 		<class>applimedical.sighal.api.pojo.Categorie</class>
@@ -50,7 +52,7 @@
 <!-- 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://78.193.48.249:3306/sighal_database" /> -->
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sighal_database" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.max_fetch_depth" value="3" />
 			<property name="hibernate.show_sql" value="true" />
 			

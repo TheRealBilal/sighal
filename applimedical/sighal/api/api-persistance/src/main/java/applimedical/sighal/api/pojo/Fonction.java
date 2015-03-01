@@ -1,27 +1,19 @@
 package applimedical.sighal.api.pojo;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name = "fonction")
-public class Fonction implements Serializable {
-	private static final long serialVersionUID = 3162907901260184989L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "fonction_id")
-	private Long fonctionId;
+public class Fonction extends BasePojo {
 
 	@Column(name = "nom_fonction")
 	private String nomFonction;
@@ -61,14 +53,6 @@ public class Fonction implements Serializable {
 
 	public void setActive(Boolean active) {
 		this.active = active;
-	}
-
-	public Long getFonctionId() {
-		return fonctionId;
-	}
-
-	public void setFonctionId(Long fonctionId) {
-		this.fonctionId = fonctionId;
 	}
 
 	public List<RelFctModulePerm> getRelFctModulePermList() {

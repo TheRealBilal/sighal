@@ -1,6 +1,5 @@
 package applimedical.sighal.api.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -18,9 +17,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "personnel_service")
 @IdClass(PersonnelServicePk.class)
-public class PersonnelService implements Serializable{
-
-	private static final long serialVersionUID = 8436614689380983800L;
+public class PersonnelService {
 
 	@Id
 	@Column (name = "personne_id", insertable= false, updatable = false)
@@ -32,11 +29,11 @@ public class PersonnelService implements Serializable{
 
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name ="personne_id" , referencedColumnName ="personne_id")
+	@JoinColumn(name ="personne_id" , referencedColumnName ="id")
 	private Personnel personnel;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name ="service_id" , referencedColumnName ="service_id")
+	@JoinColumn(name ="service_id" , referencedColumnName ="id")
 	private Service service;
 
 	@Column (name="is_service_chef")

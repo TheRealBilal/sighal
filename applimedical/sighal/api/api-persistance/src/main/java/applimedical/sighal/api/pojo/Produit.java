@@ -7,21 +7,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name = "produit")
-public class Produit {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "produit_id")
-   private Long produitId;
+public class Produit extends BasePojo {
 
    @Column(name = "produit_code")
    private String produitCode;
@@ -48,7 +43,7 @@ public class Produit {
    private Integer stockAlert;
 
    @ManyToOne()
-   @JoinColumn(name = "sous_categorie_id", referencedColumnName = "sous_categorie_id")
+   @JoinColumn(name = "sous_categorie_id", referencedColumnName = "id")
    private SousCategorie sousCategorie;
 
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "produit", fetch=FetchType.LAZY)
@@ -56,14 +51,6 @@ public class Produit {
 
    @OneToMany()
    private List<LigneCommande> ligneCommandeList;
-
-   public Long getProduitId() {
-      return produitId;
-   }
-
-   public void setProduitId(Long produitId) {
-      this.produitId = produitId;
-   }
 
    public String getProduitCode() {
       return produitCode;

@@ -6,22 +6,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name = "sous_categorie")
-public class SousCategorie {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sous_categorie_id")
-	private Long sousCategorieId;
+public class SousCategorie extends BasePojo {
 
 	@Column()
 	private String nom;
@@ -30,19 +24,11 @@ public class SousCategorie {
 	private String description;
 
 	@ManyToOne()
-	@JoinColumn(name = "categorie_id", referencedColumnName = "categorie_id")
+	@JoinColumn(name = "categorie_id", referencedColumnName = "id")
 	private Categorie categorie;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "sousCategorie", fetch=FetchType.LAZY)
-	List<Produit> produitlist;
-
-	public Long getSousCategorieId() {
-		return sousCategorieId;
-	}
-
-	public void setSousCategorieId(Long sousCategorieId) {
-		this.sousCategorieId = sousCategorieId;
-	}
+	private List<Produit> produitlist;
 
 	public String getNom() {
 		return nom;

@@ -4,20 +4,15 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name = "ligne_sortie")
-public class LigneSortie {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ligne_sortie_id")
-	private Long ligneSortieId;
+public class LigneSortie extends BasePojo {
 
 	@Column(name = "quantite_sortie")
 	private Integer quantiteSortie;
@@ -26,20 +21,12 @@ public class LigneSortie {
 	private Date dateSortie;
 
 	@ManyToOne()
-	@JoinColumn(name="produit_id", referencedColumnName="produit_id")
+	@JoinColumn(name="produit_id", referencedColumnName="id")
 	private Produit produit;
 
 	@ManyToOne()
-   @JoinColumn(name="intervention_id", referencedColumnName="intervention_id")
+   @JoinColumn(name="intervention_id", referencedColumnName="id")
 	private Intervention intervention;
-	
-	public Long getLigneSortieId() {
-		return ligneSortieId;
-	}
-
-	public void setLigneSortieId(Long ligneSortieId) {
-		this.ligneSortieId = ligneSortieId;
-	}
 
 	public Integer getQuantiteSortie() {
 		return quantiteSortie;

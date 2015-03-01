@@ -32,15 +32,15 @@ public class RelFctModulePerm {
 	private Long moduleId;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name ="permission_id" , referencedColumnName ="persmission_id")
+	@JoinColumn(name ="permission_id" , referencedColumnName ="id")
 	private Permission permission;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name ="module_id" , referencedColumnName ="module_id")
+	@JoinColumn(name ="module_id" , referencedColumnName ="id")
 	private Module module;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name ="fonction_id" , referencedColumnName ="fonction_id")
+	@JoinColumn(name ="id" , referencedColumnName ="id")
 	private Fonction fonction;
 
 	@Temporal (TemporalType.TIMESTAMP)

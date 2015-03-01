@@ -5,19 +5,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name = "service")
-public class Service {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "service_id")
-	private Long serviceId;
+public class Service extends BasePojo {
 
 	@Column()
 	private String nom;
@@ -30,15 +25,6 @@ public class Service {
 
 	@OneToMany(mappedBy = "service")
 	private List<PersonnelService> listPerssonelService;
-
-
-	public Long getServiceId() {
-		return serviceId;
-	}
-
-	public void setServiceId(Long serviceId) {
-		this.serviceId = serviceId;
-	}
 
 	public String getNom() {
 		return nom;

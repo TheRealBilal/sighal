@@ -3,18 +3,12 @@ package applimedical.sighal.api.pojo;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
-public class Personne {
+import applimedical.sighal.pojo.BasePojo;
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "personne_id")
-   private Long personneId;
+@MappedSuperclass
+public class Personne extends BasePojo {
 
    @Column(name ="nom")
    private String nom;
@@ -60,14 +54,6 @@ public class Personne {
 
    @Column(name ="cin")
    private String cin;
-
-   public Long getPersonneId() {
-      return personneId;
-   }
-
-   public void setPersonneId(Long personneId) {
-      this.personneId = personneId;
-   }
 
    public String getNom() {
       return nom;

@@ -7,21 +7,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import applimedical.sighal.pojo.BasePojo;
+
 @Entity
 @Table(name = "commande")
-public class Commande {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "commande_id")
-   private Long commandeId;
+public class Commande extends BasePojo {
 
    @Column(name = "date_commande")
    private Date dateComande;
@@ -36,16 +31,8 @@ public class Commande {
    private List<LigneCommande> ligneCommandeList;
 
    @ManyToOne()
-   @JoinColumn(name = "fournisseur_id", referencedColumnName = "personne_id")
+   @JoinColumn(name = "fournisseur_id", referencedColumnName = "id")
    private Fournisseur fournisseur;
-
-   public Long getCommandeId() {
-      return commandeId;
-   }
-
-   public void setCommandeId(Long commandeId) {
-      this.commandeId = commandeId;
-   }
 
    public Date getDateComande() {
       return dateComande;

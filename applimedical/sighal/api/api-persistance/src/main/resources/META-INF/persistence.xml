@@ -36,6 +36,12 @@
 		<class>applimedical.sighal.api.pojo.SousCategorie</class>
 		<class>applimedical.sighal.api.pojo.TypeDeSoin</class>
 		<class>applimedical.sighal.api.pojo.TypeIntervention</class>
+		<class>applimedical.sighal.api.pojo.Chapitre</class>
+		<class>applimedical.sighal.api.pojo.SousChapitre</class>
+		<class>applimedical.sighal.api.pojo.CimCategorie</class>
+		<class>applimedical.sighal.api.pojo.CimSousCategorie</class>
+		<class>applimedical.sighal.api.pojo.CimSousDivis</class>
+		
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

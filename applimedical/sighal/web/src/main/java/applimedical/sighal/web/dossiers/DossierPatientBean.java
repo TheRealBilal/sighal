@@ -8,9 +8,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.event.FlowEvent;
@@ -24,7 +21,6 @@ import applimedical.sighal.api.pojo.FichePatient;
 import applimedical.sighal.api.pojo.Patient;
 import applimedical.sighal.business.DossierPatientBusiness;
 import applimedical.sighal.security.UserUtils;
-import applimedical.sighal.web.utils.ManagedBan;
 
 
 @Controller("dossPati")
@@ -78,7 +74,7 @@ public class DossierPatientBean implements Serializable{
 		dossier.setPersonnel(UserUtils.utilisateurCourant());
 		
 		patient.setDossierPatient(dossier);
-		patient.setPersonneId(UserUtils.utilisateurCourant().getPersonneId());
+		patient.setId(UserUtils.utilisateurCourant().getId());
 		
 		
 		Long numeroDossier = dossierPatientBusiness.createDossierPatient(patient);
@@ -104,7 +100,7 @@ public class DossierPatientBean implements Serializable{
 	public String startPageWithNumDossier(DossierPatient dossierPatient) {
 		setDossierPatient(dossierPatient);
 		
-		return startPageWithNumDossier(dossierPatient.getDossierPatientId());
+		return startPageWithNumDossier(dossierPatient.getId());
 	      
 	   }
 	

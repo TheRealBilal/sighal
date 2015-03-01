@@ -1,8 +1,5 @@
 package applimedical.sighal.web.dossiers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 
 import org.primefaces.event.FlowEvent;
@@ -10,14 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import applimedical.sighal.api.constantes.DomaineEnum;
 import applimedical.sighal.api.pojo.DossierPatient;
 import applimedical.sighal.api.pojo.FichePatient;
 import applimedical.sighal.api.pojo.FichePatientGenerale;
-import applimedical.sighal.api.pojo.Patient;
 import applimedical.sighal.business.DossierPatientBusiness;
 import applimedical.sighal.business.FichePatientGeneraleBusiness;
-import applimedical.sighal.dao.PatientRepository;
 			
 @Controller("fichePatientMgBean")
 @Scope("session")

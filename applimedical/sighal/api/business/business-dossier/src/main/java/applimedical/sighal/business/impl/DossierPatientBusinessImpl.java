@@ -15,8 +15,6 @@ import applimedical.sighal.criteres.CriteresDossierPatient;
 import applimedical.sighal.dao.DossierPatientRepository;
 import applimedical.sighal.dao.PatientRepository;
 import applimedical.sighal.dao.PersonnelRepository;
-import applimedical.sighal.dto.PatientDto;
-import applimedical.sighal.utils.MappingUtils;
 
 
 @Service("DossierPatientBusiness")
@@ -35,7 +33,7 @@ public class DossierPatientBusinessImpl implements DossierPatientBusiness {
 
 	public Long createDossierPatient(Patient patient){
 		Patient pat = patientRepository.save(patient);
-		return pat.getDossierPatient().getDossierPatientId();
+		return pat.getDossierPatient().getId();
 	}
 
 

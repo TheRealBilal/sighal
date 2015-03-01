@@ -5,7 +5,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import applimedical.sighal.api.pojo.Personnel;
-import applimedical.sighal.dto.PersonnelDto;
 
 public abstract class UserUtils {
 

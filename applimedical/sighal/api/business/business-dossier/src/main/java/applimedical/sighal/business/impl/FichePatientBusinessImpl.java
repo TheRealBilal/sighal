@@ -34,7 +34,7 @@ public class FichePatientBusinessImpl implements FichePatientBusiness {
 			
 			//
 			fichePatientDto.setEtatGeneraleActuelPatient(fichePatient.getEtatGeneraleActuelPatient());
-			fichePatientDto.setFichePatientId(fichePatient.getFichePatientId());
+			fichePatientDto.setFichePatientId(fichePatient.getId());
 			//fichePatientDto.setInterventionDtoList()
 			fichePatientDto.setObservation(fichePatient.getObservation());
 //			fichePatientDto.setPersonnelDto(new PersonnelBusinessImpl().getPersonnelDtoParId(fichePatient.getPersonnel().getPersonneId()));;
@@ -59,7 +59,7 @@ public class FichePatientBusinessImpl implements FichePatientBusiness {
 			fichePatientDto.getDossierPatientDto().setDateCreation(fichePatient.getDateCreation());
 			fichePatientDto.getDossierPatientDto().setDateModification(fichePatient.getDateModification());				
 			fichePatientDto.setEtatGeneraleActuelPatient(fichePatient.getEtatGeneraleActuelPatient());
-			fichePatientDto.setFichePatientId(fichePatient.getFichePatientId());
+			fichePatientDto.setFichePatientId(fichePatient.getId());
 			//fichePatientDto.setInterventionDtoList()
 			fichePatientDto.setObservation(fichePatient.getObservation());
 			fichePatientDto.setPersonnelDto(new PersonnelBusinessImpl().getPersonnelDtoParId(fichePatientId));
@@ -102,7 +102,7 @@ public class FichePatientBusinessImpl implements FichePatientBusiness {
 			      
 			      
 			      FichePatient newFichePatient = fichePatientRepo.save(fichePatient);
-			      fichePatientDto.setFichePatientId(newFichePatient.getFichePatientId());
+			      fichePatientDto.setFichePatientId(newFichePatient.getId());
 			      return fichePatientDto;
 			   
 	}

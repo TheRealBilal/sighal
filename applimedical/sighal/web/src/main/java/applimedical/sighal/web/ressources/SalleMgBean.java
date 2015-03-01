@@ -9,8 +9,8 @@ import javax.faces.bean.ViewScoped;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import applimedical.sighal.api.pojo.Salle;
 import applimedical.sighal.business.RessourceBusiness;
-import applimedical.sighal.dto.SalleDto;
 
 @Controller("salleBn")
 @ManagedBean
@@ -19,61 +19,56 @@ public class SalleMgBean {
    @Autowired
    private RessourceBusiness ressourceBusiness;
 
-   private SalleDto selectedSalle;
-
-   private List<SalleDto> salleList;
+   private Salle selectedPojo;
+   private List<Salle> salles;
 
    @PostConstruct
    public void init() {
-      selectedSalle = new SalleDto();
-      salleList = ressourceBusiness.getToutesLesSalles();
+      selectedPojo = new Salle();
+      salles = ressourceBusiness.findAll();
    }
 
    public String startPage() {
-      selectedSalle = new SalleDto();
-      salleList = ressourceBusiness.getToutesLesSalles();
+      selectedPojo = new Salle();
+      salles = ressourceBusiness.findAll();
       return "listeSalle";
    }
 
    public String rechercher() {
-      salleList = ressourceBusiness.getSalles(
-            selectedSalle.getCodeSalle(), selectedSalle.getNomSalle());
+      salles = ressourceBusiness.findSalles(
+            selectedPojo.getCodeSalle(), selectedPojo.getNomSalle());
       return "listeSalle";
    }
 
    public String initCreer() {
-      selectedSalle = new SalleDto();
+      selectedPojo = new Salle();
       return "editionSalle";
    }
 
-   public String initModifier(SalleDto salle) {
-      selectedSalle = salle;
+   public String initModifier(Salle salle) {
+      selectedPojo = salle;
       return "editionSalle";
    }
 
    public String sauvegarder() {
-      ressourceBusiness.sauvegarderSalle(selectedSalle);
+      ressourceBusiness.saveOrUpdate(selectedPojo);
       return startPage();
    }
 
    public String supprimer(String salleId) {
-      ressourceBusiness.supprimerSalle(Long.valueOf(salleId));
+      ressourceBusiness.delete(Long.valueOf(salleId));
       return startPage();
    }
 
-   public SalleDto getSelectedSalle() {
-      return selectedSalle;
+   public Salle getSelectedPojo() {
+      return selectedPojo;
    }
 
-   public void setSelectedSalle(SalleDto selectedSalle) {
-      this.selectedSalle = selectedSalle;
+   public void setSelectedPojo(Salle selectedPojo) {
+      this.selectedPojo = selectedPojo;
    }
 
-   public List<SalleDto> getSalleList() {
-      return salleList;
-   }
-
-   public void setSalleList(List<SalleDto> salleList) {
-      this.salleList = salleList;
+   public List<Salle> getSalles() {
+      return salles;
    }
 }

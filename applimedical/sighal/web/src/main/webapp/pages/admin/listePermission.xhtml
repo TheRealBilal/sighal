@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="template_head">
+		<title><h:outputText value="#{msg['Permissions']}" /></title>
+	</ui:define>
+
+	<ui:define name="template_body">
+		<h:form id="frmSalle">
+			<p:toolbar>
+		        <f:facet name="left">
+		            <p:commandButton type="push" title="#{msg['button.new']}" icon="ui-icon-document"
+		            	action="#{permBean.initAdd}" />
+		            <p:commandButton type="push" title="#{msg['button.delete']}" icon="ui-icon-trash"
+		            	ajax="false" />
+		        </f:facet>
+	        </p:toolbar>
+	        <p:messages autoUpdate="true" />
+			<p:dataTable id="permDatatable" emptyMessage="#{msg['table.empty']}"
+					var="permIt" value="#{permBean.permissions}">
+			 	<f:facet name="header">
+					<h:outputText value="#{msg['room.table.title']}" />
+			    </f:facet>
+			    <p:column headerText="#{msg['room.field.code']}">
+			        <h:outputText value="#{permIt.description}" />
+			    </p:column>
+			    <p:column headerText="#{msg['room.field.name']}">
+			        <h:outputText value="#{permIt.droit}" />
+			    </p:column>
+			    <p:column headerText="#{msg['room.field.description']}">
+			        <h:outputText value="#{permIt.dateDebut}" />
+			    </p:column>
+			    <p:column headerText="#{msg['room.field.description']}">
+			        <h:outputText value="#{permIt.dateFin}" />
+			    </p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

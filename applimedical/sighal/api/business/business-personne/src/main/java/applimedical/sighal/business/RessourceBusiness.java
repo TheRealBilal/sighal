@@ -2,12 +2,8 @@ package applimedical.sighal.business;
 
 import java.util.List;
 
-import applimedical.sighal.dto.SalleDto;
+import applimedical.sighal.api.pojo.Salle;
 
-public interface RessourceBusiness {
-	List<SalleDto> getToutesLesSalles();
-	SalleDto getSalleParId(Long salleId);
-	List<SalleDto> getSalles(String code, String nom);
-	SalleDto sauvegarderSalle(SalleDto salleDto);
-	void supprimerSalle(Long salleId);
+public interface RessourceBusiness extends BaseBusiness<Salle, Long> {
+	List<Salle> findSalles(String code, String nom);
 }

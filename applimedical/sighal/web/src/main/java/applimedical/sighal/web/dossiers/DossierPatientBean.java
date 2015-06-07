@@ -22,7 +22,7 @@ import applimedical.sighal.api.pojo.Patient;
 import applimedical.sighal.business.DossierPatientBusiness;
 import applimedical.sighal.security.UserUtils;
 
-
+// c'est quoi ça dosspati
 @Controller("dossPati")
 @Scope("session")
 public class DossierPatientBean implements Serializable{
